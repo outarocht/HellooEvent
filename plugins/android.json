@@ -21,6 +21,9 @@
     },
     "cordova.camera.permission": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
+    },
+    "cordova-plugin-device-motion": {
+      "PACKAGE_NAME": "app.mobile.hellooEvent"
     }
   },
   "dependent_plugins": {}
