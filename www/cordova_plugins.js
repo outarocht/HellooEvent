@@ -1,34 +1,19 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
-      "id": "cordova-plugin-device",
+      "id": "cordova-plugin-android-permissions.Permissions",
+      "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+      "pluginId": "cordova-plugin-android-permissions",
+      "clobbers": [
+        "cordova.plugins.permissions"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device.device",
       "file": "plugins/cordova-plugin-device/www/device.js",
       "pluginId": "cordova-plugin-device",
       "clobbers": [
         "device"
-      ]
-    },
-    {
-      "id": "cordova-plugin-geolocation.geolocation",
-      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
-      "pluginId": "cordova-plugin-geolocation",
-      "clobbers": [
-        "navigator.geolocation"
-      ]
-    },
-    {
-      "id": "cordova-plugin-geolocation.PositionError",
-      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-      "pluginId": "cordova-plugin-geolocation",
-      "runs": true
-    },
-    {
-      "id": "cordova-plugin-inappbrowser.inappbrowser",
-      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-      "pluginId": "cordova-plugin-inappbrowser",
-      "clobbers": [
-        "cordova.InAppBrowser.open",
-        "window.open"
       ]
     },
     {
@@ -40,20 +25,44 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-rtsp-rtmp-stream.VideoStream",
-      "file": "plugins/cordova-rtsp-rtmp-stream/www/videoStreamer.js",
-      "pluginId": "cordova-rtsp-rtmp-stream",
+      "id": "cordova.camera.permission.Access",
+      "file": "plugins/cordova.camera.permission/www/android/access.js",
+      "pluginId": "cordova.camera.permission",
+      "merges": [
+        "cordova.plugins.access"
+      ]
+    },
+    {
+      "id": "cordova.camera.permission.Access_Camera",
+      "file": "plugins/cordova.camera.permission/www/android/access.camera.js",
+      "pluginId": "cordova.camera.permission",
+      "merges": [
+        "cordova.plugins.access.camera"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device-motion.Acceleration",
+      "file": "plugins/cordova-plugin-device-motion/www/Acceleration.js",
+      "pluginId": "cordova-plugin-device-motion",
       "clobbers": [
-        "window.videoStreamer"
+        "Acceleration"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device-motion.accelerometer",
+      "file": "plugins/cordova-plugin-device-motion/www/accelerometer.js",
+      "pluginId": "cordova-plugin-device-motion",
+      "clobbers": [
+        "navigator.accelerometer"
       ]
     }
   ];
   module.exports.metadata = {
+    "cordova-plugin-android-permissions": "1.0.2",
     "cordova-plugin-device": "2.0.3",
-    "cordova-plugin-geolocation": "4.0.2",
-    "cordova-plugin-inappbrowser": "3.2.0",
     "cordova-plugin-statusbar": "2.4.3",
-    "cordova-rtsp-rtmp-stream": "0.1.18",
-    "cordova-plugin-whitelist": "1.3.4"
+    "cordova-plugin-whitelist": "1.3.4",
+    "cordova.camera.permission": "1.0.0",
+    "cordova-plugin-device-motion": "2.0.1"
   };
 });

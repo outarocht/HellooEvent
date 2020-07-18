@@ -5,7 +5,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-@import url("../../../../../../unpkg.com/ionicons%404.5.10-0/dist/css/ionicons.min.css");
+
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600&amp;display=swap");
 :root {
   --blue:#007bff;
