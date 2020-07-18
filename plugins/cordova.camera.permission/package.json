@@ -1,0 +1,69 @@
+{
+  "_from": "cordova.camera.permission",
+  "_id": "cordova.camera.permission@1.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-NRmy2zfjzdxDEie3qTKaexyHcAfhb4eh6IRcp+e1NzGtzt6BZjyBp6UBUlg3qLE2ibs71tjem4bEZJj4rFfOSw==",
+  "_location": "/cordova.camera.permission",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova.camera.permission",
+    "name": "cordova.camera.permission",
+    "escapedName": "cordova.camera.permission",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova.camera.permission/-/cordova.camera.permission-1.0.6.tgz",
+  "_shasum": "4458dfe140dd7a3a2d4702956173dbe5ecda7ce3",
+  "_spec": "cordova.camera.permission",
+  "_where": "C:\\Users\\Zak\\Documents\\HellooEvent",
+  "author": {
+    "name": "Tyler Kuster"
+  },
+  "bugs": {
+    "url": "https://github.com/TylerKuster/cordova.camera.access/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova.camera.permission",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova/Phonegap plugin to check the state of Camera Permissions.",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=7.1.0"
+    },
+    {
+      "name": "cordova-android",
+      "version": ">=6.3.0"
+    },
+    {
+      "name": "cordova-ios",
+      "version": ">=4.3.0"
+    }
+  ],
+  "homepage": "https://github.com/TylerKuster/cordova.camera.access#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova.camera.permission",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylerKuster/cordova.camera.access.git"
+  },
+  "version": "1.0.6"
+}

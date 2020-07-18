@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from egemem.com/theme/finapp/view/app-index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Feb 2020 06:37:52 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Finapp - Mobile Template</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Finapp HTML Mobile Template">
+    <meta name="keywords" content="bootstrap, mobile template, cordova, phonegap, mobile, html, responsive" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/jquery-confirm.css"/>
+</head>
+
+<body class="bg-light">
+
+    <!-- loader -->
+    <div id="loader">
+        <img src="assets/img/logo-icon.png" alt="icon" class="loading-icon">
+    </div>
+    <!-- * loader -->
+
+    <!-- App Header -->
+    <div class="appHeader bg-primary text-light">
+        <div class="left">
+            <a href="#" class="headerButton" data-toggle="modal" data-target="#sidebarPanel">
+                <ion-icon name="menu-outline"></ion-icon>
+            </a>
+        </div>
+        <div class="pageTitle">
+            <img src="assets/img/logo.png" alt="logo" class="logo">
+        </div>
+        <div class="right">
+           <a href="javascript:;" class="item" data-toggle="modal" data-target="#sidebarPanel">
+				<i class="fas fa-bars icon-menu"></i>
+			</a>
+           <!-- <a href="app-settings.html" class="headerButton">
+                <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="imaged w32">
+                <span class="badge badge-danger">6</span>
+            </a> -->
+        </div>
+    </div>
+    <!-- * App Header -->
+
+
+    <!-- App Capsule -->
+    <div id="appCapsule">
+
+        <div class="section mt-2 text-center">
+            <h1>Commencer une réunion </h1>
+        </div>
+		<div id="msg-error"></div>
+        <div class="section mt-2 mb-5 p-3">
+				 <div class="form-group basic">
+                    <div class="input-wrapper">
+                        <label class="label" for="email1">Commencer</label>
+						<select class="form-control" id="idRole"></select>
+                        <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
+                    </div>
+                </div>
+				
+				
+                <div class="form-group basic">
+                    <div class="input-wrapper">
+                        <label class="label" for="email1">Nom</label>
+                        <input type="email" class="form-control" id="lastname" placeholder="Votre nom">
+                        <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
+                    </div>
+                </div>
+
+                <div class="form-group basic">
+                    <div class="input-wrapper">
+                        <label class="label" for="password1">Prenom</label>
+                        <input type="text" class="form-control" id="firstname" placeholder="Votre prénom">
+                        <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
+                    </div>
+                </div>
+				
+				<div class="form-group basic">
+                    <div class="input-wrapper">
+                        <label class="label" for="password1">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="Votre email">
+                        <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
+                    </div>
+                </div>
+				
+				<div class="form-group basic">
+                    <div class="input-wrapper">
+                        <label class="label" for="password1">Mot de passe</label>
+                        <input type="password" class="form-control" id="password" placeholder="Votre mot de passe">
+                        <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
+                    </div>
+                </div>
+
+                <div class="form-button-group">
+                    <button type="button" class="btn btn-primary btn-block btn-lg" onclick="create_user()">Modifier</button>
+                </div>
+
+        </div>
+
+    </div>
+    <!-- * App Capsule -->
+	
+	<div class="appBottomMenu">
+		 <div class="footer-title">
+              Eracet ©  2020. All Rights Reserved.
+          </div>
+	</div>
+	
+    <!-- App Sidebar -->
+	<div  id="menu-include"></div>  
+	
+	
+    <!-- <div w3-include-html="includes/menu.html"></div>  -->
+    <!-- * App Sidebar -->
+
+    <!-- ///////////// Js Files ////////////////////  -->
+    <!-- Jquery -->
+    <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/bootstrap.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <!-- Base Js File -->
+    <script src="assets/js/base.js"></script>
+    <script src="assets/js/apps.js"></script>
+	<script src="assets/js/jquery-confirm.min.js"></script>
+	<script>
+		menuLeft();
+		getRoleId();
+		doesConnectionExist();
+	</script>
+
+</body>
+
+</html>
