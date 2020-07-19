@@ -1,5 +1,7 @@
 
 	function presentatorInit(){
+		
+alert('1');
 			//var app;
 			var channel;
 		
@@ -13,13 +15,13 @@
 				
 			// for development
 			fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.Debug);
-			  
+alert('2');			  
 			// for production
 			//fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.None);
 			
 			//Register a provider
 			fm.liveswitch.Log.registerProvider(new fm.liveswitch.ConsoleLogProvider(fm.liveswitch.LogLevel.Debug));
-
+alert('3');
 
 			//Connection to the Channel
 			var applicationId = "b73a1830-0808-407b-bd22-e72d7b8b18b6";
@@ -39,7 +41,7 @@
 			var icon = document.getElementById('fullscreen-icon')
 			var video = document.getElementById('video');
 			
-			
+alert('4');			
 			
 			//Handling local Media
 			/*var audio = {
@@ -63,7 +65,7 @@
 			//let localMedia = new liveswitch.LocalMedia(true, true, true);
 			let localMedia = new liveswitch.LocalMedia(true, true);
 			
-			
+alert('5');				
 			//audio.AudioTrack.Volume = .9;
 			//localMedia.AudioTrack.Gain = .5;
 			
@@ -71,7 +73,7 @@
 			var client = new fm.liveswitch.Client("https://cloud.liveswitch.io/", applicationId, userId, deviceId, null, ["role1", "role2"]);
 			//Set User Alias
 			client.setUserAlias(userAlias);
-			
+alert('6');				
 			var token = fm.liveswitch.Token.generateClientRegisterToken(
 				applicationId,
 				client.getUserId(),
@@ -81,12 +83,12 @@
 				[new fm.liveswitch.ChannelClaim(channelId)],
 				"c345c82b8ac74f86a1c06b820dfae5e3f591d37ed63b4ef985893c0b86745f5f"
 			);
-
+alert('7');	
 			//init the connection from the channel (when the user registred to the channel)
 			//Check if the user's connected to the channel
 			client.register(token).then(function(channels) {
 
-				
+alert('8');					
 				channel = channels[0];
 console.log("connected to channel: " + channel);
 			
@@ -104,19 +106,19 @@ console.log("connected to channel: " + channel);
 						layoutManager.removeRemoteView(remoteMedia.getId());
 					}
 				});
-				
+alert('10');					
 				mcuConnection.open().then(function(result) {
 					console.log("mixed connection established");
 				}).fail(function(ex) {
 					console.log("an error occurred");
 				});
 
-
+alert('11');
 				$(remoteMedia.getView()).dblclick(() => {
 					mcuConnection.close();
 				});
 				
-							
+alert('12');							
 			
 				//Refresh the number of the connected users
 				/*channel.addOnMcuVideoLayout(function(videoLayout) {
@@ -135,14 +137,14 @@ console.log("connected to channel: " + channel);
 					var n = client.getUserId();
 					incomingMessage(n, message);
 				});
-				
+alert('13');				
 		
 				//Write a message that the user has joined the channel
 				writeMessage('<b>Vous avez rejoint la conférence n° ' + channel.getId() + ' en tant que ' + userId + '.</b>');
 				
 				//Add a trigger when a user Leave or Join
 				addTriggerOnUserJoinAndLeave();
-				
+alert('14');				
 			}).fail(function(ex) {
 				console.log("registration failed");
 			});
@@ -251,6 +253,7 @@ console.log(localMedia._internal._videoConstraints);
 			
 			//Send message when the user Join or Leave !
 			var addTriggerOnUserJoinAndLeave = function () {
+alert('20');
 				//Send message when the user Join !
 				channel.addOnRemoteClientJoin(function (remoteClientInfo) {
 					fm.liveswitch.Log.info('Remote client joined the channel (client ID: ' +
@@ -260,7 +263,7 @@ console.log(localMedia._internal._videoConstraints);
 					var n = remoteClientInfo.getUserId();				
 					peerJoined(n);
 				});
-				
+alert('21');				
 				//Send message when the user Leave !
 				channel.addOnRemoteClientLeave(function (remoteClientInfo) {
 					//var n = remoteClientInfo.getUserAlias() != null ? remoteClientInfo.getUserAlias() : remoteClientInfo.getUserId();
@@ -274,6 +277,7 @@ console.log(localMedia._internal._videoConstraints);
 			
 			//Function that send Message
 			var sendMessage = function (content) {
+alert('22');
 				//If content is defined that mean we forced the sent value
 				if(typeof content!='undefined'){
 					channel.sendMessage(msg);
@@ -349,7 +353,7 @@ console.log(localMedia._internal._videoConstraints);
 					exitFullScreen();
 				}
 			});			
-			
+alert('30');
 			// Put video element into fullscreen.
 			var enterFullScreen = function(){
 				if(video.requestFullscreen){
