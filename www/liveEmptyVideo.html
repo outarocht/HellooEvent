@@ -149,15 +149,10 @@
 		
 		
 		$( document ).ready(function() {
-			//onDeviceReady();
 			document.addEventListener("deviceready", onDeviceReady, false);
-			alert('After deviceready call');
-			
-			
-		});
-		
+		});		
 
-		function onDeviceReady() {
+		function onDeviceReady(){
 			alert("Before PresentatorInit");
 								
 			navigator.getUserMedia({video: true},
