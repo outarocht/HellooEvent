@@ -21,8 +21,6 @@
 	<preference name="android-maxSdkVersion" value="28"/>
 	<preference name="deployment-target" value="7.0" />
 	
-	
-	
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
