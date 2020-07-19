@@ -217,13 +217,10 @@ console.log(localMedia._internal._videoConstraints);
 			};*/
 
 
-$("#liveDebug").append(console.log(localMedia));
-$("#liveDebug").append(localMedia);
-
 			//Capture localMedia
 			localMedia.start().then(function(lm){
-alert('localMedia Start !');
-				console.log("media capture started");				
+console.log("media capture started");	
+$("#liveDebug").append('localMedia Start !');			
 			}).fail(function(ex) {
 alert('localMedia Error !');
 				console.log(ex.message);
