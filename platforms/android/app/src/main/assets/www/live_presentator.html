@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/jquery-confirm.css"/>
 </head>
 
-<body class="bg-light">
+<body onload="onBodyLoad()" class="bg-light" >
 
     <!-- loader -->
     <div id="loader">
@@ -58,13 +58,22 @@
 		
 		<div id="videoCanvas">
 		</div>
-		<div id="video" style="">
-			<a href="#" id="fullscreen"></a>
+		<div id="video">
+			<a href="#" id="fullscreenBtn"><i id="fullscreen-icon" class="fa fa-expand"></i></a>
 		</div>
 		<br />
-		<div id="#participants">
-		</div>
+		<div id="participants"></div>
 		
+		<!-- Chat content -->
+		<div class="row"><br /></div>
+		<div class="row" style="height:400px;">
+			<div class="col-md-11" style="height:100%">
+				<div class="well" id="chatContent" style="height:100%;overflow-y:scroll;"></div>
+			</div>
+		</div>
+		<div class="row" style="padding-top:20px;">
+			
+		</div>
 	</div>
 	
 	
@@ -72,25 +81,32 @@
     </div>
 	
 	<div class="appBottomMenu">
-        
+        <div class="col-md-11">
+				<div class="input-group">
+					<input id="sendInput" type="text" class="form-control" placeholder="Message...">
+					<span class="input-group-btn">
+						<button id="sendButton" class="btn btn-default" type="button">Send</button>
+						<br />
+					</span>
+				</div>
+			</div>
+		<!--
         <a href="app-pages.html" class="item">
             <div class="col">
                 <ion-icon name="document-text-outline"></ion-icon>
                 <strong>Flip Camera</strong>
             </div>
         </a>
-        <a href="#" id="fullscreen" class="item">
+        <a href="#" id="fullscreenBtn" class="item">
             <div class="col">
-                <!-- <i id="fullscreen-icon" class="fa fa-expand"></i> -->
                 <strong>Plein écran</strong>
             </div>
         </a>
         <a  id="userDisconnectBtn" href="javascript:void(0)" value="Disconnect" class="item">
             <div class="col">
-                <ion-icon name="pie-chart-outline"></ion-icon>
                 <strong>Se déconnecter</strong>
             </div>
-        </a>
+        </a>-->
        
     </div>
     <!-- * App Capsule -->
@@ -106,7 +122,13 @@
     <!-- Jquery -->
     <!-- <script src="assets/js/lib/jquery-3.4.1.min.js"></script> -->
     <!-- Bootstrap-->
+	
+	
+	<script type="text/javascript" src="cordova.js"></script>
 	<script src="sources_live/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/essential.js"></script>
+	
     <script src="assets/js/lib/popper.min.js"></script>
     <script src="assets/js/lib/bootstrap.min.js"></script>
     <!-- Owl Carousel -->
@@ -122,12 +144,25 @@
 	</script>
 	
 	<!-- <script src="jquery-1.11.2.min.js"></script> -->
-	<script src="sources_live/bootstrap.min.js"></script>
+	
 	<script src="sources_live/fm.liveswitch.js"></script>
 	<script src="sources_live/live.presentator.js"></script>
 	
 	
-
+	<script>
+	function onBodyLoad(){ 
+			document.addEventListener("deviceready", init, false);
+		}
+		
+		function onDeviceReady() { 
+			gaPlugin = window.plugins.gaPlugin;
+			gaPlugin.init(gaInit, errorHandler, myAnalyticsAccount, 10);	
+									
+			//Track an open event
+			gaPlugin.trackPage(function() {
+			}, errorHandler, "/livePresentator.html");
+		}
+	</script>
 </body>
 
 </html>

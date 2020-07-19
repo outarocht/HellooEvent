@@ -216,9 +216,9 @@
     <script src="assets/js/apps.js"></script>
 	<script src="assets/js/jquery-confirm.min.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
-	<!-- <script src="GAPlugin.js"></script> -->
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/essential.js"></script>
+	<!-- <script src="GAPlugin.js"></script> -->
 	<script>
 		//Load Left Menu content
 		menuLeft();
@@ -227,20 +227,18 @@
 		doesConnectionExist();
 		
 		function onBodyLoad(){ 
-			alert("1");
-			document.addEventListener("_ready", init, false);
-			alert("2");
+			document.addEventListener("deviceready", init, false);
 		}
 		
 		function onDeviceReady() { 
-			gaPlugin = window.plugins.gaPlugin;
-			gaPlugin.init(gaInit, errorHandler, myAnalyticsAccount, 10);	
-									
 			//Track an open event
 			gaPlugin.trackPage(function() {
 			}, errorHandler, "/main.html");
 		}
+		
+		
 	</script>
+	
 </body>
 
 

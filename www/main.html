@@ -231,9 +231,6 @@
 		}
 		
 		function onDeviceReady() { 
-			gaPlugin = window.plugins.gaPlugin;
-			gaPlugin.init(gaInit, errorHandler, myAnalyticsAccount, 10);	
-									
 			//Track an open event
 			gaPlugin.trackPage(function() {
 			}, errorHandler, "/main.html");

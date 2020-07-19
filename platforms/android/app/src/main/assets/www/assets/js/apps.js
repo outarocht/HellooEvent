@@ -228,6 +228,7 @@ function joindre_meeting(){
 
 
 function add_metting(){
+	
 	var userConnected 	= sessionStorage.getItem("userConnected");
 	var idMeeting 		= $("#idMeetingHidden").val();
 	

@@ -14,10 +14,6 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
-    "cordova-plugin-google-analytics": {
-      "GMS_VERSION": "11.0.1",
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
