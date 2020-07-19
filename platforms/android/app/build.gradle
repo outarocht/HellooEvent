@@ -293,8 +293,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
-    implementation "com.android.support:support-v4:26.+"
-    implementation "com.android.support:appcompat-v7:26.+"
+    implementation "com.android.support:support-v4:27.+"
+    implementation "com.google.android.gms:play-services-analytics:11.0.1"
     // SUB-PROJECT DEPENDENCIES END
 }
 

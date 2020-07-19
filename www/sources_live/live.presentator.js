@@ -1,15 +1,24 @@
 
 		$( document ).ready(function() {
-			
-			
-		// for development
-		fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.Debug);
-		  
-		// for production
-		//fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.None);
+			//var app;
+			var channel;
 		
-		//Register a provider
-		fm.liveswitch.Log.registerProvider(new fm.liveswitch.ConsoleLogProvider(fm.liveswitch.LogLevel.Debug));
+			//Library Loader
+			/*fm.liveswitch.Util.addOnLoad(() => {	
+				//Create new App.
+				app = new chat.App(document.getElementById('ApplicationLog'));
+				window.App = app;			
+			});*/
+				
+				
+			// for development
+			fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.Debug);
+			  
+			// for production
+			//fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.None);
+			
+			//Register a provider
+			fm.liveswitch.Log.registerProvider(new fm.liveswitch.ConsoleLogProvider(fm.liveswitch.LogLevel.Debug));
 
 
 			//Connection to the Channel
@@ -18,31 +27,39 @@
 			var userAlias = "User-presentator-alias";
 			var deviceId = "01010101-0101-0101-010101010101";
 			var channelId = "11111111-1111-1111-1111-111111111111";
-			var channel;
 			let liveswitch = fm.liveswitch;
 			let layoutManager = new liveswitch.DomLayoutManager($('#video')[0]);
+			
+			//Chat content
+			var sendButton = document.getElementById('sendButton');
+			var sendInput = document.getElementById('sendInput');
+			var chatContent = document.getElementById('chatContent');
+			
+			
+			
 			//Handling local Media
-			var audio = {
+			/*var audio = {
 				sampleSize: 16,
 				channelCount: 2,
 				echoCancellation: false
 			};
-			/*var video = {
+			var video = {
 				width: 320,
 				height: 240,
 				frameRate: 30
-			};*/
+			};
 			
 			var audio = true;
 			var video = {
 				facingMode: 'user' // use the front camera
 			};
 			var screen = false;
+			let localMedia = new liveswitch.LocalMedia(audio, video, screen);*/
+			
 			let localMedia = new liveswitch.LocalMedia(true, true);
-			//let localMedia = new liveswitch.LocalMedia(audio, video, screen);
+			
 			
 			//audio.AudioTrack.Volume = .9;
-console.log(localMedia);
 			//localMedia.AudioTrack.Gain = .5;
 			
 	  
@@ -60,20 +77,16 @@ console.log(localMedia);
 				"c345c82b8ac74f86a1c06b820dfae5e3f591d37ed63b4ef985893c0b86745f5f"
 			);
 
-
-
 			//init the connection from the channel (when the user registred to the channel)
 			//Check if the user's connected to the channel
 			client.register(token).then(function(channels) {
 
 				
-				let channel = channels[0];
-console.log(channel);
-console.log("connected to channel: " + channels[0].getId());
+				channel = channels[0];
+console.log("connected to channel: " + channel);
 			
 				
 				//Create MCU
-				
 				let remoteMedia = new liveswitch.RemoteMedia();
 				let audioStream = new liveswitch.AudioStream(localMedia, remoteMedia);
 				let videoStream = new liveswitch.VideoStream(localMedia, remoteMedia);
@@ -98,10 +111,39 @@ console.log("connected to channel: " + channels[0].getId());
 					mcuConnection.close();
 				});
 				
-				
-	
-console.log(localMedia);
+							
 			
+				//Refresh the number of the connected users
+				/*channel.addOnMcuVideoLayout(function(videoLayout) {
+					this.videoLayout  = videoLayout;
+					if (layoutManager != null) {
+						layoutManager.layout();
+					}
+				});*/
+				
+				//Start the chat
+/*alert('Before client chat registration');
+				app.joinAsync(incomingMessage, peerLeft, peerJoined, clientRegistered).then(function (o) {
+alert('1');
+					fm.liveswitch.Log.info('Chat Registered.');
+alert('2');*/
+
+					//Trigger on the channel if a message was add !
+					channel.addOnMessage(function (client, message) {
+						if (incomingMessage == null)
+							return;
+						//var n = client.getUserAlias() != null ? client.getUserAlias() : client.getUserId();
+						var n = client.getUserId();
+						incomingMessage(n, message);
+					});
+					
+			
+					//Write a message that the user has joined the channel
+					writeMessage('<b>Vous avez rejoint la conférence n° ' + channel.getId() + ' en tant que ' + userId + '.</b>');
+					
+					//Add a trigger when a user Leave or Join
+					addTriggerOnUserJoinAndLeave();
+				
 			}).fail(function(ex) {
 				console.log("registration failed");
 			});
@@ -126,30 +168,204 @@ console.log(localMedia);
 
 			//Flip Camera Button
 			
+			/*$("#cameraFlipBtn").click(function(){
+			alert('Camera flip start');
+				//Check if the user have another camera
+				//let supports = navigator.mediaDevices.getSupportedConstraints();
+				//if( supports['facingMode'] === true ) {
+				//  flipBtn.disabled = false;
+				//}
+				
+				localMedia.stop().then(function () {
+console.log(localMedia);
+console.log(localMedia._internal._videoConstraints);
+
+					if(video.facingMode=="user"){
+						video.facingMode="environment";
+					}else{
+						video.facingMode="user";
+					}
+					localMedia = new liveswitch.LocalMedia(audio, video, screen);
+			
+			
+					localMedia.changeVideoSourceInput(video.facingMode).then(function () {
+						localMedia.start().then(function () {
+							// Remember to set your sinks and view up again
+							// because the stop function cleaned them up.
+							var localVideoTrack = app.localMedia.getVideoTrack();
+							var localVideoSink = new fm.liveswitch.DomVideoSink(localVideoTrack);
+							app.layoutManager.setLocalView(localVideoSink.getView());
+						});
+					});
+				});
+			});*/
+			
+			
+
+			//Track video size
+			/*localMedia.OnVideoSize += (size) =>
+			{
+				var width = size.Width;
+				var height = size.Height;
+				console.log(size);
+			};
+			//Track Audio size
+			localMedia.OnAudioLevel += (level) =>
+			{
+				// level ranges from 0.0-1.0
+				console.log(level);
+			};*/
+
+
+
+
+			//Capture localMedia
+			localMedia.start().then(function(lm){
+				console.log("media capture started");				
+			}).fail(function(ex) {
+				console.log(ex.message);
+			});
 		
 			//Disconnect a user
 			$("#userDisconnectBtn").click(function(){
 				client.unregister().then(function(result){
-					disconnect_live();
+					stop();
 					console.log("unregistration succeeded");
 				}).fail(function(ex){
 					console.log("unregistration failed");
 				});
 			});
-			
-			//Capture localMedia
-	localMedia.start().then(function(lm){
-		console.log("media capture started");
-	}).fail(function(ex) {
-		console.log(ex.message);
-	});
-	
-			
+								
+			//Clear everything before unload the page
 			$(window).on('beforeunload', () => {
 				client.unregister();
 				layoutManager.unsetLocalView();
 				localMedia.stop();
 			});
+			
+			//Function that we have to close specific elements after the chat is finished
+			var stop = function () {
+				// Stop the local media.
+				fm.liveswitch.Log.info('Stopping local media...');
+				localMedia.stop();
+			};
+			
+			//Send message when the user Join or Leave !
+			var addTriggerOnUserJoinAndLeave = function () {
+				//Send message when the user Join !
+				channel.addOnRemoteClientJoin(function (remoteClientInfo) {
+					fm.liveswitch.Log.info('Remote client joined the channel (client ID: ' +
+						remoteClientInfo.getId() + ', device ID: ' + remoteClientInfo.getDeviceId() +
+						', user ID: ' + remoteClientInfo.getUserId() + ', tag: ' + remoteClientInfo.getTag() + ').');
+					//var n = remoteClientInfo.getUserAlias() != null ? remoteClientInfo.getUserAlias() : remoteClientInfo.getUserId();
+					var n = remoteClientInfo.getUserId();				
+					peerJoined(n);
+				});
+				
+				//Send message when the user Leave !
+				channel.addOnRemoteClientLeave(function (remoteClientInfo) {
+					//var n = remoteClientInfo.getUserAlias() != null ? remoteClientInfo.getUserAlias() : remoteClientInfo.getUserId();
+					var n = remoteClientInfo.getUserId();
+					peerLeft(n);
+					fm.liveswitch.Log.info('Remote client left the channel (client ID: ' + remoteClientInfo.getId() +
+						', device ID: ' + remoteClientInfo.getDeviceId() + ', user ID: ' + remoteClientInfo.getUserId() +
+						', tag: ' + remoteClientInfo.getTag() + ').');
+				});
+			}
+			
+			//Function that send Message
+			var sendMessage = function (content) {
+				//If content is defined that mean we forced the sent value
+				if(typeof content!='undefined'){
+					channel.sendMessage(msg);
+				}else{
+					var msg = sendInput.value;
+					sendInput.value = '';
+					if (msg != '') {
+						channel.sendMessage(msg);
+					}
+				}				
+			};
+			
+			//Function to write a message
+			var incomingMessage = function (name, message) {
+				writeMessage('<b>' + name + ':</b> ' + message);
+			};
+			
+			//Someone left the channel
+			var peerLeft = function (name, string) {
+				writeMessage('<font color="red">* <b>' + name + '</b> a quitté la conférence !</font>')
+			};
+
+			//Someone joined the channel
+			var peerJoined = function (name, string) {
+				writeMessage('<font color="green">* <b>' + name + '</b> a rejoint la conférence !</font>');
+			};
+
+			//Write a message in the chatContainer
+			var writeMessage = function (msg) {
+				var content = document.createElement('p');
+				content.innerHTML = msg;
+				chatContent.appendChild(content);
+				chatContent.scrollTop = chatContent.scrollHeight;
+			};
+			
+			//Add Observers
+			/*fm.liveswitch.Util.observe(sendInput, 'keydown', function (evt) {
+				// Treat Enter as button click.
+				var charCode = (evt.which) ? evt.which : evt.keyCode;
+				if (charCode == 13) {
+					sendMessage();
+					return false;
+				}
+			});
+			fm.liveswitch.Util.observe(sendButton, 'click', function (evt) {
+				sendMessage();
+			});*/
+			/*fm.liveswitch.Util.observe(leaveButton, 'click', function (evt) {
+				stop();
+			});*/
+			fm.liveswitch.Util.observe(window, 'beforeunload', function (evt) {
+				stop();
+			});
+			/*fm.liveswitch.Util.observe(toggleAudioMute, 'click', function (evt) {
+				var muted = app.toggleAudioMute();
+				toggleAudioMute.getElementsByTagName('i')[0].className = 'fa fa-lg ' + (muted ? 'fa-microphone-slash' : 'fa-microphone');
+			});
+			fm.liveswitch.Util.observe(toggleVideoMute, 'click', function (evt) {
+				var muted = app.toggleVideoMute();
+				toggleVideoMute.style.backgroundImage = muted ? 'url(images/no-cam.png)' : 'url(images/cam.png)';
+			});*/
+			
+			/*
+			//Test this element on visitor page
+			var setHashParameter = function (name, value) {
+			name = encodeURI(name);
+			value = encodeURI(value);
+			var pairStrings = document.location.hash.substr(1).split('&');
+			var updated = false;
+			for (var i = 0; i < pairStrings.length; i++) {
+				var pair = pairStrings[i].split('=');
+				if (pair[0] == name) {
+					if (pair.length > 1) {
+						pair[1] = value;
+					}
+					else {
+						pair.push(value);
+					}
+					pairStrings[i] = pair.join('=');
+					updated = true;
+					break;
+				}
+			}
+			if (!updated) {
+				pairStrings.push([name, value].join('='));
+			}
+			document.location.hash = pairStrings.join('&');
+		};
+			
+			*/
+			
 		
 			
 		});

@@ -7,22 +7,21 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-android-permissions": {
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
+    "cordova-plugin-google-analytics": {
+      "GMS_VERSION": "11.0.1",
+      "PACKAGE_NAME": "app.mobile.hellooEvent"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "app.mobile.hellooEvent"
+    },
     "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    },
-    "cordova.camera.permission": {
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    },
-    "cordova-plugin-device-motion": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     }
   },

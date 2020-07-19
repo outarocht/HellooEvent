@@ -15,34 +15,26 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-whitelist": {
+  "cordova-plugin-google-analytics": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-whitelist@1"
+      "id": "cordova-plugin-google-analytics"
     },
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-android-permissions": {
+  "cordova-plugin-camera": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-android-permissions"
+      "id": "cordova-plugin-camera@4.1.0"
     },
     "is_top_level": true,
     "variables": {}
   },
-  "cordova.camera.permission": {
+  "cordova-plugin-splashscreen": {
     "source": {
       "type": "registry",
-      "id": "cordova.camera.permission"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-device-motion": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-device-motion@2.0.1"
+      "id": "cordova-plugin-splashscreen@5.0.4"
     },
     "is_top_level": true,
     "variables": {}

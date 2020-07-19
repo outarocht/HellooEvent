@@ -1,0 +1,464 @@
+<html>
+<head>
+
+	<title>HelloEvent Presentator</title>
+    <link rel="stylesheet" href="bootstrap.min.css" />	
+</head>
+<body>
+
+
+	<h1>HelloEvent Presentator</h1>
+	
+	<!-- 
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                Name: <input type="text" id="name" value="Anonymous" />
+                <button type="button" id="register">Register</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8" id="videos" style="height: 480px">
+            </div>
+            <div class="col-sm-4">
+                <div class="row" id="participants"></div>
+                <div class="row" id="sip"></div>
+            </div>
+        </div>
+    </div>
+	-->
+	
+
+	<div id="pageContainer" style="width: 100%;">
+		Content page!
+		<div id="videoCanvas">
+		</div>
+		<div id="video" style="margin-left: 50px; width: 600px; height: 600px;">
+			<a href="#" id="fullscreen"><i id="fullscreen-icon" class="fa fa-expand"></i></a>
+		</div>
+		<br />
+		<div id="#participants">
+		</div>
+		<br />
+		<br />
+		<button id="cameraFlipBtn">
+		  Flip Camera
+		</button>
+	</div>
+	
+	<div id="userDisconnect" style="text-align: center">
+		  <br />
+		  <br />
+		  <br />
+		  <br />
+		<a id="userDisconnectBtn" href="javascript:void(0)" value="Disconnect">Se déconnecter</a>
+		<br />
+		<br />
+		<br />
+		<br />
+	</div>
+	
+	
+	<!-- Chat content -->
+	<div class="row"><br /></div>
+	<div class="row" style="height:400px;">
+		<div class="col-md-11" style="height:100%">
+			<div class="well" id="chatContent" style="height:100%;overflow-y:scroll;"></div>
+		</div>
+	</div>
+	<div class="row" style="padding-top:20px;">
+		<div class="col-md-11">
+			<div class="input-group">
+				<input id="sendInput" type="text" class="form-control" placeholder="Message...">
+				<span class="input-group-btn">
+					<button id="sendButton" class="btn btn-default" type="button">Send</button>
+					<br />
+				</span>
+			</div>
+		</div>
+	</div>
+	
+	<!-- <div id="ApplicationLog"></div> -->
+	
+		
+	<script src="sources_live/jquery-3.5.1.min.js"></script>
+	<!-- <script type="text/javascript" src="config.js"></script>
+	<script type="text/javascript" src="app.js"></script> -->
+	<script src="sources_live/bootstrap.min.js"></script>
+	<script src="sources_live/fm.liveswitch.js"></script>
+	
+	<script type="text/javascript">
+
+		$( document ).ready(function() {
+			//var app;
+			var channel;
+		
+			//Library Loader
+			/*fm.liveswitch.Util.addOnLoad(() => {	
+				//Create new App.
+				app = new chat.App(document.getElementById('ApplicationLog'));
+				window.App = app;			
+			});*/
+				
+				
+			// for development
+			fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.Debug);
+			  
+			// for production
+			//fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.None);
+			
+			//Register a provider
+			fm.liveswitch.Log.registerProvider(new fm.liveswitch.ConsoleLogProvider(fm.liveswitch.LogLevel.Debug));
+
+
+			//Connection to the Channel
+			var applicationId = "b73a1830-0808-407b-bd22-e72d7b8b18b6";
+			var userId = "User Presentator Name";
+			var userAlias = "User-presentator-alias";
+			var deviceId = "01010101-0101-0101-010101010101";
+			var channelId = "11111111-1111-1111-1111-111111111111";
+			let liveswitch = fm.liveswitch;
+			let layoutManager = new liveswitch.DomLayoutManager($('#video')[0]);
+			
+			//Chat content
+			var sendButton = document.getElementById('sendButton');
+			var sendInput = document.getElementById('sendInput');
+			var chatContent = document.getElementById('chatContent');
+			
+			
+			
+			//Handling local Media
+			/*var audio = {
+				sampleSize: 16,
+				channelCount: 2,
+				echoCancellation: false
+			};
+			var video = {
+				width: 320,
+				height: 240,
+				frameRate: 30
+			};
+			
+			var audio = true;
+			var video = {
+				facingMode: 'user' // use the front camera
+			};
+			var screen = false;
+			let localMedia = new liveswitch.LocalMedia(audio, video, screen);*/
+			
+			let localMedia = new liveswitch.LocalMedia(true, true);
+			
+			
+			//audio.AudioTrack.Volume = .9;
+			//localMedia.AudioTrack.Gain = .5;
+			
+	  
+			var client = new fm.liveswitch.Client("https://cloud.liveswitch.io/", applicationId, userId, deviceId, null, ["role1", "role2"]);
+			//Set User Alias
+			client.setUserAlias(userAlias);
+			
+			var token = fm.liveswitch.Token.generateClientRegisterToken(
+				applicationId,
+				client.getUserId(),
+				client.getDeviceId(),
+				client.getId(),
+				client.getRoles(),
+				[new fm.liveswitch.ChannelClaim(channelId)],
+				"c345c82b8ac74f86a1c06b820dfae5e3f591d37ed63b4ef985893c0b86745f5f"
+			);
+
+			//init the connection from the channel (when the user registred to the channel)
+			//Check if the user's connected to the channel
+			client.register(token).then(function(channels) {
+
+				
+				channel = channels[0];
+console.log("connected to channel: " + channel);
+			
+				
+				//Create MCU
+				let remoteMedia = new liveswitch.RemoteMedia();
+				let audioStream = new liveswitch.AudioStream(localMedia, remoteMedia);
+				let videoStream = new liveswitch.VideoStream(localMedia, remoteMedia);
+				let mcuConnection = channel.createMcuConnection(audioStream, videoStream);
+				mcuConnection.addOnStateChange((connection) => {
+					if (mcuConnection.getState() == liveswitch.ConnectionState.Connected) {
+						layoutManager.addRemoteView(remoteMedia.getId(), remoteMedia.getView());
+					} else if (mcuConnection.getState() == liveswitch.ConnectionState.Failing ||
+						mcuConnection.getState() == liveswitch.ConnectionState.Closing) {
+						layoutManager.removeRemoteView(remoteMedia.getId());
+					}
+				});
+				
+				mcuConnection.open().then(function(result) {
+					console.log("mixed connection established");
+				}).fail(function(ex) {
+					console.log("an error occurred");
+				});
+
+
+				$(remoteMedia.getView()).dblclick(() => {
+					mcuConnection.close();
+				});
+				
+							
+			
+				//Refresh the number of the connected users
+				/*channel.addOnMcuVideoLayout(function(videoLayout) {
+					this.videoLayout  = videoLayout;
+					if (layoutManager != null) {
+						layoutManager.layout();
+					}
+				});*/
+				
+				//Start the chat
+/*alert('Before client chat registration');
+				app.joinAsync(incomingMessage, peerLeft, peerJoined, clientRegistered).then(function (o) {
+alert('1');
+					fm.liveswitch.Log.info('Chat Registered.');
+alert('2');*/
+
+					//Trigger on the channel if a message was add !
+					channel.addOnMessage(function (client, message) {
+						if (incomingMessage == null)
+							return;
+						//var n = client.getUserAlias() != null ? client.getUserAlias() : client.getUserId();
+						var n = client.getUserId();
+						incomingMessage(n, message);
+					});
+					
+			
+					//Write a message that the user has joined the channel
+					writeMessage('<b>Vous avez rejoint la conférence n° ' + channel.getId() + ' en tant que ' + userId + '.</b>');
+					
+					//Add a trigger when a user Leave or Join
+					addTriggerOnUserJoinAndLeave();
+				
+			}).fail(function(ex) {
+				console.log("registration failed");
+			});
+				
+				
+			//Handle FullScreen
+			// Handle event: doc has entered/exited fullscreen. 
+			var fullscreenChange = function () {
+				var icon = document.getElementById('fullscreen-icon'), fullscreenElement = document.fullscreenElement ||
+					document.mozFullScreenElement ||
+					document.webkitFullscreenElement ||
+					document.msFullscreenElement;
+				if (fullscreenElement) {
+					icon.classList.remove('fa-expand');
+					icon.classList.add('fa-compress');
+				}
+				else {
+					icon.classList.add('fa-expand');
+					icon.classList.remove('fa-compress');
+				}
+			};
+
+			//Flip Camera Button
+			
+			/*$("#cameraFlipBtn").click(function(){
+			alert('Camera flip start');
+				//Check if the user have another camera
+				//let supports = navigator.mediaDevices.getSupportedConstraints();
+				//if( supports['facingMode'] === true ) {
+				//  flipBtn.disabled = false;
+				//}
+				
+				localMedia.stop().then(function () {
+console.log(localMedia);
+console.log(localMedia._internal._videoConstraints);
+
+					if(video.facingMode=="user"){
+						video.facingMode="environment";
+					}else{
+						video.facingMode="user";
+					}
+					localMedia = new liveswitch.LocalMedia(audio, video, screen);
+			
+			
+					localMedia.changeVideoSourceInput(video.facingMode).then(function () {
+						localMedia.start().then(function () {
+							// Remember to set your sinks and view up again
+							// because the stop function cleaned them up.
+							var localVideoTrack = app.localMedia.getVideoTrack();
+							var localVideoSink = new fm.liveswitch.DomVideoSink(localVideoTrack);
+							app.layoutManager.setLocalView(localVideoSink.getView());
+						});
+					});
+				});
+			});*/
+			
+			
+
+			//Track video size
+			/*localMedia.OnVideoSize += (size) =>
+			{
+				var width = size.Width;
+				var height = size.Height;
+				console.log(size);
+			};
+			//Track Audio size
+			localMedia.OnAudioLevel += (level) =>
+			{
+				// level ranges from 0.0-1.0
+				console.log(level);
+			};*/
+
+
+
+
+			//Capture localMedia
+			localMedia.start().then(function(lm){
+				console.log("media capture started");				
+			}).fail(function(ex) {
+				console.log(ex.message);
+			});
+		
+			//Disconnect a user
+			$("#userDisconnectBtn").click(function(){
+				client.unregister().then(function(result){
+					stop();
+					console.log("unregistration succeeded");
+				}).fail(function(ex){
+					console.log("unregistration failed");
+				});
+			});
+								
+			//Clear everything before unload the page
+			$(window).on('beforeunload', () => {
+				client.unregister();
+				layoutManager.unsetLocalView();
+				localMedia.stop();
+			});
+			
+			//Function that we have to close specific elements after the chat is finished
+			var stop = function () {
+				// Stop the local media.
+				fm.liveswitch.Log.info('Stopping local media...');
+				localMedia.stop();
+			};
+			
+			//Send message when the user Join or Leave !
+			var addTriggerOnUserJoinAndLeave = function () {
+				//Send message when the user Join !
+				channel.addOnRemoteClientJoin(function (remoteClientInfo) {
+					fm.liveswitch.Log.info('Remote client joined the channel (client ID: ' +
+						remoteClientInfo.getId() + ', device ID: ' + remoteClientInfo.getDeviceId() +
+						', user ID: ' + remoteClientInfo.getUserId() + ', tag: ' + remoteClientInfo.getTag() + ').');
+					//var n = remoteClientInfo.getUserAlias() != null ? remoteClientInfo.getUserAlias() : remoteClientInfo.getUserId();
+					var n = remoteClientInfo.getUserId();				
+					peerJoined(n);
+				});
+				
+				//Send message when the user Leave !
+				channel.addOnRemoteClientLeave(function (remoteClientInfo) {
+					//var n = remoteClientInfo.getUserAlias() != null ? remoteClientInfo.getUserAlias() : remoteClientInfo.getUserId();
+					var n = remoteClientInfo.getUserId();
+					peerLeft(n);
+					fm.liveswitch.Log.info('Remote client left the channel (client ID: ' + remoteClientInfo.getId() +
+						', device ID: ' + remoteClientInfo.getDeviceId() + ', user ID: ' + remoteClientInfo.getUserId() +
+						', tag: ' + remoteClientInfo.getTag() + ').');
+				});
+			}
+			
+			//Function that send Message
+			var sendMessage = function (content) {
+				//If content is defined that mean we forced the sent value
+				if(typeof content!='undefined'){
+					channel.sendMessage(msg);
+				}else{
+					var msg = sendInput.value;
+					sendInput.value = '';
+					if (msg != '') {
+						channel.sendMessage(msg);
+					}
+				}				
+			};
+			
+			//Function to write a message
+			var incomingMessage = function (name, message) {
+				writeMessage('<b>' + name + ':</b> ' + message);
+			};
+			
+			//Someone left the channel
+			var peerLeft = function (name, string) {
+				writeMessage('<font color="red">* <b>' + name + '</b> a quitté la conférence !</font>')
+			};
+
+			//Someone joined the channel
+			var peerJoined = function (name, string) {
+				writeMessage('<font color="green">* <b>' + name + '</b> a rejoint la conférence !</font>');
+			};
+
+			//Write a message in the chatContainer
+			var writeMessage = function (msg) {
+				var content = document.createElement('p');
+				content.innerHTML = msg;
+				chatContent.appendChild(content);
+				chatContent.scrollTop = chatContent.scrollHeight;
+			};
+			
+			//Add Observers
+			fm.liveswitch.Util.observe(sendInput, 'keydown', function (evt) {
+				// Treat Enter as button click.
+				var charCode = (evt.which) ? evt.which : evt.keyCode;
+				if (charCode == 13) {
+					sendMessage();
+					return false;
+				}
+			});
+			fm.liveswitch.Util.observe(sendButton, 'click', function (evt) {
+				sendMessage();
+			});
+			/*fm.liveswitch.Util.observe(leaveButton, 'click', function (evt) {
+				stop();
+			});*/
+			fm.liveswitch.Util.observe(window, 'beforeunload', function (evt) {
+				stop();
+			});
+			/*fm.liveswitch.Util.observe(toggleAudioMute, 'click', function (evt) {
+				var muted = app.toggleAudioMute();
+				toggleAudioMute.getElementsByTagName('i')[0].className = 'fa fa-lg ' + (muted ? 'fa-microphone-slash' : 'fa-microphone');
+			});
+			fm.liveswitch.Util.observe(toggleVideoMute, 'click', function (evt) {
+				var muted = app.toggleVideoMute();
+				toggleVideoMute.style.backgroundImage = muted ? 'url(images/no-cam.png)' : 'url(images/cam.png)';
+			});*/
+			
+			/*
+			//Test this element on visitor page
+			var setHashParameter = function (name, value) {
+			name = encodeURI(name);
+			value = encodeURI(value);
+			var pairStrings = document.location.hash.substr(1).split('&');
+			var updated = false;
+			for (var i = 0; i < pairStrings.length; i++) {
+				var pair = pairStrings[i].split('=');
+				if (pair[0] == name) {
+					if (pair.length > 1) {
+						pair[1] = value;
+					}
+					else {
+						pair.push(value);
+					}
+					pairStrings[i] = pair.join('=');
+					updated = true;
+					break;
+				}
+			}
+			if (!updated) {
+				pairStrings.push([name, value].join('='));
+			}
+			document.location.hash = pairStrings.join('&');
+		};
+			
+			*/
+			
+		
+			
+		});
+	</script>
+</body>
+</html>
