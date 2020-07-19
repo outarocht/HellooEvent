@@ -63,7 +63,7 @@ alert('4');
 			let localMedia = new liveswitch.LocalMedia(audio, video, screen);*/
 			
 			//let localMedia = new liveswitch.LocalMedia(true, true, true);
-			let localMedia = new liveswitch.LocalMedia(true, true);
+			let localMedia = new liveswitch.LocalMedia(false, true);
 			
 alert('5');				
 			//audio.AudioTrack.Volume = .9;
