@@ -130,7 +130,7 @@
 	
 	
 	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="opentok.js"></script>
+	
 	<script src="sources_live/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/essential.js"></script>
@@ -150,20 +150,17 @@
 		
 		
 		$( document ).ready(function() {
-			document.addEventListener("deviceready", onDeviceReady, false);
-			alert('After deviceready call');
+			//document.addEventListener("deviceready", onDeviceReady, false);
+			onDeviceReady();
 			
 			menuLeft();
 			getRoleId();
 			getMetting();
 			
-			alert('Document Ready End');
 		});
 		
 		function onDeviceReady() {
-			console.log("Before PresentatorInit");
 			presentatorInit();
-			console.log("After PresentatorInit");
 		}
 
 	</script>

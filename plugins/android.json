@@ -17,25 +17,15 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
-    "cordova-plugin-media-capture": {
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
     "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
-    "cordova-plugin-webrtc": {
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     }
   },
-  "dependent_plugins": {
-    "cordova-plugin-file": {
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    }
-  }
+  "dependent_plugins": {}
 }

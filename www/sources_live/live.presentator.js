@@ -1,7 +1,5 @@
 
 	function presentatorInit(){
-		
-alert('1');
 			//var app;
 			var channel;
 		
@@ -15,13 +13,12 @@ alert('1');
 				
 			// for development
 			fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.Debug);
-alert('2');			  
+			  
 			// for production
 			//fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.None);
 			
 			//Register a provider
 			fm.liveswitch.Log.registerProvider(new fm.liveswitch.ConsoleLogProvider(fm.liveswitch.LogLevel.Debug));
-alert('3');
 
 			//Connection to the Channel
 			var applicationId = "b73a1830-0808-407b-bd22-e72d7b8b18b6";
@@ -105,8 +102,6 @@ console.log("connected to channel: " + channel);
 						layoutManager.removeRemoteView(remoteMedia.getId());
 					}
 				});
-alert('10');		
-$("#liveDebug").append(localMedia);
 			
 				mcuConnection.open().then(function(result) {
 					console.log("mixed connection established");
@@ -140,8 +135,7 @@ $("#liveDebug").append(localMedia);
 				writeMessage('<b>Vous avez rejoint la conférence n° ' + channel.getId() + ' en tant que ' + userId + '.</b>');
 				
 				//Add a trigger when a user Leave or Join
-				addTriggerOnUserJoinAndLeave();
-alert('14');				
+				addTriggerOnUserJoinAndLeave();				
 			}).fail(function(ex){
 				alert('Registration failed');
 				$("#liveDebug").append("registration failed");
@@ -149,6 +143,14 @@ alert('14');
 				console.log("registration failed");
 			});
 				
+			//Capture localMedia
+			localMedia.start().then(function(lm){
+				console.log("media capture started");	
+				$("#liveDebug").append('localMedia Start !');			
+			}).fail(function(ex) {
+				alert('localMedia Error !');
+								console.log(ex.message);
+			});
 				
 			//Handle FullScreen
 			// Handle event: doc has entered/exited fullscreen. 
@@ -215,16 +217,6 @@ console.log(localMedia._internal._videoConstraints);
 				// level ranges from 0.0-1.0
 				console.log(level);
 			};*/
-
-
-			//Capture localMedia
-			localMedia.start().then(function(lm){
-console.log("media capture started");	
-$("#liveDebug").append('localMedia Start !');			
-			}).fail(function(ex) {
-alert('localMedia Error !');
-				console.log(ex.message);
-			});
 		
 			//Disconnect a user
 			$("#userDisconnectBtn").click(function(){

@@ -12,9 +12,7 @@
     <plugin name="cordova-plugin-statusbar" source="npm" spec="2.4.3" />
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="5.0.4" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.3.4" />
-    <plugin name="cordova-plugin-webrtc" source="npm" spec="~0.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="4.1.0" />
-    <plugin name="cordova-plugin-media-capture" source="npm" spec="~3.0.3" />
     <plugin name="android-camera-permission" source="npm" spec="~1.0.0" />
     <access origin="*" />
     <access origin="http://*" />
