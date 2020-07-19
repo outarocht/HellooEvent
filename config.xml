@@ -42,10 +42,6 @@
         <icon density="mdpi" src="www/res/icon/android/96.png" />
         <icon density="hdpi" src="www/res/icon/android/144.png" />
         <icon density="xhdpi" src="www/res/icon/android/192.png" />
-		<config-file target="AndroidManifest.xml" parent="/*">
-			<uses-permission android:name="android.permission.RECORD_AUDIO" />
-			<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-			<uses-permission android:name="android.permission.CAMERA" />
-        </config-file>
+		
     </platform>
 </widget>
