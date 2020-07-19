@@ -106,7 +106,9 @@ console.log("connected to channel: " + channel);
 						layoutManager.removeRemoteView(remoteMedia.getId());
 					}
 				});
-alert('10');					
+alert('10');		
+$("#liveDebug").append(localMedia);
+			
 				mcuConnection.open().then(function(result) {
 					console.log("mixed connection established");
 				}).fail(function(ex) {
@@ -224,12 +226,13 @@ console.log(localMedia._internal._videoConstraints);
 
 			//Capture localMedia
 			localMedia.start().then(function(lm){
+alert('localMedia Start !');
+$("#liveDebug").append(navigator.device);
+$("#liveDebug").append(navigator.device.capture);
 				console.log("media capture started");				
 			}).fail(function(ex) {
 alert('localMedia Error !');
 $("#liveDebug").append(ex.message);
-$("#liveDebug").append(navigator.device);
-$("#liveDebug").append(navigator.device.capture);
 				console.log(ex.message);
 			});
 		

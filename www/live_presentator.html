@@ -145,11 +145,10 @@
 	<script src="sources_live/fm.liveswitch.js"></script>
 	<script src="sources_live/live.presentator.js"></script>
 	<script>
-		document.addEventListener("deviceready", initLocal, false);
-		function initLocal(){
+		//document.addEventListener("deviceready", initLocal, false);
 		
-		//$( document ).ready(function() {
-		alert('Document Ready Start');
+		
+		$( document ).ready(function() {
 			menuLeft();
 			alert('After Menu left');
 			getRoleId();
@@ -160,8 +159,7 @@
 			presentatorInit();
 			console.log("After PresentatorInit");
 			alert('Document Ready End');
-		}
-		//});
+		});
 	</script>
 	
 	<script>
