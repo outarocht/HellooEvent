@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/jquery-confirm.css"/>
 </head>
 
-<body onload="onBodyLoad()" class="bg-light" >
+<body class="bg-light" >
 
     <!-- loader -->
     <div id="loader">
@@ -74,6 +74,11 @@
 		<div class="row" style="padding-top:20px;">
 			
 		</div>
+		
+		<br />
+		<br />
+		<br />
+		<div id="liveDebug"></div>
 	</div>
 	
 	
@@ -137,20 +142,26 @@
     <script src="assets/js/base.js"></script>
     <script src="assets/js/apps.js"></script>
 	<script src="assets/js/jquery-confirm.min.js"></script>
-	<script>
-		menuLeft();
-		getRoleId();
-		getMetting();
-	</script>
-	
-	<!-- <script src="jquery-1.11.2.min.js"></script> -->
-	
 	<script src="sources_live/fm.liveswitch.js"></script>
 	<script src="sources_live/live.presentator.js"></script>
-	
+	<script>
+		$( document ).ready(function() {
+		alert('Document Ready Start');
+			menuLeft();
+			alert('After Menu left');
+			getRoleId();
+			alert('After getRoleId');
+			getMetting();
+			alert('After get Metting left');
+			console.log("Before PresentatorInit");
+			presentatorInit();
+			console.log("After PresentatorInit");
+			alert('Document Ready End');
+		});
+	</script>
 	
 	<script>
-	function onBodyLoad(){ 
+		/*function onBodyLoad(){ 
 			document.addEventListener("deviceready", init, false);
 		}
 		
@@ -161,7 +172,7 @@
 			//Track an open event
 			gaPlugin.trackPage(function() {
 			}, errorHandler, "/livePresentator.html");
-		}
+		}*/
 	</script>
 </body>
 

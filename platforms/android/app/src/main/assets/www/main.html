@@ -222,25 +222,18 @@
 	<script>
 		
 		$( document ).ready(function() { 
-alert('Jquery Call Start');
 			onDeviceReady();
-alert('Jquery Call End');
 		});
 		
 		function onBodyLoad(){ 
-		alert("main 1");
 			document.addEventListener("deviceready", onDeviceReady, false);
-		alert("main 2");
 		}
 		
 		function onDeviceReady() { 
-alert('On onDeviceReady function ');
 			//Load Left Menu content
 			menuLeft();
-alert('After menu left');
 			//Check user connexion
 			doesConnectionExist();
-alert('After Connexion exist');
 			//Track an open event
 		}
 	</script>
