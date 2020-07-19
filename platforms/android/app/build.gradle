@@ -98,7 +98,6 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-plugin-opentok/hellooEvent-build-extras.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -295,9 +294,6 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
     implementation "com.android.support:support-v4:27.+"
-    implementation "com.android.support:appcompat-v7:23.1.0"
-    implementation "com.android.support:design:23.0.0"
-    implementation "com.android.volley:volley:1.1.0"
     // SUB-PROJECT DEPENDENCIES END
 }
 

@@ -16,8 +16,6 @@
     <plugin name="cordova-plugin-camera" source="npm" spec="4.1.0" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~3.0.3" />
     <plugin name="android-camera-permission" source="npm" spec="~1.0.0" />
-    <plugin name="cordova-plugin-opentok" source="npm" spec="~3.4.0" />
-	
     <access origin="*" />
     <access origin="http://*" />
     <access origin="https://*" />

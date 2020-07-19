@@ -34,8 +34,7 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-media-capture": {},
       "cordova-plugin-webrtc": {},
-      "android-camera-permission": {},
-      "cordova-plugin-opentok": {}
+      "android-camera-permission": {}
     },
     "platforms": [
       "android"

@@ -80,13 +80,5 @@
     },
     "is_top_level": false,
     "variables": {}
-  },
-  "cordova-plugin-opentok": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-opentok-annotations"
-    },
-    "is_top_level": true,
-    "variables": {}
   }
 }

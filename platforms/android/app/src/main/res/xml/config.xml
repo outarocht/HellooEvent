@@ -26,10 +26,6 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="OpenTokPlugin">
-        <param name="android-package" value="com.tokbox.cordova.OpenTokAndroidPlugin" />
-        <param name="onload" value="true" />
-    </feature>
     <name>HellooEvent</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

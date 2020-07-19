@@ -20,9 +20,6 @@
     "cordova-plugin-media-capture": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
-    "cordova-plugin-opentok": {
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
