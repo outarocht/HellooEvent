@@ -14,12 +14,6 @@
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="5.0.4" />
     <access origin="*" />
 	
-	<preference name="android-build-tool" value="gradle" />
-	<preference name="phonegap-version" value="cli-9.0.0" />
-	<preference name="android-minSdkVersion" value="18"/>
-	<preference name="android-targetSdkVersion" value="24"/>
-	<preference name="android-maxSdkVersion" value="28"/>
-	<preference name="deployment-target" value="7.0" />
 	
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -33,13 +27,7 @@
         <icon density="mdpi" src="www/res/icon/android/96.png" />
         <icon density="hdpi" src="www/res/icon/android/144.png" />
         <icon density="xhdpi" src="www/res/icon/android/192.png" />
-		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-		<uses-permission android:name="android.permission.CAMERA" />
-		<uses-permission android:name="android.permission.INTERNET" />
-		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-		<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+		
     </platform>
     
 </widget>
