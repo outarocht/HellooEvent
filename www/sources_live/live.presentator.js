@@ -114,12 +114,9 @@ $("#liveDebug").append(localMedia);
 					console.log("an error occurred");
 				});
 
-alert('11');
 				$(remoteMedia.getView()).dblclick(() => {
 					mcuConnection.close();
-				});
-				
-alert('12');							
+				});							
 			
 				//Refresh the number of the connected users
 				/*channel.addOnMcuVideoLayout(function(videoLayout) {
@@ -137,8 +134,7 @@ alert('12');
 					//var n = client.getUserAlias() != null ? client.getUserAlias() : client.getUserId();
 					var n = client.getUserId();
 					incomingMessage(n, message);
-				});
-alert('13');				
+				});			
 		
 				//Write a message that the user has joined the channel
 				writeMessage('<b>Vous avez rejoint la conférence n° ' + channel.getId() + ' en tant que ' + userId + '.</b>');
@@ -227,12 +223,9 @@ $("#liveDebug").append(localMedia);
 			//Capture localMedia
 			localMedia.start().then(function(lm){
 alert('localMedia Start !');
-$("#liveDebug").append(navigator.device);
-$("#liveDebug").append(navigator.device.capture);
 				console.log("media capture started");				
 			}).fail(function(ex) {
 alert('localMedia Error !');
-$("#liveDebug").append(ex.message);
 				console.log(ex.message);
 			});
 		
@@ -265,7 +258,6 @@ alert("Stop function");
 			
 			//Send message when the user Join or Leave !
 			var addTriggerOnUserJoinAndLeave = function () {
-alert('20');
 				//Send message when the user Join !
 				channel.addOnRemoteClientJoin(function (remoteClientInfo) {
 					fm.liveswitch.Log.info('Remote client joined the channel (client ID: ' +
@@ -275,7 +267,7 @@ alert('20');
 					var n = remoteClientInfo.getUserId();				
 					peerJoined(n);
 				});
-alert('21');				
+				
 				//Send message when the user Leave !
 				channel.addOnRemoteClientLeave(function (remoteClientInfo) {
 					//var n = remoteClientInfo.getUserAlias() != null ? remoteClientInfo.getUserAlias() : remoteClientInfo.getUserId();
@@ -289,7 +281,6 @@ alert('21');
 			
 			//Function that send Message
 			var sendMessage = function (content) {
-alert('22');
 				//If content is defined that mean we forced the sent value
 				if(typeof content!='undefined'){
 					channel.sendMessage(msg);
