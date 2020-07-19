@@ -14,7 +14,7 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
-    "cordova-plugin-media": {
+    "cordova-plugin-media-capture": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
     "cordova-plugin-splashscreen": {
