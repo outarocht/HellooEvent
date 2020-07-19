@@ -22,6 +22,7 @@
     "cordova-plugin-opentok-annotations": "^0.2.4",
     "cordova-plugin-splashscreen": "^5.0.4",
     "cordova-plugin-statusbar": "^2.4.3",
+    "cordova-plugin-webrtc": "^0.1.1",
     "cordova-plugin-whitelist": "^1.3.4"
   },
   "cordova": {
@@ -32,7 +33,8 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-whitelist": {},
       "android-camera-permission": {},
-      "cordova-plugin-media-capture": {}
+      "cordova-plugin-media-capture": {},
+      "cordova-plugin-webrtc": {}
     },
     "platforms": [
       "android"
