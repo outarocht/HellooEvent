@@ -63,7 +63,7 @@ alert('4');
 			let localMedia = new liveswitch.LocalMedia(audio, video, screen);*/
 			
 			//let localMedia = new liveswitch.LocalMedia(true, true, true);
-			let localMedia = new liveswitch.LocalMedia(true, true);
+			let localMedia = new liveswitch.LocalMedia(true, false);
 			
 alert('5');				
 			//audio.AudioTrack.Volume = .9;
@@ -222,7 +222,8 @@ console.log(localMedia._internal._videoConstraints);
 			};*/
 
 
-
+$("#liveDebug").append(console.log(localMedia));
+$("#liveDebug").append(localMedia);
 
 			//Capture localMedia
 			localMedia.start().then(function(lm){
