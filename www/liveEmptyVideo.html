@@ -156,7 +156,7 @@
 		function onDeviceReady(){
 			alert("Before PresentatorInit");
 								
-			navigator.getUserMedia({video: true},
+			navigator.getUserMedia({video: true, facingMode: 'user'},
 			   function(mediaStream) {
 				  var video = document.querySelector('video');
 				  //var video = document.getElementById('video');
@@ -165,8 +165,8 @@
 					video.play();
 				  };
 			   }, function(error){
-console.log(err.name + ": " + err.message); 
-alert('error aclling Video => '+err.name+' : '+err.message);
+console.log(error.name + ": " + error.message); 
+alert('error calling Video => '+error.name+' : '+error.message);
 				});
 			   
 			   alert("After PresentatorInit");

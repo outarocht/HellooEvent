@@ -40,8 +40,7 @@ alert('3');
 			//Fullscreen variables
 			var icon = document.getElementById('fullscreen-icon')
 			var video = document.getElementById('video');
-			
-alert('4');			
+					
 			
 			//Handling local Media
 			/*var audio = {
@@ -53,19 +52,19 @@ alert('4');
 				width: 320,
 				height: 240,
 				frameRate: 30
-			};
+			};*/
 			
-			var audio = true;
-			var video = {
+			var localMediaAudio = false;
+			var localMediaVideo = {
 				facingMode: 'user' // use the front camera
 			};
-			var screen = false;
-			let localMedia = new liveswitch.LocalMedia(audio, video, screen);*/
+			var localMediaScreen = false;
+			/*let localMedia = new liveswitch.LocalMedia(audio, video, screen);*/
 			
 			//let localMedia = new liveswitch.LocalMedia(true, true, true);
-			let localMedia = new liveswitch.LocalMedia(false, true);
+			let localMedia = new liveswitch.LocalMedia(localMediaAudio, localMediaVideo, localMediaScreen);
 			
-alert('5');				
+				
 			//audio.AudioTrack.Volume = .9;
 			//localMedia.AudioTrack.Gain = .5;
 			
@@ -73,7 +72,7 @@ alert('5');
 			var client = new fm.liveswitch.Client("https://cloud.liveswitch.io/", applicationId, userId, deviceId, null, ["role1", "role2"]);
 			//Set User Alias
 			client.setUserAlias(userAlias);
-alert('6');				
+			
 			var token = fm.liveswitch.Token.generateClientRegisterToken(
 				applicationId,
 				client.getUserId(),
@@ -83,12 +82,12 @@ alert('6');
 				[new fm.liveswitch.ChannelClaim(channelId)],
 				"c345c82b8ac74f86a1c06b820dfae5e3f591d37ed63b4ef985893c0b86745f5f"
 			);
-alert('7');	
+	
 			//init the connection from the channel (when the user registred to the channel)
 			//Check if the user's connected to the channel
 			client.register(token).then(function(channels) {
 
-alert('8');					
+				
 				channel = channels[0];
 console.log("connected to channel: " + channel);
 			
