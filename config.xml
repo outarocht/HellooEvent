@@ -14,6 +14,12 @@
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="5.0.4" />
     <access origin="*" />
 	
+	<access origin="http://*" />
+    <access origin="https://*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+	
+	
 	<preference name="android-build-tool" value="gradle" />
 	<preference name="phonegap-version" value="cli-9.0.0" />
 	<preference name="android-minSdkVersion" value="20"/>
