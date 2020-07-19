@@ -145,7 +145,10 @@
 	<script src="sources_live/fm.liveswitch.js"></script>
 	<script src="sources_live/live.presentator.js"></script>
 	<script>
-		$( document ).ready(function() {
+		document.addEventListener("deviceready", initLocal, false);
+		function initLocal(){
+		
+		//$( document ).ready(function() {
 		alert('Document Ready Start');
 			menuLeft();
 			alert('After Menu left');
@@ -157,7 +160,8 @@
 			presentatorInit();
 			console.log("After PresentatorInit");
 			alert('Document Ready End');
-		});
+		}
+		//});
 	</script>
 	
 	<script>
