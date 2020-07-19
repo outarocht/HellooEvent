@@ -228,6 +228,8 @@ console.log(localMedia._internal._videoConstraints);
 			}).fail(function(ex) {
 alert('localMedia Error !');
 $("#liveDebug").append(ex.message);
+$("#liveDebug").append(navigator.device);
+$("#liveDebug").append(navigator.device.capture);
 				console.log(ex.message);
 			});
 		
