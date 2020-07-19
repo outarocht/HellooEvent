@@ -147,9 +147,10 @@
 	<script>
 		//document.addEventListener("deviceready", initLocal, false);
 		
-		
 		$( document ).ready(function() {
-			document.addEventListener("deviceready", onDeviceReady, false);
+		onDeviceReady();
+		alert('After device local call');
+			//document.addEventListener("deviceready", onDeviceReady, false);
 		});		
 
 		function onDeviceReady(){
