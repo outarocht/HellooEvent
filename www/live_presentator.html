@@ -58,13 +58,22 @@
 		
 		<div id="videoCanvas">
 		</div>
-		<div id="video" style="">
-			<a href="#" id="fullscreen"></a>
+		<div id="video">
+			<a href="#" id="fullscreenBtn"><i id="fullscreen-icon" class="fa fa-expand"></i></a>
 		</div>
 		<br />
-		<div id="#participants">
-		</div>
+		<div id="participants"></div>
 		
+		<!-- Chat content -->
+		<div class="row"><br /></div>
+		<div class="row" style="height:400px;">
+			<div class="col-md-11" style="height:100%">
+				<div class="well" id="chatContent" style="height:100%;overflow-y:scroll;"></div>
+			</div>
+		</div>
+		<div class="row" style="padding-top:20px;">
+			
+		</div>
 	</div>
 	
 	
@@ -72,25 +81,32 @@
     </div>
 	
 	<div class="appBottomMenu">
-        
+        <div class="col-md-11">
+				<div class="input-group">
+					<input id="sendInput" type="text" class="form-control" placeholder="Message...">
+					<span class="input-group-btn">
+						<button id="sendButton" class="btn btn-default" type="button">Send</button>
+						<br />
+					</span>
+				</div>
+			</div>
+		<!--
         <a href="app-pages.html" class="item">
             <div class="col">
                 <ion-icon name="document-text-outline"></ion-icon>
                 <strong>Flip Camera</strong>
             </div>
         </a>
-        <a href="#" id="fullscreen" class="item">
+        <a href="#" id="fullscreenBtn" class="item">
             <div class="col">
-                <!-- <i id="fullscreen-icon" class="fa fa-expand"></i> -->
                 <strong>Plein écran</strong>
             </div>
         </a>
         <a  id="userDisconnectBtn" href="javascript:void(0)" value="Disconnect" class="item">
             <div class="col">
-                <ion-icon name="pie-chart-outline"></ion-icon>
                 <strong>Se déconnecter</strong>
             </div>
-        </a>
+        </a>-->
        
     </div>
     <!-- * App Capsule -->

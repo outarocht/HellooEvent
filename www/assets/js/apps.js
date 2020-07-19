@@ -228,7 +228,7 @@ function joindre_meeting(){
 
 
 function add_metting(){
-	alert("aaa");
+	
 	var userConnected 	= sessionStorage.getItem("userConnected");
 	var idMeeting 		= $("#idMeetingHidden").val();
 	
@@ -267,19 +267,19 @@ function add_metting(){
 								data: sendingDataClose,
 								dataType: 'html',
 								success: function (data) {
-									window.location.href = "live_presentator2.html";
+									window.location.href = "live_presentator.html";
 								}
 							});
 						},
 						Non: function () {
-							window.location.href = "live_presentator2.html";
+							window.location.href = "live_presentator.html";
 						}
 					}
 				});
 			}
 			
 			if(data.return == 1){
-				window.location.href = "live_presentator2.html";
+				window.location.href = "live_presentator.html";
 			}
         }
      });
