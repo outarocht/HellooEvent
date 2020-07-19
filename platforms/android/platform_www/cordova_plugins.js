@@ -298,6 +298,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-streaming-media.StreamingMedia",
+      "file": "plugins/cordova-plugin-streaming-media/www/StreamingMedia.js",
+      "pluginId": "cordova-plugin-streaming-media",
+      "clobbers": [
+        "streamingMedia"
+      ]
+    },
+    {
       "id": "cordova-plugin-webrtc.WebRTC",
       "file": "plugins/cordova-plugin-webrtc/dist/webrtc.js",
       "pluginId": "cordova-plugin-webrtc",
@@ -314,6 +322,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-media-capture": "3.0.3",
     "cordova-plugin-splashscreen": "5.0.4",
     "cordova-plugin-statusbar": "2.4.3",
+    "cordova-plugin-streaming-media": "2.3.0",
     "cordova-plugin-webrtc": "0.1.1",
     "cordova-plugin-whitelist": "1.3.4"
   };

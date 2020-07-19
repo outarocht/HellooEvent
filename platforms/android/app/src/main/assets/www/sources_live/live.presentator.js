@@ -40,8 +40,7 @@ alert('3');
 			//Fullscreen variables
 			var icon = document.getElementById('fullscreen-icon')
 			var video = document.getElementById('video');
-			
-alert('4');			
+					
 			
 			//Handling local Media
 			/*var audio = {
@@ -53,19 +52,19 @@ alert('4');
 				width: 320,
 				height: 240,
 				frameRate: 30
-			};
+			};*/
 			
-			var audio = true;
-			var video = {
+			var localMediaAudio = false;
+			var localMediaVideo = {
 				facingMode: 'user' // use the front camera
 			};
-			var screen = false;
-			let localMedia = new liveswitch.LocalMedia(audio, video, screen);*/
+			var localMediaScreen = false;
+			/*let localMedia = new liveswitch.LocalMedia(audio, video, screen);*/
 			
 			//let localMedia = new liveswitch.LocalMedia(true, true, true);
-			let localMedia = new liveswitch.LocalMedia(true, false);
+			let localMedia = new liveswitch.LocalMedia(localMediaAudio, localMediaVideo, localMediaScreen);
 			
-alert('5');				
+				
 			//audio.AudioTrack.Volume = .9;
 			//localMedia.AudioTrack.Gain = .5;
 			
@@ -73,7 +72,7 @@ alert('5');
 			var client = new fm.liveswitch.Client("https://cloud.liveswitch.io/", applicationId, userId, deviceId, null, ["role1", "role2"]);
 			//Set User Alias
 			client.setUserAlias(userAlias);
-alert('6');				
+			
 			var token = fm.liveswitch.Token.generateClientRegisterToken(
 				applicationId,
 				client.getUserId(),
@@ -83,12 +82,12 @@ alert('6');
 				[new fm.liveswitch.ChannelClaim(channelId)],
 				"c345c82b8ac74f86a1c06b820dfae5e3f591d37ed63b4ef985893c0b86745f5f"
 			);
-alert('7');	
+	
 			//init the connection from the channel (when the user registred to the channel)
 			//Check if the user's connected to the channel
 			client.register(token).then(function(channels) {
 
-alert('8');					
+				
 				channel = channels[0];
 console.log("connected to channel: " + channel);
 			
@@ -115,12 +114,9 @@ $("#liveDebug").append(localMedia);
 					console.log("an error occurred");
 				});
 
-alert('11');
 				$(remoteMedia.getView()).dblclick(() => {
 					mcuConnection.close();
-				});
-				
-alert('12');							
+				});							
 			
 				//Refresh the number of the connected users
 				/*channel.addOnMcuVideoLayout(function(videoLayout) {
@@ -138,8 +134,7 @@ alert('12');
 					//var n = client.getUserAlias() != null ? client.getUserAlias() : client.getUserId();
 					var n = client.getUserId();
 					incomingMessage(n, message);
-				});
-alert('13');				
+				});			
 		
 				//Write a message that the user has joined the channel
 				writeMessage('<b>Vous avez rejoint la conférence n° ' + channel.getId() + ' en tant que ' + userId + '.</b>');
@@ -222,18 +217,12 @@ console.log(localMedia._internal._videoConstraints);
 			};*/
 
 
-$("#liveDebug").append(console.log(localMedia));
-$("#liveDebug").append(localMedia);
-
 			//Capture localMedia
 			localMedia.start().then(function(lm){
-alert('localMedia Start !');
-$("#liveDebug").append(navigator.device);
-$("#liveDebug").append(navigator.device.capture);
-				console.log("media capture started");				
+console.log("media capture started");	
+$("#liveDebug").append('localMedia Start !');			
 			}).fail(function(ex) {
 alert('localMedia Error !');
-$("#liveDebug").append(ex.message);
 				console.log(ex.message);
 			});
 		
@@ -266,7 +255,6 @@ alert("Stop function");
 			
 			//Send message when the user Join or Leave !
 			var addTriggerOnUserJoinAndLeave = function () {
-alert('20');
 				//Send message when the user Join !
 				channel.addOnRemoteClientJoin(function (remoteClientInfo) {
 					fm.liveswitch.Log.info('Remote client joined the channel (client ID: ' +
@@ -276,7 +264,7 @@ alert('20');
 					var n = remoteClientInfo.getUserId();				
 					peerJoined(n);
 				});
-alert('21');				
+				
 				//Send message when the user Leave !
 				channel.addOnRemoteClientLeave(function (remoteClientInfo) {
 					//var n = remoteClientInfo.getUserAlias() != null ? remoteClientInfo.getUserAlias() : remoteClientInfo.getUserId();
@@ -290,7 +278,6 @@ alert('21');
 			
 			//Function that send Message
 			var sendMessage = function (content) {
-alert('22');
 				//If content is defined that mean we forced the sent value
 				if(typeof content!='undefined'){
 					channel.sendMessage(msg);
