@@ -222,25 +222,18 @@
 	<script>
 		
 		$( document ).ready(function() { 
-
-			//onDeviceReady();
-
+			onDeviceReady();
 		});
 		
 		function onBodyLoad(){ 
-		
 			document.addEventListener("deviceready", onDeviceReady, false);
-		
 		}
 		
 		function onDeviceReady() { 
-alert('On onDeviceReady function ');
 			//Load Left Menu content
 			menuLeft();
-alert('After menu left');
 			//Check user connexion
 			doesConnectionExist();
-alert('After Connexion exist');
 			//Track an open event
 		}
 	</script>
