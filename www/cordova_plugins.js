@@ -280,6 +280,30 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "file": "plugins/cordova-plugin-media-capture/www/android/init.js",
       "pluginId": "cordova-plugin-media-capture",
       "runs": true
+    },
+    {
+      "id": "cordova-plugin-splashscreen.SplashScreen",
+      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+      "pluginId": "cordova-plugin-splashscreen",
+      "clobbers": [
+        "navigator.splashscreen"
+      ]
+    },
+    {
+      "id": "cordova-plugin-statusbar.statusbar",
+      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+      "pluginId": "cordova-plugin-statusbar",
+      "clobbers": [
+        "window.StatusBar"
+      ]
+    },
+    {
+      "id": "cordova-plugin-webrtc.WebRTC",
+      "file": "plugins/cordova-plugin-webrtc/dist/webrtc.js",
+      "pluginId": "cordova-plugin-webrtc",
+      "clobbers": [
+        "webrtc"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -288,6 +312,10 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-media-capture": "3.0.3",
-    "cordova-plugin-crosswalk-webview": "2.4.0"
+    "cordova-plugin-opentok": "3.4.0",
+    "cordova-plugin-splashscreen": "5.0.4",
+    "cordova-plugin-statusbar": "2.4.3",
+    "cordova-plugin-webrtc": "0.1.1",
+    "cordova-plugin-whitelist": "1.3.4"
   };
 });

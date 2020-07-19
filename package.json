@@ -16,11 +16,10 @@
     "android-camera-permission": "^1.0.0",
     "cordova-android": "^8.1.0",
     "cordova-plugin-camera": "^4.1.0",
-    "cordova-plugin-crosswalk-webview": "^2.4.0",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-media-capture": "^3.0.3",
-    "cordova-plugin-opentokjs": "0.1.2",
+    "cordova-plugin-opentok-annotations": "^0.2.4",
     "cordova-plugin-splashscreen": "^5.0.4",
     "cordova-plugin-statusbar": "^2.4.3",
     "cordova-plugin-webrtc": "^0.1.1",
@@ -36,9 +35,11 @@
       "cordova-plugin-media-capture": {},
       "cordova-plugin-webrtc": {},
       "android-camera-permission": {},
-      "cordova-plugin-opentokjs": {}
+      "cordova-plugin-opentok": {}
     },
-    "platforms": []
+    "platforms": [
+      "android"
+    ]
   },
   "devDependencies": {}
 }
