@@ -16,15 +16,13 @@
     <plugin name="cordova-plugin-camera" source="npm" spec="4.1.0" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~3.0.3" />
     <plugin name="android-camera-permission" source="npm" spec="~1.0.0" />
-    <plugin name="cordova-plugin-streaming-media" source="npm" spec="~2.3.0" />
-     
+    <plugin name="cordova-plugin-opentokjs" source="npm" spec="~0.1.2" />
     <access origin="*" />
     <access origin="http://*" />
     <access origin="https://*" />
     <allow-navigation href="*" />
     <allow-intent href="*" />
-    
-	<preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="android-build-tool" value="gradle" />
     <preference name="phonegap-version" value="cli-9.0.0" />
     <preference name="android-minSdkVersion" value="20" />
@@ -43,6 +41,5 @@
         <icon density="mdpi" src="www/res/icon/android/96.png" />
         <icon density="hdpi" src="www/res/icon/android/144.png" />
         <icon density="xhdpi" src="www/res/icon/android/192.png" />
-		
     </platform>
 </widget>

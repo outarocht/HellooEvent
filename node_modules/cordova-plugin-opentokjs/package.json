@@ -1,0 +1,84 @@
+{
+  "_from": "cordova-plugin-opentokjs",
+  "_id": "cordova-plugin-opentokjs@0.1.2",
+  "_inBundle": false,
+  "_integrity": "sha1-xYnfv5oMr9jxRO2NcbmTGeXzTHI=",
+  "_location": "/cordova-plugin-opentokjs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-opentokjs",
+    "name": "cordova-plugin-opentokjs",
+    "escapedName": "cordova-plugin-opentokjs",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-opentokjs/-/cordova-plugin-opentokjs-0.1.2.tgz",
+  "_shasum": "c589dfbf9a0cafd8f144ed8d71b99319e5f34c72",
+  "_spec": "cordova-plugin-opentokjs",
+  "_where": "C:\\Users\\Zak\\Documents\\HellooEvent",
+  "author": {
+    "name": "Ankur Oberoi",
+    "email": "aoberoi@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/aoberoi/cordova-plugin-opentokjs/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-opentokjs",
+    "platforms": [
+      "ios",
+      "android",
+      "browser"
+    ]
+  },
+  "deprecated": false,
+  "description": "OpenTok lets you weave real time communications with live video and audio into your application",
+  "devDependencies": {
+    "browserify": "^10.2.4",
+    "event-stream": "^3.3.1",
+    "gulp": "^3.9.0",
+    "replacestream": "^2.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=4.0.0"
+    },
+    {
+      "name": "cordova-ios",
+      "version": ">=3.8.0"
+    }
+  ],
+  "homepage": "https://github.com/aoberoi/cordova-plugin-opentokjs",
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "opentok",
+    "tokbox",
+    "video-chat",
+    "webrtc",
+    "realtime",
+    "cordova-ios",
+    "cordova-android",
+    "rtc"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-opentokjs",
+  "peerDependencies": {
+    "cordova-plugin-crosswalk-webview": "^1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aoberoi/cordova-plugin-opentokjs.git"
+  },
+  "version": "0.1.2"
+}
