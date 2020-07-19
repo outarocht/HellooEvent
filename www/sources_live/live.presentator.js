@@ -145,23 +145,25 @@ alert('13');
 				//Add a trigger when a user Leave or Join
 				addTriggerOnUserJoinAndLeave();
 alert('14');				
-			}).fail(function(ex) {
+			}).fail(function(ex){
+				alert('Registration failed');
+				$("#liveDebug").append("registration failed");
+				$("#liveDebug").append(ex);
 				console.log("registration failed");
 			});
 				
 				
 			//Handle FullScreen
 			// Handle event: doc has entered/exited fullscreen. 
-			var fullscreenChange = function () {
+			var fullscreenChange = function(){
 				var icon = document.getElementById('fullscreen-icon'), fullscreenElement = document.fullscreenElement ||
 					document.mozFullScreenElement ||
 					document.webkitFullscreenElement ||
 					document.msFullscreenElement;
-				if (fullscreenElement) {
+				if(fullscreenElement){
 					icon.classList.remove('fa-expand');
 					icon.classList.add('fa-compress');
-				}
-				else {
+				}else{
 					icon.classList.add('fa-expand');
 					icon.classList.remove('fa-compress');
 				}
@@ -224,11 +226,14 @@ console.log(localMedia._internal._videoConstraints);
 			localMedia.start().then(function(lm){
 				console.log("media capture started");				
 			}).fail(function(ex) {
+alert('localMedia Error !');
+$("#liveDebug").append(ex.message);
 				console.log(ex.message);
 			});
 		
 			//Disconnect a user
 			$("#userDisconnectBtn").click(function(){
+alert('user disconnect');
 				client.unregister().then(function(result){
 					stop();
 					console.log("unregistration succeeded");
@@ -239,6 +244,7 @@ console.log(localMedia._internal._videoConstraints);
 								
 			//Clear everything before unload the page
 			$(window).on('beforeunload', () => {
+alert('beforeUnload');
 				client.unregister();
 				layoutManager.unsetLocalView();
 				localMedia.stop();
@@ -246,6 +252,7 @@ console.log(localMedia._internal._videoConstraints);
 			
 			//Function that we have to close specific elements after the chat is finished
 			var stop = function () {
+alert("Stop function");
 				// Stop the local media.
 				fm.liveswitch.Log.info('Stopping local media...');
 				localMedia.stop();
