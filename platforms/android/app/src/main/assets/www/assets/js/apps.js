@@ -16,7 +16,7 @@ function menuLeft(){
         },
 		
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			alert('error: ' + JSON.stringify(XMLHttpRequest));
+			alert('error menuLeft: ' + JSON.stringify(XMLHttpRequest));
 		}
 		
      });

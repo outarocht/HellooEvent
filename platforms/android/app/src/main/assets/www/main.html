@@ -220,23 +220,29 @@
     <script type="text/javascript" src="js/essential.js"></script>
 	<!-- <script src="GAPlugin.js"></script> -->
 	<script>
-		//Load Left Menu content
-		menuLeft();
 		
-		//Check user connexion
-		doesConnectionExist();
+		$( document ).ready(function() { 
+alert('Jquery Call Start');
+			onDeviceReady();
+alert('Jquery Call End');
+		});
 		
 		function onBodyLoad(){ 
-			document.addEventListener("deviceready", init, false);
+		alert("main 1");
+			document.addEventListener("deviceready", onDeviceReady, false);
+		alert("main 2");
 		}
 		
 		function onDeviceReady() { 
+alert('On onDeviceReady function ');
+			//Load Left Menu content
+			menuLeft();
+alert('After menu left');
+			//Check user connexion
+			doesConnectionExist();
+alert('After Connexion exist');
 			//Track an open event
-			gaPlugin.trackPage(function() {
-			}, errorHandler, "/main.html");
 		}
-		
-		
 	</script>
 	
 </body>
