@@ -220,10 +220,7 @@
     <script type="text/javascript" src="js/essential.js"></script>
 	<!-- <script src="GAPlugin.js"></script> -->
 	<script>
-		//Load Left Menu content
-		menuLeft();
-		//Check user connexion
-		doesConnectionExist();
+		
 		
 		function onBodyLoad(){ 
 		alert("main 1");
@@ -232,6 +229,12 @@
 		}
 		
 		function onDeviceReady() { 
+			//Load Left Menu content
+			menuLeft();
+alert('After menu left');
+			//Check user connexion
+			doesConnectionExist();
+alert('After Connexion exist');
 			//Track an open event
 			gaPlugin.trackPage(function() {
 			}, errorHandler, "/main.html");
