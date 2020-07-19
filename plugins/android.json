@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "android-camera-permission": {
+      "PACKAGE_NAME": "app.mobile.hellooEvent"
+    },
     "cordova-plugin-camera": {
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "app.mobile.hellooEvent"
