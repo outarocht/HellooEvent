@@ -149,8 +149,8 @@
 		
 		
 		$( document ).ready(function() {
-			onDeviceReady();
-			//document.addEventListener("deviceready", onDeviceReady, false);
+			//onDeviceReady();
+			document.addEventListener("deviceready", onDeviceReady, false);
 			alert('After deviceready call');
 			
 			
@@ -158,56 +158,8 @@
 		
 
 		function onDeviceReady() {
-			console.log("Before PresentatorInit");
-			
-/*			navigator.getUserMedia = navigator.getUserMedia ||
-                         navigator.webkitGetUserMedia ||
-                         navigator.mozGetUserMedia;
-
-			if (navigator.getUserMedia) {
-			   navigator.getUserMedia({ audio: true, video: { width: 1280, height: 720 } },
-				  function(stream) {
-					 var video = document.querySelector('video');
-					 video.src = window.URL.createObjectURL(stream);
-					 video.onloadedmetadata = function(e) {
-					   video.play();
-					 };
-				  },
-				  function(err) {
-					 console.log("The following error occurred: " + err.name);
-				  }
-			   );
-			} else {
-			   console.log("getUserMedia not supported");
-			}
-*/
-
-// Prefer camera resolution nearest to 1280x720.
-
-/*if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                            navigator.fmGetUserMedia = function (constraints, success, failure) {
-                                navigator.mediaDevices.getUserMedia(constraints).then(success).catch(function(err) { console.log(err.name + ": " + err.message); 
-								alert('error aclling Video => '+err.message);
-								});
-                            };
-                        }
-						*/
-						
-/*					
-var constraints = { audio: true, video: { width: 1280, height: 720 } }; 
-
-navigator.getUserMedia(constraints)
-.then(function(mediaStream) {
-  var video = document.querySelector('video');
-  video.srcObject = mediaStream;
-  video.onloadedmetadata = function(e) {
-    video.play();
-  };
-})
-.catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors at the end.
-*/
-			
-			
+			alert("Before PresentatorInit");
+								
 			navigator.getUserMedia({video: true},
 			   function(mediaStream) {
 				  var video = document.querySelector('video');
@@ -218,10 +170,10 @@ navigator.getUserMedia(constraints)
 				  };
 			   }, function(error){
 console.log(err.name + ": " + err.message); 
-alert('error aclling Video => '+err.message);
+alert('error aclling Video => '+err.name+' : '+err.message);
 				});
 			   
-			   console.log("After PresentatorInit");
+			   alert("After PresentatorInit");
 	   }
 
 	</script>
