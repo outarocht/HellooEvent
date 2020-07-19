@@ -98,7 +98,7 @@
 				};
 				image.src = 'https://v1.liveswitch.fm/images/static.jpg';
 			//}*/
-			var LocalMediaAudio = true;
+			var LocalMediaAudio = false;
 			var LocalMediaVideo = true;
 			var localMedia = new fm.liveswitch.LocalMedia(LocalMediaAudio, LocalMediaVideo);
 /*console.log("Canvas creation OK");
