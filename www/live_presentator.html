@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/jquery-confirm.css"/>
 </head>
 
-<body onload="onBodyLoad()" class="bg-light" >
+<body class="bg-light" >
 
     <!-- loader -->
     <div id="loader">
@@ -141,12 +141,17 @@
 	<script src="sources_live/live.presentator.js"></script>
 	<script>
 		$( document ).ready(function() {
+		alert('Document Ready Start');
 			menuLeft();
+			alert('After Menu left');
 			getRoleId();
+			alert('After getRoleId');
 			getMetting();
+			alert('After get Metting left');
 			console.log("Before PresentatorInit");
 			presentatorInit();
 			console.log("After PresentatorInit");
+			alert('Document Ready End');
 		});
 	</script>
 	
