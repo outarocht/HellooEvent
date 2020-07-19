@@ -296,6 +296,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.StatusBar"
       ]
+    },
+    {
+      "id": "cordova-plugin-webrtc.WebRTC",
+      "file": "plugins/cordova-plugin-webrtc/dist/webrtc.js",
+      "pluginId": "cordova-plugin-webrtc",
+      "clobbers": [
+        "webrtc"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -305,6 +313,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-media-capture": "3.0.3",
     "cordova-plugin-splashscreen": "5.0.4",
     "cordova-plugin-statusbar": "2.4.3",
+    "cordova-plugin-webrtc": "0.1.1",
     "cordova-plugin-whitelist": "1.3.4"
   };
 });

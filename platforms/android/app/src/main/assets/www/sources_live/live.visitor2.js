@@ -1,36 +1,41 @@
 
-	function presentatorInit(){
-		
-alert('1');
-			//var app;
-			var channel;
-		
-			//Library Loader
-			/*fm.liveswitch.Util.addOnLoad(() => {	
-				//Create new App.
-				app = new chat.App(document.getElementById('ApplicationLog'));
-				window.App = app;			
-			});*/
-				
-				
+	function visitorInit(){
+		var channel;
+			
+			
 			// for development
 			fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.Debug);
-alert('2');			  
+			  
 			// for production
 			//fm.liveswitch.Log.setLogLevel(fm.liveswitch.LogLevel.None);
 			
 			//Register a provider
 			fm.liveswitch.Log.registerProvider(new fm.liveswitch.ConsoleLogProvider(fm.liveswitch.LogLevel.Debug));
-alert('3');
+
 
 			//Connection to the Channel
 			var applicationId = "b73a1830-0808-407b-bd22-e72d7b8b18b6";
-			var userId = "User Presentator Name";
-			var userAlias = "User-presentator-alias";
-			var deviceId = "01010101-0101-0101-010101010101";
+			var userId = "User Visitor Name";
+			var userAlias = "User-visitor-alias";
+			var deviceId = "02020202-0202-0202-020202020202";
 			var channelId = "11111111-1111-1111-1111-111111111111";
+			var channel;
 			let liveswitch = fm.liveswitch;
 			let layoutManager = new liveswitch.DomLayoutManager($('#video')[0]);
+	  
+			var client = new fm.liveswitch.Client("https://cloud.liveswitch.io/", applicationId, userId, deviceId, null, ["role1", "role2"]);
+			//Set User Alias
+			client.setUserAlias(userAlias);
+			
+			var token = fm.liveswitch.Token.generateClientRegisterToken(
+				applicationId,
+				client.getUserId(),
+				client.getDeviceId(),
+				client.getId(),
+				client.getRoles(),
+				[new fm.liveswitch.ChannelClaim(channelId)],
+				"c345c82b8ac74f86a1c06b820dfae5e3f591d37ed63b4ef985893c0b86745f5f"
+			);
 			
 			//Chat content
 			var sendButton = document.getElementById('sendButton');
@@ -41,7 +46,7 @@ alert('3');
 			var icon = document.getElementById('fullscreen-icon')
 			var video = document.getElementById('video');
 			
-alert('4');			
+			
 			
 			//Handling local Media
 			/*var audio = {
@@ -61,76 +66,81 @@ alert('4');
 			};
 			var screen = false;
 			let localMedia = new liveswitch.LocalMedia(audio, video, screen);*/
-			
-			//let localMedia = new liveswitch.LocalMedia(true, true, true);
-			let localMedia = new liveswitch.LocalMedia(false, true);
-			
-alert('5');				
-			//audio.AudioTrack.Volume = .9;
-			//localMedia.AudioTrack.Gain = .5;
-			
-	  
-			var client = new fm.liveswitch.Client("https://cloud.liveswitch.io/", applicationId, userId, deviceId, null, ["role1", "role2"]);
-			//Set User Alias
-			client.setUserAlias(userAlias);
-alert('6');				
-			var token = fm.liveswitch.Token.generateClientRegisterToken(
-				applicationId,
-				client.getUserId(),
-				client.getDeviceId(),
-				client.getId(),
-				client.getRoles(),
-				[new fm.liveswitch.ChannelClaim(channelId)],
-				"c345c82b8ac74f86a1c06b820dfae5e3f591d37ed63b4ef985893c0b86745f5f"
-			);
-alert('7');	
+			//let localMedia = new liveswitch.LocalMedia(true, true);
+
+
+
+			//Add Canvas to the page
+			//var canvas = document.getElementById('videoCanvas');
+			/*var canvasFrameRate = 3;
+			//if (!canvas) {
+				// Create the canvas if it doesn't exist yet.
+				canvas = document.createElement('canvas');
+				canvas.id = 'videoCanvas';
+				canvas.style.position = 'absolute';
+				document.body.appendChild(canvas);
+				// Load a static image.
+				var image = new Image();
+				image.onload = function() {
+					// Resize the canvas to match the image size.
+					canvas.width = image.width;
+					canvas.height = image.height;
+					canvas.style.left = '-' + image.width + 'px';
+					canvas.style.top = '-' + image.height + 'px';
+					// Draw the initial image.
+					var context = canvas.getContext('2d');
+					context.drawImage(image, 0, 0, image.width, image.height, 0, 0, canvas.width, canvas.height);
+					// Refresh the image on a regular interval.
+					window.setInterval(function() {
+						context.clearRect(0, 0, canvas.width, canvas.height);
+						context.drawImage(image, 0, 0, image.width, image.height, 0, 0, canvas.width, canvas.height);
+					}, 1000.0 / canvasFrameRate);
+				};
+				image.src = 'https://v1.liveswitch.fm/images/static.jpg';
+			//}*/
+			var LocalMediaAudio = false;
+			var LocalMediaVideo = true;
+			var localMedia = new fm.liveswitch.LocalMedia(LocalMediaAudio, LocalMediaVideo);
+/*console.log("Canvas creation OK");
+console.log(canvas);*/
+
+			//Controlling Media Capture
+			/*localMedia.start().then(function(lm) {
+				console.log("media capture started");
+			}).fail(function(ex) {
+				console.log(ex.message);
+			});*/
+
+
+			//init the connection from the channel (when the user registred to the channel)
+
+
+
 			//init the connection from the channel (when the user registred to the channel)
 			//Check if the user's connected to the channel
 			client.register(token).then(function(channels) {
 
-alert('8');					
 				channel = channels[0];
 console.log("connected to channel: " + channel);
 			
 				
-				//Create MCU
-				let remoteMedia = new liveswitch.RemoteMedia();
-				let audioStream = new liveswitch.AudioStream(localMedia, remoteMedia);
-				let videoStream = new liveswitch.VideoStream(localMedia, remoteMedia);
-				let mcuConnection = channel.createMcuConnection(audioStream, videoStream);
-				mcuConnection.addOnStateChange((connection) => {
-					if (mcuConnection.getState() == liveswitch.ConnectionState.Connected) {
+				//Create the content (receive)
+				var remoteMedia = new fm.liveswitch.RemoteMedia();
+				var audioStream = new fm.liveswitch.AudioStream(null, remoteMedia);
+				var videoStream = new fm.liveswitch.VideoStream(null, remoteMedia);
+				console.log(channel);
+				var connection = channel.createMcuConnection(audioStream, videoStream);
+				layoutManager.addRemoteView(remoteMedia.getId(), remoteMedia.getView());
+				connection.addOnStateChange((connection) => {
+					if (connection.getState() == liveswitch.ConnectionState.Connected) {
 						layoutManager.addRemoteView(remoteMedia.getId(), remoteMedia.getView());
-					} else if (mcuConnection.getState() == liveswitch.ConnectionState.Failing ||
-						mcuConnection.getState() == liveswitch.ConnectionState.Closing) {
+					} else if (connection.getState() == liveswitch.ConnectionState.Failing ||
+						connection.getState() == liveswitch.ConnectionState.Closing) {
 						layoutManager.removeRemoteView(remoteMedia.getId());
 					}
 				});
-alert('10');		
-$("#liveDebug").append(localMedia);
-			
-				mcuConnection.open().then(function(result) {
-					console.log("mixed connection established");
-				}).fail(function(ex) {
-					console.log("an error occurred");
-				});
+				connection.open();	
 
-alert('11');
-				$(remoteMedia.getView()).dblclick(() => {
-					mcuConnection.close();
-				});
-				
-alert('12');							
-			
-				//Refresh the number of the connected users
-				/*channel.addOnMcuVideoLayout(function(videoLayout) {
-					this.videoLayout  = videoLayout;
-					if (layoutManager != null) {
-						layoutManager.layout();
-					}
-				});*/
-				
-				//Start the chat
 				//Trigger on the channel if a message was add !
 				channel.addOnMessage(function (client, message) {
 					if (incomingMessage == null)
@@ -138,110 +148,55 @@ alert('12');
 					//var n = client.getUserAlias() != null ? client.getUserAlias() : client.getUserId();
 					var n = client.getUserId();
 					incomingMessage(n, message);
-				});
-alert('13');				
-		
+				});	
+
 				//Write a message that the user has joined the channel
 				writeMessage('<b>Vous avez rejoint la conférence n° ' + channel.getId() + ' en tant que ' + userId + '.</b>');
 				
 				//Add a trigger when a user Leave or Join
 				addTriggerOnUserJoinAndLeave();
-alert('14');				
-			}).fail(function(ex){
-				alert('Registration failed');
-				$("#liveDebug").append("registration failed");
-				$("#liveDebug").append(ex);
+			
+			}).fail(function(ex) {
 				console.log("registration failed");
 			});
-				
-				
+
 			//Handle FullScreen
 			// Handle event: doc has entered/exited fullscreen. 
-			var fullscreenChange = function(){
+			var fullscreenChange = function () {
 				var icon = document.getElementById('fullscreen-icon'), fullscreenElement = document.fullscreenElement ||
 					document.mozFullScreenElement ||
 					document.webkitFullscreenElement ||
 					document.msFullscreenElement;
-				if(fullscreenElement){
+				if (fullscreenElement) {
 					icon.classList.remove('fa-expand');
 					icon.classList.add('fa-compress');
-				}else{
+				}
+				else {
 					icon.classList.add('fa-expand');
 					icon.classList.remove('fa-compress');
 				}
 			};
-
-			//Flip Camera Button
-			
-			/*$("#cameraFlipBtn").click(function(){
-			alert('Camera flip start');
-				//Check if the user have another camera
-				//let supports = navigator.mediaDevices.getSupportedConstraints();
-				//if( supports['facingMode'] === true ) {
-				//  flipBtn.disabled = false;
-				//}
-				
-				localMedia.stop().then(function () {
-console.log(localMedia);
-console.log(localMedia._internal._videoConstraints);
-
-					if(video.facingMode=="user"){
-						video.facingMode="environment";
-					}else{
-						video.facingMode="user";
-					}
-					localMedia = new liveswitch.LocalMedia(audio, video, screen);
-			
-			
-					localMedia.changeVideoSourceInput(video.facingMode).then(function () {
-						localMedia.start().then(function () {
-							// Remember to set your sinks and view up again
-							// because the stop function cleaned them up.
-							var localVideoTrack = app.localMedia.getVideoTrack();
-							var localVideoSink = new fm.liveswitch.DomVideoSink(localVideoTrack);
-							app.layoutManager.setLocalView(localVideoSink.getView());
-						});
-					});
-				});
-			});*/
-			
-			
-
-			//Track video size
-			/*localMedia.OnVideoSize += (size) =>
-			{
-				var width = size.Width;
-				var height = size.Height;
-				console.log(size);
-			};
-			//Track Audio size
-			localMedia.OnAudioLevel += (level) =>
-			{
-				// level ranges from 0.0-1.0
-				console.log(level);
-			};*/
-
-
-$("#liveDebug").append(console.log(localMedia));
-$("#liveDebug").append(localMedia);
-
-			//Capture localMedia
+		
 			localMedia.start().then(function(lm){
-alert('localMedia Start !');
-$("#liveDebug").append(navigator.device);
-$("#liveDebug").append(navigator.device.capture);
-				console.log("media capture started");				
+				console.log("media capture started");
 			}).fail(function(ex) {
-alert('localMedia Error !');
-$("#liveDebug").append(ex.message);
 				console.log(ex.message);
 			});
+			
 		
 			//Disconnect a user
 			$("#userDisconnectBtn").click(function(){
-alert('user disconnect');
 				client.unregister().then(function(result){
-					stop();
+					console.log("unregistration succeeded");
+				}).fail(function(ex){
+					console.log("unregistration failed");
+				});
+			});
+			
+			//Disconnect a user
+			$("#userDisconnectBtn").click(function(){
+				client.unregister().then(function(result){
+					//stop();
 					console.log("unregistration succeeded");
 				}).fail(function(ex){
 					console.log("unregistration failed");
@@ -250,7 +205,6 @@ alert('user disconnect');
 								
 			//Clear everything before unload the page
 			$(window).on('beforeunload', () => {
-alert('beforeUnload');
 				client.unregister();
 				layoutManager.unsetLocalView();
 				localMedia.stop();
@@ -258,15 +212,13 @@ alert('beforeUnload');
 			
 			//Function that we have to close specific elements after the chat is finished
 			var stop = function () {
-alert("Stop function");
 				// Stop the local media.
-				fm.liveswitch.Log.info('Stopping local media...');
-				localMedia.stop();
+				//fm.liveswitch.Log.info('Stopping local media...');
+				//localMedia.stop();
 			};
-			
+						
 			//Send message when the user Join or Leave !
 			var addTriggerOnUserJoinAndLeave = function () {
-alert('20');
 				//Send message when the user Join !
 				channel.addOnRemoteClientJoin(function (remoteClientInfo) {
 					fm.liveswitch.Log.info('Remote client joined the channel (client ID: ' +
@@ -276,7 +228,7 @@ alert('20');
 					var n = remoteClientInfo.getUserId();				
 					peerJoined(n);
 				});
-alert('21');				
+				
 				//Send message when the user Leave !
 				channel.addOnRemoteClientLeave(function (remoteClientInfo) {
 					//var n = remoteClientInfo.getUserAlias() != null ? remoteClientInfo.getUserAlias() : remoteClientInfo.getUserId();
@@ -290,7 +242,6 @@ alert('21');
 			
 			//Function that send Message
 			var sendMessage = function (content) {
-alert('22');
 				//If content is defined that mean we forced the sent value
 				if(typeof content!='undefined'){
 					channel.sendMessage(msg);
@@ -327,8 +278,7 @@ alert('22');
 			};
 			
 			//Add Observers
-			//fm.liveswitch.Util.observe(sendInput, 'keydown', function (evt) {
-			$(sendInput).on('keydown', function (evt) {
+			fm.liveswitch.Util.observe(sendInput, 'keydown', function (evt) {
 				// Treat Enter as button click.
 				var charCode = (evt.which) ? evt.which : evt.keyCode;
 				if (charCode == 13) {
@@ -336,27 +286,16 @@ alert('22');
 					return false;
 				}
 			});
-			//fm.liveswitch.Util.observe(sendButton, 'click', function (evt) {
-			$(sendButton).on('click', function (evt) {
+			fm.liveswitch.Util.observe(sendButton, 'click', function (evt) {
 				sendMessage();
 			});
 			/*fm.liveswitch.Util.observe(leaveButton, 'click', function (evt) {
 				stop();
 			});*/
-			//fm.liveswitch.Util.observe(window, 'beforeunload', function (evt) {
-			$(window).on('beforeunload', function (evt) {
+			fm.liveswitch.Util.observe(window, 'beforeunload', function (evt) {
 				stop();
-			});
-			/*fm.liveswitch.Util.observe(toggleAudioMute, 'click', function (evt) {
-				var muted = app.toggleAudioMute();
-				toggleAudioMute.getElementsByTagName('i')[0].className = 'fa fa-lg ' + (muted ? 'fa-microphone-slash' : 'fa-microphone');
-			});
-			fm.liveswitch.Util.observe(toggleVideoMute, 'click', function (evt) {
-				var muted = app.toggleVideoMute();
-				toggleVideoMute.style.backgroundImage = muted ? 'url(images/no-cam.png)' : 'url(images/cam.png)';
-			});*/
-			
-			
+			});	
+
 			//FullScreen Trigger and functions
 			$("#fullscreenBtn").click(function(){
 				//Check the status of the icon
@@ -366,7 +305,7 @@ alert('22');
 					exitFullScreen();
 				}
 			});			
-alert('30');
+			
 			// Put video element into fullscreen.
 			var enterFullScreen = function(){
 				if(video.requestFullscreen){
@@ -378,6 +317,7 @@ alert('30');
 				}else if(video.msRequestFullscreen){
 					video.msRequestFullscreen();
 				}else{
+console.log(video);
 					// Add "fake" fullscreen via CSS.
 					icon.classList.remove('fa-expand');
 					icon.classList.add('fa-compress');
@@ -418,69 +358,10 @@ alert('30');
 			
 			//Add Triggers on FullScreen change
 			// Register for handling fullscreen change event.
-			/*fm.liveswitch.Util.observe(document, 'fullscreenchange', function (evt) { fullscreenChange(); });
+			fm.liveswitch.Util.observe(document, 'fullscreenchange', function (evt) { fullscreenChange(); });
 			fm.liveswitch.Util.observe(document, 'webkitfullscreenchange', function (evt) { fullscreenChange(); });
 			fm.liveswitch.Util.observe(document, 'mozfullscreenchange', function (evt) { fullscreenChange(); });
-			fm.liveswitch.Util.observe(document, 'msfullscreenchange', function (evt) { fullscreenChange(); });*/
-			$(document).on('fullscreenchange', function (evt) { fullscreenChange(); });
-			$(document).on('webkitfullscreenchange', function (evt) { fullscreenChange(); });
-			$(document).on('mozfullscreenchange', function (evt) { fullscreenChange(); });
-			$(document).on('msfullscreenchange', function (evt) { fullscreenChange(); });
+			fm.liveswitch.Util.observe(document, 'msfullscreenchange', function (evt) { fullscreenChange(); });
 			
-			
-			//Get Device infos
-			/*$("#userDebug").click(function(){
-				
-			   const constraints = {
-				audio: {deviceId: audioSource ? {exact: audioSource} : undefined},
-				video: {deviceId: videoSource ? {exact: videoSource} : undefined}
-			  };
-			  navigator.mediaDevices.getUserMedia(constraints).then(gotStream).then(gotDevices).catch(handleError);
-			});			
-  
-			function gotStream(stream) {
-			  window.stream = stream; // make stream available to console
-			  videoElement.srcObject = stream;
-			  // Refresh button list in case labels have become available
-			  return navigator.mediaDevices.enumerateDevices();
-			}
-			
-			function gotDevices(deviceInfos) {
-console.log(deviceInfos);
-			  // Handles being called several times to update labels. Preserve values.
-			  const values = selectors.map(select => select.value);
-			  selectors.forEach(select => {
-				while (select.firstChild) {
-				  select.removeChild(select.firstChild);
-				}
-			  });
-			  for (let i = 0; i !== deviceInfos.length; ++i) {
-				const deviceInfo = deviceInfos[i];
-				const option = document.createElement('option');
-				option.value = deviceInfo.deviceId;
-				if (deviceInfo.kind === 'audioinput') {
-				  option.text = deviceInfo.label || `microphone ${audioInputSelect.length + 1}`;
-				  audioInputSelect.appendChild(option);
-				} else if (deviceInfo.kind === 'audiooutput') {
-				  option.text = deviceInfo.label || `speaker ${audioOutputSelect.length + 1}`;
-				  audioOutputSelect.appendChild(option);
-				} else if (deviceInfo.kind === 'videoinput') {
-				  option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`;
-				  videoSelect.appendChild(option);
-				} else {
-				  console.log('Some other kind of source/device: ', deviceInfo);
-				}
-			  }
-			   selectors.forEach((select, selectorIndex) => {
-				if (Array.prototype.slice.call(select.childNodes).some(n => n.value === values[selectorIndex])) {
-				  select.value = values[selectorIndex];
-				}
-			  });
-			}
-
-			function handleError(error) {
-			  console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
-			}*/
-  
 		
 	}
