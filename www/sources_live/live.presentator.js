@@ -1,4 +1,5 @@
-$( document ).ready(function() {
+
+	function presentatorInit(){
 			//var app;
 			var channel;
 		
@@ -465,5 +466,4 @@ console.log(deviceInfos);
 			}*/
   
 		
-			
-		});
+	}

@@ -137,20 +137,21 @@
     <script src="assets/js/base.js"></script>
     <script src="assets/js/apps.js"></script>
 	<script src="assets/js/jquery-confirm.min.js"></script>
-	<script>
-		menuLeft();
-		getRoleId();
-		getMetting();
-	</script>
-	
-	<!-- <script src="jquery-1.11.2.min.js"></script> -->
-	
 	<script src="sources_live/fm.liveswitch.js"></script>
 	<script src="sources_live/live.presentator.js"></script>
-	
+	<script>
+		$( document ).ready(function() {
+			menuLeft();
+			getRoleId();
+			getMetting();
+			console.log("Before PresentatorInit");
+			presentatorInit();
+			console.log("After PresentatorInit");
+		});
+	</script>
 	
 	<script>
-	function onBodyLoad(){ 
+		/*function onBodyLoad(){ 
 			document.addEventListener("deviceready", init, false);
 		}
 		
@@ -161,7 +162,7 @@
 			//Track an open event
 			gaPlugin.trackPage(function() {
 			}, errorHandler, "/livePresentator.html");
-		}
+		}*/
 	</script>
 </body>
 
