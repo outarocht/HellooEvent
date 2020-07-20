@@ -17,6 +17,9 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
+    "cordova-plugin-gm-sockets": {
+      "PACKAGE_NAME": "app.mobile.hellooEvent"
+    },
     "cordova-plugin-media-capture": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },

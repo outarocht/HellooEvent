@@ -21,12 +21,12 @@
     <plugin name="android-camera-permission" source="npm" spec="~1.0.0" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~3.0.3" />
     <plugin name="cordova-plugin-webrtc" source="npm" spec="~0.1.1" />
-    <plugin name="cordova-plugin-file" source="npm" spec="~6.0.2" />
-	
+    <plugin name="cordova-plugin-file" source="npm" spec="~6.0.2" />		
 	
     <plugin name="es6-promise-plugin" source="npm" spec="~4.2.2" />
     <plugin name="phonegap-plugin-media-stream" source="npm" spec="~1.2.1" />
     <plugin name="cordova-plugin-compat" source="npm" spec="~1.2.0" />
+    <plugin name="cordova-plugin-gm-sockets" source="npm" spec="~1.1.0" />
 	
 
     <access origin="*" />

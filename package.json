@@ -19,6 +19,7 @@
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-file": "^6.0.2",
+    "cordova-plugin-gm-sockets": "^1.1.0",
     "cordova-plugin-media-capture": "^3.0.3",
     "cordova-plugin-opentok-annotations": "^0.2.4",
     "cordova-plugin-splashscreen": "^5.0.4",
@@ -41,7 +42,8 @@
       "phonegap-plugin-media-stream": {},
       "cordova-plugin-file": {},
       "es6-promise-plugin": {},
-      "cordova-plugin-compat": {}
+      "cordova-plugin-compat": {},
+      "cordova-plugin-gm-sockets": {}
     },
     "platforms": [
       "android"

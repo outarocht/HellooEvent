@@ -104,5 +104,13 @@
     },
     "is_top_level": false,
     "variables": {}
+  },
+  "cordova-plugin-gm-sockets": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-gm-sockets"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

@@ -1,0 +1,62 @@
+{
+  "_from": "cordova-plugin-gm-sockets",
+  "_id": "cordova-plugin-gm-sockets@1.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-Y2MYzIiTk/MTh4HxT05iw+VJl4qlu1aQzTBHzKwXCUPVQSjl1ajXCIscm91wAy5ojUDmT1AUEBJ5P1/ztAgUSQ==",
+  "_location": "/cordova-plugin-gm-sockets",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-gm-sockets",
+    "name": "cordova-plugin-gm-sockets",
+    "escapedName": "cordova-plugin-gm-sockets",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-gm-sockets/-/cordova-plugin-gm-sockets-1.1.0.tgz",
+  "_shasum": "4bd7a2a5e7f99d432d28ca092e7e210a7e170e20",
+  "_spec": "cordova-plugin-gm-sockets",
+  "_where": "D:\\GitHub Android\\HellooEvent",
+  "author": {
+    "name": "blocshop"
+  },
+  "bugs": {
+    "url": "https://github.com/blocshop/sockets-for-cordova/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-gm-sockets",
+    "platforms": [
+      "android",
+      "ios",
+      "wp8"
+    ]
+  },
+  "deprecated": false,
+  "description": "This Cordova plugin provides JavaScript API, that allows you to communicate with server through TCP protocol.\n\t\tCurrently we support these platforms: iOS, Android, WP8.",
+  "homepage": "https://github.com/larssn/sockets-for-cordova#readme",
+  "keywords": [
+    "socket",
+    "sockets",
+    "network",
+    "tcp",
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-wp8"
+  ],
+  "license": "BSD-2-Clause",
+  "name": "cordova-plugin-gm-sockets",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bvx89/sockets-for-cordova.git"
+  },
+  "version": "1.1.0"
+}
