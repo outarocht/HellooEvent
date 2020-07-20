@@ -44,8 +44,7 @@
       "es6-promise-plugin": {},
       "cordova-plugin-compat": {},
       "cordova-plugin-chrome-apps-common": {},
-      "cordova-plugin-iosrtc": {},
-      "com.dooble.phonertc": {}
+      "cordova-plugin-iosrtc": {}
     },
     "platforms": [
       "android"

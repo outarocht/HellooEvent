@@ -21,8 +21,6 @@
     <plugin name="cordova-plugin-compat" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-chrome-apps-common" source="npm" spec="~1.0.7" />
     <plugin name="cordova-plugin-iosrtc" source="npm" spec="~6.0.12" />
-    <plugin name="com.dooble.phonertc" spec="~2.0.1" />
-
 
     <access origin="*" />
     <access origin="http://*" />

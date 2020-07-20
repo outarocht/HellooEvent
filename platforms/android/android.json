@@ -29,43 +29,27 @@
               "count": 1
             }
           ],
+          "application": [
+            {
+              "xml": "<provider android:authorities=\"${applicationId}.provider\" android:exported=\"false\" android:grantUriPermissions=\"true\" android:name=\"org.apache.cordova.camera.FileProvider\"><meta-data android:name=\"android.support.FILE_PROVIDER_PATHS\" android:resource=\"@xml/camera_provider_paths\" /></provider>",
+              "count": 1
+            }
+          ],
           "/manifest": [
             {
-              "xml": "<uses-feature android:name=\"android.hardware.camera\" />",
-              "count": 1
-            },
-            {
-              "xml": "<uses-feature android:name=\"android.hardware.camera.autofocus\" />",
-              "count": 1
-            },
-            {
-              "xml": "<uses-feature android:glEsVersion=\"0x00020000\" android:required=\"true\" />",
-              "count": 1
-            },
-            {
               "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-              "count": 2
-            },
-            {
-              "xml": "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\" />",
-              "count": 2
+              "count": 1
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.RECORD_AUDIO\" />",
-              "count": 2
-            },
-            {
-              "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
               "count": 1
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.CAMERA\" />",
-              "count": 2
-            }
-          ],
-          "application": [
+              "count": 1
+            },
             {
-              "xml": "<provider android:authorities=\"${applicationId}.provider\" android:exported=\"false\" android:grantUriPermissions=\"true\" android:name=\"org.apache.cordova.camera.FileProvider\"><meta-data android:name=\"android.support.FILE_PROVIDER_PATHS\" android:resource=\"@xml/camera_provider_paths\" /></provider>",
+              "xml": "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\" />",
               "count": 1
             }
           ]
@@ -74,10 +58,6 @@
       "res/xml/config.xml": {
         "parents": {
           "/*": [
-            {
-              "xml": "<feature name=\"PhoneRTCPlugin\"><param name=\"android-package\" value=\"com.dooble.phonertc.PhoneRTCPlugin\" /></feature>",
-              "count": 1
-            },
             {
               "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
               "count": 1
@@ -123,9 +103,6 @@
     "android-camera-permission": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
-    "com.dooble.phonertc": {
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    },
     "cordova-plugin-camera": {
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "app.mobile.hellooEvent"
@@ -163,14 +140,6 @@
   },
   "dependent_plugins": {},
   "modules": [
-    {
-      "id": "com.dooble.phonertc.PhoneRTC",
-      "file": "plugins/com.dooble.phonertc/www/phonertc.js",
-      "pluginId": "com.dooble.phonertc",
-      "clobbers": [
-        "cordova.plugins.phonertc"
-      ]
-    },
     {
       "id": "cordova-plugin-camera.Camera",
       "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
@@ -508,7 +477,6 @@
   ],
   "plugin_metadata": {
     "android-camera-permission": "1.0.0",
-    "com.dooble.phonertc": "2.0.1",
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-chrome-apps-common": "1.0.7",
     "cordova-plugin-device": "2.0.3",

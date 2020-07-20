@@ -1,14 +1,6 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
-      "id": "com.dooble.phonertc.PhoneRTC",
-      "file": "plugins/com.dooble.phonertc/www/phonertc.js",
-      "pluginId": "com.dooble.phonertc",
-      "clobbers": [
-        "cordova.plugins.phonertc"
-      ]
-    },
-    {
       "id": "cordova-plugin-camera.Camera",
       "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
       "pluginId": "cordova-plugin-camera",
@@ -345,7 +337,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
   ];
   module.exports.metadata = {
     "android-camera-permission": "1.0.0",
-    "com.dooble.phonertc": "2.0.1",
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-chrome-apps-common": "1.0.7",
     "cordova-plugin-device": "2.0.3",
