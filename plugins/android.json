@@ -10,6 +10,9 @@
     "android-camera-permission": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
+    "com.dooble.phonertc": {
+      "PACKAGE_NAME": "app.mobile.hellooEvent"
+    },
     "cordova-plugin-camera": {
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "app.mobile.hellooEvent"
@@ -27,9 +30,6 @@
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
     "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    },
-    "cordova-plugin-webrtc": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
     "cordova-plugin-whitelist": {

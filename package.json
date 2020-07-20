@@ -23,9 +23,9 @@
     "cordova-plugin-iosrtc": "^6.0.12",
     "cordova-plugin-media-capture": "^3.0.3",
     "cordova-plugin-opentok-annotations": "^0.2.4",
+    "cordova-plugin-phonertc": "^2.0.2",
     "cordova-plugin-splashscreen": "^5.0.4",
     "cordova-plugin-statusbar": "^2.4.3",
-    "cordova-plugin-webrtc": "^0.1.1",
     "cordova-plugin-whitelist": "^1.3.4",
     "es6-promise-plugin": "^4.2.2",
     "phonegap-plugin-media-stream": "^1.2.1"
@@ -39,13 +39,13 @@
       "cordova-plugin-whitelist": {},
       "android-camera-permission": {},
       "cordova-plugin-media-capture": {},
-      "cordova-plugin-webrtc": {},
       "phonegap-plugin-media-stream": {},
       "cordova-plugin-file": {},
       "es6-promise-plugin": {},
       "cordova-plugin-compat": {},
       "cordova-plugin-chrome-apps-common": {},
-      "cordova-plugin-iosrtc": {}
+      "cordova-plugin-iosrtc": {},
+      "com.dooble.phonertc": {}
     },
     "platforms": [
       "android"

@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
+      "id": "com.dooble.phonertc.PhoneRTC",
+      "file": "plugins/com.dooble.phonertc/www/phonertc.js",
+      "pluginId": "com.dooble.phonertc",
+      "clobbers": [
+        "cordova.plugins.phonertc"
+      ]
+    },
+    {
       "id": "cordova-plugin-camera.Camera",
       "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
       "pluginId": "cordova-plugin-camera",
@@ -321,14 +329,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-webrtc.WebRTC",
-      "file": "plugins/cordova-plugin-webrtc/dist/webrtc.js",
-      "pluginId": "cordova-plugin-webrtc",
-      "clobbers": [
-        "webrtc"
-      ]
-    },
-    {
       "id": "es6-promise-plugin.Promise",
       "file": "plugins/es6-promise-plugin/www/promise.js",
       "pluginId": "es6-promise-plugin",
@@ -345,6 +345,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
   ];
   module.exports.metadata = {
     "android-camera-permission": "1.0.0",
+    "com.dooble.phonertc": "2.0.1",
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-chrome-apps-common": "1.0.7",
     "cordova-plugin-device": "2.0.3",
@@ -353,7 +354,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-media-capture": "3.0.3",
     "cordova-plugin-splashscreen": "5.0.4",
     "cordova-plugin-statusbar": "2.4.3",
-    "cordova-plugin-webrtc": "0.1.1",
     "cordova-plugin-whitelist": "1.3.4",
     "es6-promise-plugin": "4.2.2",
     "phonegap-plugin-media-stream": "1.2.1"
