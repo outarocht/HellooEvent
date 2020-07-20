@@ -19,8 +19,6 @@
     <plugin name="cordova-plugin-compat" source="npm" spec="~1.2.0" />
     <plugin name="es6-promise-plugin" source="npm" spec="~4.2.2" />
     <plugin name="phonegap-plugin-media-stream" source="npm" spec="~1.2.1" />
-	<plugin name="cordova-plugin-chrome-apps-common" source="npm" spec="~1.0.7" />
-	<plugin name="cordova-plugin-iosrtc" source="npm" spec="~6.0.12" />
     <access origin="*" />
     <access origin="http://*" />
     <access origin="https://*" />

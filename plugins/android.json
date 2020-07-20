@@ -14,13 +14,7 @@
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
-    "cordova-plugin-chrome-apps-common": {
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "app.mobile.hellooEvent"
-    },
-    "cordova-plugin-iosrtc": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
     "cordova-plugin-media-capture": {
