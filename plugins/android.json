@@ -14,10 +14,10 @@
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
-    "cordova-plugin-device": {
+    "cordova-plugin-chrome-apps-sockets-udp": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
-    "cordova-plugin-gm-sockets": {
+    "cordova-plugin-device": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
     "cordova-plugin-media-capture": {
@@ -40,6 +40,9 @@
     }
   },
   "dependent_plugins": {
+    "cordova-plugin-chrome-apps-common": {
+      "PACKAGE_NAME": "app.mobile.hellooEvent"
+    },
     "cordova-plugin-file": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },

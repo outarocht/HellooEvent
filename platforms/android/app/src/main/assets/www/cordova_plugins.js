@@ -33,6 +33,37 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-chrome-apps-common.events",
+      "file": "plugins/cordova-plugin-chrome-apps-common/events.js",
+      "pluginId": "cordova-plugin-chrome-apps-common",
+      "clobbers": [
+        "chrome.Event"
+      ]
+    },
+    {
+      "id": "cordova-plugin-chrome-apps-common.errors",
+      "file": "plugins/cordova-plugin-chrome-apps-common/errors.js",
+      "pluginId": "cordova-plugin-chrome-apps-common"
+    },
+    {
+      "id": "cordova-plugin-chrome-apps-common.stubs",
+      "file": "plugins/cordova-plugin-chrome-apps-common/stubs.js",
+      "pluginId": "cordova-plugin-chrome-apps-common"
+    },
+    {
+      "id": "cordova-plugin-chrome-apps-common.helpers",
+      "file": "plugins/cordova-plugin-chrome-apps-common/helpers.js",
+      "pluginId": "cordova-plugin-chrome-apps-common"
+    },
+    {
+      "id": "cordova-plugin-chrome-apps-sockets-udp.sockets.udp",
+      "file": "plugins/cordova-plugin-chrome-apps-sockets-udp/sockets.udp.js",
+      "pluginId": "cordova-plugin-chrome-apps-sockets-udp",
+      "clobbers": [
+        "chrome.sockets.udp"
+      ]
+    },
+    {
       "id": "cordova-plugin-device.device",
       "file": "plugins/cordova-plugin-device/www/device.js",
       "pluginId": "cordova-plugin-device",
@@ -214,14 +245,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
-      "id": "cordova-plugin-gm-sockets.Socket",
-      "file": "plugins/cordova-plugin-gm-sockets/socket.js",
-      "pluginId": "cordova-plugin-gm-sockets",
-      "clobbers": [
-        "window.Socket"
-      ]
-    },
-    {
       "id": "cordova-plugin-media-capture.CaptureAudioOptions",
       "file": "plugins/cordova-plugin-media-capture/www/CaptureAudioOptions.js",
       "pluginId": "cordova-plugin-media-capture",
@@ -331,9 +354,10 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports.metadata = {
     "android-camera-permission": "1.0.0",
     "cordova-plugin-camera": "4.1.0",
+    "cordova-plugin-chrome-apps-common": "1.0.7",
+    "cordova-plugin-chrome-apps-sockets-udp": "1.3.0",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-file": "6.0.2",
-    "cordova-plugin-gm-sockets": "1.1.0",
     "cordova-plugin-media-capture": "3.0.3",
     "cordova-plugin-splashscreen": "5.0.4",
     "cordova-plugin-statusbar": "2.4.3",
