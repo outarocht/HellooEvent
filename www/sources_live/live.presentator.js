@@ -137,19 +137,17 @@ console.log("connected to channel: " + channel);
 				//Add a trigger when a user Leave or Join
 				addTriggerOnUserJoinAndLeave();				
 			}).fail(function(ex){
-				alert('Registration failed');
-				$("#liveDebug").append("registration failed");
-				$("#liveDebug").append(ex);
+				
 				console.log("registration failed");
 			});
 				
 			//Capture localMedia
 			localMedia.start().then(function(lm){
 				console.log("media capture started");	
-				$("#liveDebug").append('localMedia Start !');			
+				//$("#liveDebug").append('localMedia Start !');			
 			}).fail(function(ex) {
-				alert('localMedia Error !');
-								console.log(ex.message);
+				//alert('localMedia Error !');
+				console.log(ex.message);
 			});
 				
 			//Handle FullScreen
@@ -220,7 +218,7 @@ console.log(localMedia._internal._videoConstraints);
 		
 			//Disconnect a user
 			$("#userDisconnectBtn").click(function(){
-alert('user disconnect');
+
 				client.unregister().then(function(result){
 					stop();
 					console.log("unregistration succeeded");
@@ -231,7 +229,7 @@ alert('user disconnect');
 								
 			//Clear everything before unload the page
 			$(window).on('beforeunload', () => {
-alert('beforeUnload');
+
 				client.unregister();
 				layoutManager.unsetLocalView();
 				localMedia.stop();
@@ -239,7 +237,7 @@ alert('beforeUnload');
 			
 			//Function that we have to close specific elements after the chat is finished
 			var stop = function () {
-alert("Stop function");
+
 				// Stop the local media.
 				fm.liveswitch.Log.info('Stopping local media...');
 				localMedia.stop();
@@ -345,7 +343,7 @@ alert("Stop function");
 					exitFullScreen();
 				}
 			});			
-alert('30');
+
 			// Put video element into fullscreen.
 			var enterFullScreen = function(){
 				if(video.requestFullscreen){
