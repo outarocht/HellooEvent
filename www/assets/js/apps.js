@@ -267,19 +267,19 @@ function add_metting(){
 								data: sendingDataClose,
 								dataType: 'html',
 								success: function (data) {
-									window.location.href = "live_presentator.html";
+									$(location).attr('href', 'live_presentator.html')
 								}
 							});
 						},
 						Non: function () {
-							window.location.href = "live_presentator.html";
+							$(location).attr('href', 'live_presentator.html')
 						}
 					}
 				});
 			}
 			
 			if(data.return == 1){
-				window.location.href = "live_presentator.html";
+				$(location).attr('href', 'live_presentator.html')
 			}
         }
      });
