@@ -51,7 +51,7 @@
 				frameRate: 30
 			};*/
 			
-			var localMediaAudio = false;
+			var localMediaAudio = true;
 			var localMediaVideo = {
 				facingMode: 'user' // use the front camera
 			};
