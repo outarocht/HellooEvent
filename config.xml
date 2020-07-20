@@ -3,7 +3,6 @@
 	id="app.mobile.hellooEvent" 
 	version="1.0.0" 
 	versionCode="001" 
-	android-versionCode="8.1" 
 	xmlns="http://www.w3.org/ns/widgets" 
 	xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>HellooEvent</name>
@@ -23,6 +22,13 @@
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~3.0.3" />
     <plugin name="cordova-plugin-webrtc" source="npm" spec="~0.1.1" />
     <plugin name="cordova-plugin-file" source="npm" spec="~6.0.2" />
+	
+	
+    <plugin name="es6-promise-plugin" source="npm" spec="~4.2.2" />
+    <plugin name="phonegap-plugin-media-stream" source="npm" spec="~1.2.1" />
+    <plugin name="cordova-plugin-compat" source="npm" spec="~1.2.0" />
+	
+
     <access origin="*" />
     <access origin="http://*" />
     <access origin="https://*" />
