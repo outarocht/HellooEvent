@@ -96,5 +96,21 @@
     },
     "is_top_level": false,
     "variables": {}
+  },
+  "cordova-plugin-chrome-apps-common": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-chrome-apps-common"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-iosrtc": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-iosrtc"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

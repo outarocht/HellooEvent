@@ -16,9 +16,11 @@
     "android-camera-permission": "^1.0.0",
     "cordova-android": "^8.1.0",
     "cordova-plugin-camera": "^4.1.0",
+    "cordova-plugin-chrome-apps-common": "^1.0.7",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-file": "^6.0.2",
+    "cordova-plugin-iosrtc": "^6.0.12",
     "cordova-plugin-media-capture": "^3.0.3",
     "cordova-plugin-opentok-annotations": "^0.2.4",
     "cordova-plugin-phonertc": "^2.0.2",
@@ -40,7 +42,9 @@
       "cordova-plugin-file": {},
       "phonegap-plugin-media-stream": {},
       "cordova-plugin-compat": {},
-      "es6-promise-plugin": {}
+      "es6-promise-plugin": {},
+      "cordova-plugin-chrome-apps-common": {},
+      "cordova-plugin-iosrtc": {}
     },
     "platforms": [
       "android"
