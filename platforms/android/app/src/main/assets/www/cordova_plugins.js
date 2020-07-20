@@ -56,14 +56,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "pluginId": "cordova-plugin-chrome-apps-common"
     },
     {
-      "id": "cordova-plugin-chrome-apps-sockets-udp.sockets.udp",
-      "file": "plugins/cordova-plugin-chrome-apps-sockets-udp/sockets.udp.js",
-      "pluginId": "cordova-plugin-chrome-apps-sockets-udp",
-      "clobbers": [
-        "chrome.sockets.udp"
-      ]
-    },
-    {
       "id": "cordova-plugin-device.device",
       "file": "plugins/cordova-plugin-device/www/device.js",
       "pluginId": "cordova-plugin-device",
@@ -355,9 +347,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "android-camera-permission": "1.0.0",
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-chrome-apps-common": "1.0.7",
-    "cordova-plugin-chrome-apps-sockets-udp": "1.3.0",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-file": "6.0.2",
+    "cordova-plugin-iosrtc": "6.0.12",
     "cordova-plugin-media-capture": "3.0.3",
     "cordova-plugin-splashscreen": "5.0.4",
     "cordova-plugin-statusbar": "2.4.3",
