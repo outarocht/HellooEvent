@@ -129,7 +129,7 @@
     <!-- Bootstrap-->
 	
 	
-	<script type="text/javascript" src="cordova.js"></script>
+	<!-- <script type="text/javascript" src="cordova.js"></script> -->
 	
 	<script src="sources_live/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
@@ -146,8 +146,6 @@
 	<script src="sources_live/fm.liveswitch.js"></script>
 	<script src="sources_live/live.presentator.js"></script>
 	<script>
-		//document.addEventListener("deviceready", initLocal, false);
-		
 		
 		$( document ).ready(function() {
 			document.addEventListener("deviceready", onDeviceReady, false);
@@ -162,7 +160,12 @@
 		function onDeviceReady() {
 			presentatorInit();
 		}
-
+		
+		
+		onDeviceReady();
+		menuLeft();
+		getRoleId();
+		getMetting();
 	</script>
 	
 	<script>
