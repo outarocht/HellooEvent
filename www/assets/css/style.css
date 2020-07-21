@@ -10784,5 +10784,13 @@ a.text-dark {
 	/* height: 310px;    width: auto; */
 	margin : 0 auto;
 	height: 310px;
-    
+	margin: 0 auto;
+    height: 345px;
+    background-color: #000;
+    margin-top: -3px; 
+}
+
+.icon-visitor {
+	color: #fff;
+    font-size: 26px;
 }
