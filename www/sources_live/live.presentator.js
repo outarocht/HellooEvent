@@ -2,7 +2,8 @@
 	function presentatorInit(){
 			//var app;
 			var channel;
-		
+			var idMeeting 	= $("#idMeeting").val();
+			var nameUser 	= $("#nameUser").val();
 			//Library Loader
 			/*fm.liveswitch.Util.addOnLoad(() => {	
 				//Create new App.
@@ -19,7 +20,7 @@
 			
 			//Register a provider
 			fm.liveswitch.Log.registerProvider(new fm.liveswitch.ConsoleLogProvider(fm.liveswitch.LogLevel.Debug));
-
+			
 			//Connection to the Channel
 			var applicationId = "b73a1830-0808-407b-bd22-e72d7b8b18b6";
 			var userId = "User Presentator Name";
@@ -86,7 +87,7 @@
 
 				
 				channel = channels[0];
-console.log("connected to channel: " + channel);
+
 			
 				
 				//Create MCU
@@ -130,9 +131,9 @@ console.log("connected to channel: " + channel);
 					var n = client.getUserId();
 					incomingMessage(n, message);
 				});			
-		
+				
 				//Write a message that the user has joined the channel
-				writeMessage('<b>Vous avez rejoint la conférence n° ' + channel.getId() + ' en tant que ' + userId + '.</b>');
+				writeMessage('<div class="join-meeting">Vous avez démarré la conférence <b>n° ' + idMeeting + '</b> en tant que <strong>' + nameUser + '</strong>.</div>');
 				
 				//Add a trigger when a user Leave or Join
 				addTriggerOnUserJoinAndLeave();				
@@ -218,9 +219,10 @@ console.log(localMedia._internal._videoConstraints);
 		
 			//Disconnect a user
 			$("#userDisconnectBtn").click(function(){
-
+alert("aaaa");
 				client.unregister().then(function(result){
 					stop();
+					disconnect_live();
 					console.log("unregistration succeeded");
 				}).fail(function(ex){
 					console.log("unregistration failed");
@@ -279,20 +281,21 @@ console.log(localMedia._internal._videoConstraints);
 					}
 				}				
 			};
-			
+			//var idMeeting 	= $("#idMeeting").val();
+			//var nameUser 	= $("#nameUser").val();
 			//Function to write a message
 			var incomingMessage = function (name, message) {
-				writeMessage('<b>' + name + ':</b> ' + message);
+				writeMessage('<div class="chatt-msg"><span style="color: #000;"><b>' + nameUser + '</b></span><br /> ' + message+'</div>');
 			};
 			
 			//Someone left the channel
 			var peerLeft = function (name, string) {
-				writeMessage('<font color="red">* <b>' + name + '</b> a quitté la conférence !</font>')
+				writeMessage('<font color="red">* <b>' + nameUser + '</b> a quitté la conférence !</font>')
 			};
 
 			//Someone joined the channel
 			var peerJoined = function (name, string) {
-				writeMessage('<font color="green">* <b>' + name + '</b> a rejoint la conférence !</font>');
+				writeMessage('<font color="green">* <b>' + nameUser + '</b> a rejoint la conférence !</font>');
 			};
 
 			//Write a message in the chatContainer

@@ -10794,3 +10794,30 @@ a.text-dark {
 	color: #fff;
     font-size: 26px;
 }
+
+.join-meeting {
+    padding-left: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.chatt-msg {
+	background-color: #cccccc45;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: auto;
+    padding: 10px;
+    display: inline-block;
+    clear: both;
+}
+
+#sendInput{
+	overflow: hidden;
+    margin-right: 10px;
+    margin-top: -2px;
+}
+
+#sendButton {
+	background: #fcba04 !important;	
+	
+}
