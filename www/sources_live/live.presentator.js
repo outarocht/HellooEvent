@@ -2,8 +2,7 @@
 	function presentatorInit(){
 			//var app;
 			var channel;
-			var idMeeting 	= $("#idMeeting").val();
-			var nameUser 	= $("#nameUser").val();
+			
 			//Library Loader
 			/*fm.liveswitch.Util.addOnLoad(() => {	
 				//Create new App.
@@ -131,7 +130,8 @@
 					var n = client.getUserId();
 					incomingMessage(n, message);
 				});			
-				
+				var idMeeting 	= $("#idMeeting").val();
+				var nameUser 	= $("#nameUser").val();
 				//Write a message that the user has joined the channel
 				writeMessage('<div class="join-meeting">Vous avez démarré la conférence <b>n° ' + idMeeting + '</b> en tant que <strong>' + nameUser + '</strong>.</div>');
 				
@@ -281,21 +281,24 @@ console.log(localMedia._internal._videoConstraints);
 					}
 				}				
 			};
-			//var idMeeting 	= $("#idMeeting").val();
-			//var nameUser 	= $("#nameUser").val();
+			
+			
 			//Function to write a message
-			var incomingMessage = function (name, message) {
-				writeMessage('<div class="chatt-msg"><span style="color: #000;"><b>' + nameUser + '</b></span><br /> ' + message+'</div>');
+			var incomingMessage = function (name, message) { 
+				var nameUser 	= $("#nameUser").val();
+				writeMessage('<div style="background-color:#cccccced; margin-left: 10px;border-radius: 10px;width: auto;padding: 10px;display: inline-block;  clear: both;"><span style="color: #000;"><b>' + nameUser + '</b></span><br /> ' + message+'</div>');
 			};
 			
 			//Someone left the channel
 			var peerLeft = function (name, string) {
-				writeMessage('<font color="red">* <b>' + nameUser + '</b> a quitté la conférence !</font>')
+				var nameUser 	= $("#nameUser").val();
+				writeMessage('<div style="color:red"> <b>' + nameUser + '</b> a quitté la conférence !</div>')
 			};
 
 			//Someone joined the channel
 			var peerJoined = function (name, string) {
-				writeMessage('<font color="green">* <b>' + nameUser + '</b> a rejoint la conférence !</font>');
+				var nameUser 	= $("#nameUser").val();
+				writeMessage('<div style="color:green"> <b>' + nameUser + '</b> a rejoint la conférence !</div>');
 			};
 
 			//Write a message in the chatContainer
