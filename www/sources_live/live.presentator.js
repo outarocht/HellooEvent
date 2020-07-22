@@ -219,7 +219,7 @@ console.log(localMedia._internal._videoConstraints);
 		
 			//Disconnect a user
 			$("#userDisconnectBtn").click(function(){
-alert("aaaa");
+
 				client.unregister().then(function(result){
 					stop();
 					disconnect_live();
