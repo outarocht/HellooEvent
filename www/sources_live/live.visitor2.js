@@ -258,7 +258,7 @@ console.log("connected to channel: " + channel);
 			
 			//Function to write a message
 			var incomingMessage = function (name, message) {
-				writeMessage('<div style="background-color:#cccccced; margin-left: 10px;border-radius: 10px;width: auto;padding: 10px;display: inline-block;  clear: both;"><span style="color: #000;"><b>' + name + '</b></span><br /> ' + message+'</div>');
+				writeMessage('<div style="background-color:#ccc; margin-left: 10px;border-radius: 10px;width: auto;padding: 10px;display: inline-block;  clear: both;"><span style="color: #000;"><b>' + name + '</b></span><br /> ' + message+'</div>');
 			};
 			
 			//Someone left the channel
