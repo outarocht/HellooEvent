@@ -53,6 +53,7 @@
     <div id="appCapsule">
 
 		<input type="hidden" id="idMeeting" value="" />
+		<input type="hidden" id="nameUser" value="" />
 		<div id="msg-error"></div>
         <div id="pageContainer" style="width: 100%;">
 		
@@ -155,6 +156,7 @@
 			menuLeft();
 			getRoleId();
 			getMetting();
+			getUserLive();
 		});
 		
 		function onDeviceReady() {

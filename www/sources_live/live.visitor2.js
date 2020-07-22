@@ -150,8 +150,10 @@ console.log("connected to channel: " + channel);
 					incomingMessage(n, message);
 				});	
 
+				var idMeeting 	= $("#idMeeting").val();
+				var nameUser 	= $("#nameUser").val();
 				//Write a message that the user has joined the channel
-				writeMessage('<b>Vous avez rejoint la conférence n° ' + channel.getId() + ' en tant que ' + userId + '.</b>');
+				writeMessage('<b>Vous avez rejoint la conférence n° ' + idMeeting + ' en tant que ' + nameUser + '.</b>');
 				
 				//Add a trigger when a user Leave or Join
 				addTriggerOnUserJoinAndLeave();
@@ -256,17 +258,20 @@ console.log("connected to channel: " + channel);
 			
 			//Function to write a message
 			var incomingMessage = function (name, message) {
-				writeMessage('<b>' + name + ':</b> ' + message);
+				var nameUser 	= $("#nameUser").val();
+				writeMessage('<div style="background-color:#cccccced; margin-left: 10px;border-radius: 10px;width: auto;padding: 10px;display: inline-block;  clear: both;"><span style="color: #000;"><b>' + nameUser + '</b></span><br /> ' + message+'</div>');
 			};
 			
 			//Someone left the channel
 			var peerLeft = function (name, string) {
-				writeMessage('<font color="red">* <b>' + name + '</b> a quitté la conférence !</font>')
+				var nameUser 	= $("#nameUser").val();
+				writeMessage('<div style="color:red;padding-left: 10px;"> <b>' + nameUser + '</b> a quitté la conférence !</div>');
 			};
 
 			//Someone joined the channel
 			var peerJoined = function (name, string) {
-				writeMessage('<font color="green">* <b>' + name + '</b> a rejoint la conférence !</font>');
+				var nameUser 	= $("#nameUser").val();
+				writeMessage('<div style="color:green;padding-left: 10px;"> <b>' + nameUser + '</b> a rejoint la conférence !</div>');
 			};
 
 			//Write a message in the chatContainer

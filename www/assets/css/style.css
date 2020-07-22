@@ -10801,8 +10801,16 @@ a.text-dark {
     text-align: center;
 }
 
+.close-conf {
+	color:red;padding-left: 10px;
+}
+
+.joined-conf {
+	color:green;padding-left: 10px;
+}
+
 .chatt-msg {
-	background-color: #cccccc45;
+	background-color: #cccccced;
     margin-left: 10px;
     border-radius: 10px;
     width: auto;

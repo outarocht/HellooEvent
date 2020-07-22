@@ -286,19 +286,19 @@ console.log(localMedia._internal._videoConstraints);
 			//Function to write a message
 			var incomingMessage = function (name, message) { 
 				var nameUser 	= $("#nameUser").val();
-				writeMessage('<div style="background-color:#cccccced; margin-left: 10px;border-radius: 10px;width: auto;padding: 10px;display: inline-block;  clear: both;"><span style="color: #000;"><b>' + nameUser + '</b></span><br /> ' + message+'</div>');
+				writeMessage('<div class="chatt-msg"><span style="color: #000;"><b>' + nameUser + '</b></span><br /> ' + message+'</div>');
 			};
 			
 			//Someone left the channel
 			var peerLeft = function (name, string) {
 				var nameUser 	= $("#nameUser").val();
-				writeMessage('<div style="color:red"> <b>' + nameUser + '</b> a quitté la conférence !</div>')
+				writeMessage('<div class="close-conf"> <b>' + nameUser + '</b> a quitté la conférence !</div>');
 			};
 
 			//Someone joined the channel
 			var peerJoined = function (name, string) {
 				var nameUser 	= $("#nameUser").val();
-				writeMessage('<div style="color:green"> <b>' + nameUser + '</b> a rejoint la conférence !</div>');
+				writeMessage('<div class="joined-conf"> <b>' + nameUser + '</b> a rejoint la conférence !</div>');
 			};
 
 			//Write a message in the chatContainer
