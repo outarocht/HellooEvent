@@ -22,7 +22,7 @@
 			
 			//Connection to the Channel
 			var applicationId = "b73a1830-0808-407b-bd22-e72d7b8b18b6";
-			var userId = "User Presentator Name";
+			var userId = $("#nameUser").val();
 			var userAlias = "User-presentator-alias";
 			var deviceId = "01010101-0101-0101-010101010101";
 			var channelId = "11111111-1111-1111-1111-111111111111";
