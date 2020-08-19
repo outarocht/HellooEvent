@@ -31,6 +31,9 @@
     },
     "phonegap-plugin-media-stream": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
+    },
+    "pushbots-cordova-plugin": {
+      "PACKAGE_NAME": "app.mobile.hellooEvent"
     }
   },
   "dependent_plugins": {

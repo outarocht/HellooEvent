@@ -52,20 +52,23 @@
     <!-- App Capsule -->
     <div id="appCapsule">
 
-		<input type="hidden" id="idMeeting" value="" />
+		
 		<div id="msg-error"></div>
         <div id="pageContainer" style="width: 100%;">
 		
 		<div id="videoCanvas">
 		</div>
 		<div id="video">
-			<a href="#" id="fullscreenBtn"><i id="fullscreen-icon" class="fa fa-expand"></i></a>
+			<div style="float:right;float:right;margin-right: 10px;margin-top: 7px;">
+				<a href="#" id="fullscreenBtn"> <i class="fas fa-arrows-alt icon-visitor" ></i> </a>
+				<a href="#" id="#camera"> <i class="fas fa-retweet icon-visitor" ></i> </a>
+				<a  id="userDisconnectBtn" href="javascript:void(0)"> <i class="fas fa-sign-out-alt icon-visitor" ></i> </a>
+			</div>
 		</div>
 		<br />
 		<div id="participants"></div>
 		
 		<!-- Chat content -->
-		<div class="row"><br /></div>
 		<div class="row" style="height:400px;">
 			<div class="col-md-11" style="height:100%">
 				<div class="well" id="chatContent" style="height:100%;overflow-y:scroll;"></div>
@@ -75,10 +78,7 @@
 			
 		</div>
 		
-		<br />
-		<br />
-		<br />
-		<div id="liveDebug"></div>
+		
 	</div>
 	
 	
@@ -90,7 +90,7 @@
 				<div class="input-group">
 					<input id="sendInput" type="text" class="form-control" placeholder="Message...">
 					<span class="input-group-btn">
-						<button id="sendButton" class="btn btn-default" type="button">Send</button>
+						<button id="sendButton" class="btn btn-default" fcba04   type="button">Send</button>
 						<br />
 					</span>
 				</div>
@@ -114,6 +114,8 @@
         </a>-->
        
     </div>
+	<input type="hidden" id="idMeeting" value="" />
+	<input type="hidden" id="nameUser" value="" />
     <!-- * App Capsule -->
 	
     <!-- App Sidebar -->
@@ -129,7 +131,7 @@
     <!-- Bootstrap-->
 	
 	
-	<script type="text/javascript" src="cordova.js"></script>
+	<!-- <script type="text/javascript" src="cordova.js"></script> -->
 	
 	<script src="sources_live/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
@@ -146,23 +148,21 @@
 	<script src="sources_live/fm.liveswitch.js"></script>
 	<script src="sources_live/live.presentator.js"></script>
 	<script>
-		//document.addEventListener("deviceready", initLocal, false);
-		
 		
 		$( document ).ready(function() {
 			document.addEventListener("deviceready", onDeviceReady, false);
-			//onDeviceReady();
+			onDeviceReady();
 			
 			menuLeft();
 			getRoleId();
 			getMetting();
-			
+			getUserLive();
 		});
 		
 		function onDeviceReady() {
 			presentatorInit();
 		}
-
+		
 	</script>
 	
 	<script>

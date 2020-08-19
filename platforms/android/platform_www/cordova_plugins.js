@@ -310,6 +310,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "navigator.mediaDevices"
       ]
+    },
+    {
+      "id": "pushbots-cordova-plugin.PushbotsPlugin",
+      "file": "plugins/pushbots-cordova-plugin/www/pushbots.js",
+      "pluginId": "pushbots-cordova-plugin",
+      "clobbers": [
+        "PushbotsPlugin"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -322,6 +330,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-statusbar": "2.4.3",
     "cordova-plugin-whitelist": "1.3.4",
     "es6-promise-plugin": "4.2.2",
-    "phonegap-plugin-media-stream": "1.2.1"
+    "phonegap-plugin-media-stream": "1.2.1",
+    "pushbots-cordova-plugin": "1.6.15-rc8"
   };
 });

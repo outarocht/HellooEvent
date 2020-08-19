@@ -51,6 +51,16 @@
             {
               "xml": "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\" />",
               "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+              "count": 1
+            }
+          ],
+          "/manifest/application": [
+            {
+              "xml": "<receiver android:name=\"com.pushbots.plugin.PushHandler\" />",
+              "count": 1
             }
           ]
         }
@@ -94,6 +104,12 @@
               "xml": "<feature name=\"MediaStreams\"><param name=\"android-package\" value=\"com.adobe.phonegap.media.MediaStreamsPlugin\" /></feature>",
               "count": 1
             }
+          ],
+          "/widget": [
+            {
+              "xml": "<feature name=\"PushbotsPlugin\"><param name=\"android-package\" value=\"com.pushbots.plugin.PushbotsPlugin\" /></feature>",
+              "count": 1
+            }
           ]
         }
       }
@@ -129,6 +145,9 @@
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     },
     "phonegap-plugin-media-stream": {
+      "PACKAGE_NAME": "app.mobile.hellooEvent"
+    },
+    "pushbots-cordova-plugin": {
       "PACKAGE_NAME": "app.mobile.hellooEvent"
     }
   },
@@ -444,6 +463,14 @@
       "clobbers": [
         "navigator.mediaDevices"
       ]
+    },
+    {
+      "id": "pushbots-cordova-plugin.PushbotsPlugin",
+      "file": "plugins/pushbots-cordova-plugin/www/pushbots.js",
+      "pluginId": "pushbots-cordova-plugin",
+      "clobbers": [
+        "PushbotsPlugin"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -456,6 +483,7 @@
     "cordova-plugin-statusbar": "2.4.3",
     "cordova-plugin-whitelist": "1.3.4",
     "es6-promise-plugin": "4.2.2",
-    "phonegap-plugin-media-stream": "1.2.1"
+    "phonegap-plugin-media-stream": "1.2.1",
+    "pushbots-cordova-plugin": "1.6.15-rc8"
   }
 }

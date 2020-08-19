@@ -146,6 +146,24 @@ function getUser(){
      });
 }
 
+function getUserLive(){
+	var userConnected = sessionStorage.getItem("userConnected");
+	var sendingData = {
+	   action		: "getUser",
+	   userConnected: userConnected
+	}
+	 $.ajax({
+		type: 'POST',
+        async:false,
+		url: 'https://hellooevent.com/partials/class.controller.php',		
+		data: sendingData,
+        dataType: 'json',
+        success: function (data) {
+			$("#nameUser").val(data.last_name+' '+data.first_name);
+		}
+     });
+}
+
 function update_full_name(){
 	var userConnected = sessionStorage.getItem("userConnected");
 	
@@ -267,19 +285,19 @@ function add_metting(){
 								data: sendingDataClose,
 								dataType: 'html',
 								success: function (data) {
-									window.location.href = "live_presentator.html";
+									$(location).attr('href', 'live_presentator.html')
 								}
 							});
 						},
 						Non: function () {
-							window.location.href = "live_presentator.html";
+							$(location).attr('href', 'live_presentator.html')
 						}
 					}
 				});
 			}
 			
 			if(data.return == 1){
-				window.location.href = "live_presentator.html";
+				$(location).attr('href', 'live_presentator.html')
 			}
         }
      });

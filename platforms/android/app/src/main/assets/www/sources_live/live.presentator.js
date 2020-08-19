@@ -2,7 +2,7 @@
 	function presentatorInit(){
 			//var app;
 			var channel;
-		
+			
 			//Library Loader
 			/*fm.liveswitch.Util.addOnLoad(() => {	
 				//Create new App.
@@ -19,10 +19,11 @@
 			
 			//Register a provider
 			fm.liveswitch.Log.registerProvider(new fm.liveswitch.ConsoleLogProvider(fm.liveswitch.LogLevel.Debug));
-
+			var name = $("#nameUser").val();
+			alert(name);
 			//Connection to the Channel
 			var applicationId = "b73a1830-0808-407b-bd22-e72d7b8b18b6";
-			var userId = "User Presentator Name";
+			var userId = name;
 			var userAlias = "User-presentator-alias";
 			var deviceId = "01010101-0101-0101-010101010101";
 			var channelId = "11111111-1111-1111-1111-111111111111";
@@ -86,7 +87,7 @@
 
 				
 				channel = channels[0];
-console.log("connected to channel: " + channel);
+
 			
 				
 				//Create MCU
@@ -130,26 +131,25 @@ console.log("connected to channel: " + channel);
 					var n = client.getUserId();
 					incomingMessage(n, message);
 				});			
-		
+				var idMeeting 	= $("#idMeeting").val();
+				var nameUser 	= $("#nameUser").val();
 				//Write a message that the user has joined the channel
-				writeMessage('<b>Vous avez rejoint la conférence n° ' + channel.getId() + ' en tant que ' + userId + '.</b>');
+				writeMessage('<div class="join-meeting">Vous avez démarré la conférence <b>n° ' + idMeeting + '</b> en tant que <strong>' + nameUser + '</strong>.</div>');
 				
 				//Add a trigger when a user Leave or Join
 				addTriggerOnUserJoinAndLeave();				
 			}).fail(function(ex){
-				alert('Registration failed');
-				$("#liveDebug").append("registration failed");
-				$("#liveDebug").append(ex);
+				
 				console.log("registration failed");
 			});
 				
 			//Capture localMedia
 			localMedia.start().then(function(lm){
 				console.log("media capture started");	
-				$("#liveDebug").append('localMedia Start !');			
+				//$("#liveDebug").append('localMedia Start !');			
 			}).fail(function(ex) {
-				alert('localMedia Error !');
-								console.log(ex.message);
+				//alert('localMedia Error !');
+				console.log(ex.message);
 			});
 				
 			//Handle FullScreen
@@ -220,9 +220,10 @@ console.log(localMedia._internal._videoConstraints);
 		
 			//Disconnect a user
 			$("#userDisconnectBtn").click(function(){
-alert('user disconnect');
+
 				client.unregister().then(function(result){
 					stop();
+					disconnect_live();
 					console.log("unregistration succeeded");
 				}).fail(function(ex){
 					console.log("unregistration failed");
@@ -231,7 +232,7 @@ alert('user disconnect');
 								
 			//Clear everything before unload the page
 			$(window).on('beforeunload', () => {
-alert('beforeUnload');
+
 				client.unregister();
 				layoutManager.unsetLocalView();
 				localMedia.stop();
@@ -239,7 +240,7 @@ alert('beforeUnload');
 			
 			//Function that we have to close specific elements after the chat is finished
 			var stop = function () {
-alert("Stop function");
+
 				// Stop the local media.
 				fm.liveswitch.Log.info('Stopping local media...');
 				localMedia.stop();
@@ -282,19 +283,20 @@ alert("Stop function");
 				}				
 			};
 			
+			
 			//Function to write a message
-			var incomingMessage = function (name, message) {
-				writeMessage('<b>' + name + ':</b> ' + message);
+			var incomingMessage = function (name, message) { 
+				writeMessage('<div class="chatt-msg"><span style="color: #000;"><b>' + name + '</b></span><br /> ' + message+'</div>');
 			};
 			
 			//Someone left the channel
 			var peerLeft = function (name, string) {
-				writeMessage('<font color="red">* <b>' + name + '</b> a quitté la conférence !</font>')
+				writeMessage('<div class="close-conf"> <b>' + name + '</b> a quitté la conférence !</div>');
 			};
 
 			//Someone joined the channel
 			var peerJoined = function (name, string) {
-				writeMessage('<font color="green">* <b>' + name + '</b> a rejoint la conférence !</font>');
+				writeMessage('<div class="joined-conf"> <b>' + name + '</b> a rejoint la conférence !</div>');
 			};
 
 			//Write a message in the chatContainer
@@ -345,7 +347,7 @@ alert("Stop function");
 					exitFullScreen();
 				}
 			});			
-alert('30');
+
 			// Put video element into fullscreen.
 			var enterFullScreen = function(){
 				if(video.requestFullscreen){
