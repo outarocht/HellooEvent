@@ -20,7 +20,7 @@
     <plugin name="es6-promise-plugin" source="npm" spec="~4.2.2" />
     <plugin name="phonegap-plugin-media-stream" source="npm" spec="~1.2.1" />
     <plugin name="pushbots-cordova-plugin" source="npm" spec="~1.6.15-rc8" />
-	<gap:plugin name="pushbots-cordova-plugin" spec="1.6.14" source="npm" />
+	
     <access origin="*" />
     <access origin="http://*" />
     <access origin="https://*" />
