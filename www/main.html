@@ -218,6 +218,7 @@
 	
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/essential.js"></script>
+    <script type="text/javascript" src="plugins/pushbots-cordova-plugin/www/pushbots.js"></script>
 	<!-- <script src="GAPlugin.js"></script> -->
 	<script>
 		
@@ -230,9 +231,17 @@
 		}
 		
 		function onDeviceReady() { 
-			alert("1");
-			PushbotsPlugin.initialize("5d8273d4b794125d077fe563");
-			alert("2");
+			
+		
+			window.plugins.PushbotsPlugin.initialize("5d8273d4b794125d077fe563", {"android":{"sender_id":"238344038673"}});
+			// Only with First time registration
+			window.plugins.PushbotsPlugin.on("registered", function(token){
+				console.log("Registration Id:" + token);
+			});
+			//Get user registrationId/token and userId on PushBots, with evey launch of the app even launching with notification
+			window.plugins.PushbotsPlugin.on("user:ids", function(data){
+				console.log("user:ids" + JSON.stringify(data));
+			});
 			
 			//Load Left Menu content
 			menuLeft();
