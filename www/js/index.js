@@ -42,7 +42,7 @@ var app = {
 		});
 
 		//initialize the plugin
-		pushNotification.onDeviceReady({pw_appid:"2DEB0-FBD3B"});
+		pushNotification.onDeviceReady({appid:"2DEB0-FBD3B"});
 
 		//register for pushes
 		pushNotification.registerDevice(
@@ -58,7 +58,7 @@ var app = {
 
 		//reset badges on app start
 		pushNotification.setApplicationIconBadgeNumber(0);
-		alert("ddd");
+		
         this.receivedEvent('deviceready');
 		
     },
