@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "533095191225",
+    "firebase_url": "https://hellooevent-e7f61.firebaseio.com",
+    "project_id": "hellooevent-e7f61",
+    "storage_bucket": "hellooevent-e7f61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533095191225:android:8acdb9318c43d5a5790168",
+        "android_client_info": {
+          "package_name": "app.mobile.hellooevent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533095191225-7v8asl1etkou40j6d12bq4mafb1bf77n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcq_O4CFWwMffTk26zK9kUuB7j2KUpO9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533095191225-7v8asl1etkou40j6d12bq4mafb1bf77n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

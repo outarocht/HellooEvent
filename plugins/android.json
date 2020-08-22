@@ -1,0 +1,50 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "android-camera-permission": {
+      "PACKAGE_NAME": "app.mobile.hellooevent"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "app.mobile.hellooevent"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "app.mobile.hellooevent"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "app.mobile.hellooevent"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "app.mobile.hellooevent"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "app.mobile.hellooevent"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "app.mobile.hellooevent"
+    },
+    "phonegap-plugin-media-stream": {
+      "PACKAGE_NAME": "app.mobile.hellooevent"
+    },
+    "pushwoosh-cordova-plugin": {
+      "LOG_LEVEL": "DEBUG",
+      "IOS_FOREGROUND_ALERT_TYPE": "NONE",
+      "ANDROID_FOREGROUND_PUSH": "false",
+      "PACKAGE_NAME": "app.mobile.hellooevent"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "app.mobile.hellooevent"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "app.mobile.hellooevent"
+    }
+  }
+}

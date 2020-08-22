@@ -39,9 +39,15 @@
       "cordova-plugin-file": {},
       "phonegap-plugin-media-stream": {},
       "cordova-plugin-compat": {},
-      "es6-promise-plugin": {}
+      "es6-promise-plugin": {},
+      "pushwoosh-cordova-plugin": {}
     },
-    "platforms": []
+    "platforms": [
+      "android"
+    ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "cordova-android": "^9.0.0",
+    "pushwoosh-cordova-plugin": "^7.18.11"
+  }
 }
