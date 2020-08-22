@@ -26,8 +26,8 @@ var app = {
 		//
 		// Bind any cordova events here. Common events are:
 		// 'pause', 'resume', etc.
-		onDeviceReady: function() {
-			var pushwoosh = cordova.require("pushwoosh-cordova-plugin.PushNotification");
+	onDeviceReady: function() {
+		var pushwoosh = cordova.require("pushwoosh-cordova-plugin.PushNotification");
 
 	// Should be called before pushwoosh.onDeviceReady
 	document.addEventListener('push-notification', function(event) {
@@ -39,7 +39,7 @@ var app = {
 	pushwoosh.onDeviceReady({
 		appid: "2DEB0-FBD3B",
 		projectid: "533095191225",
-		serviceName: "XXXX"
+		serviceName: "pushmsg"
 	});
 
 	pushwoosh.registerDevice(
