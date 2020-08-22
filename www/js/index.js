@@ -28,9 +28,10 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         alert("1");
-		this.receivedEvent('deviceready');
+		window.plugins.PushbotsPlugin.initialize("5f41877a2634c85c791516f9", {"android":{"sender_id":"533095191225"}});
 		 alert("2");
-		 window.plugins.PushbotsPlugin.initialize("5f41877a2634c85c791516f9", {"android":{"sender_id":"533095191225"}});
+		this.receivedEvent('deviceready');
+		
 		 alert("3");
 	},
 
