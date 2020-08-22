@@ -54,4 +54,5 @@
     "cordova-android": "^9.0.0",
     "wonderpush-cordova-sdk": "^2.2.0"
   }
+  
 }
