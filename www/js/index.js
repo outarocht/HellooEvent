@@ -39,7 +39,7 @@ var app = {
 	pushwoosh.onDeviceReady({
 		appid: "2DEB0-FBD3B",
 		projectid: "533095191225",
-		serviceName: "pushmsg"
+		serviceName: "MPNS_SERVICE_NAME"
 	});
 
 	pushwoosh.registerDevice(
