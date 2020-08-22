@@ -42,7 +42,7 @@ var app = {
 		});
 
 		//initialize the plugin
-		pushNotification.onDeviceReady({pw_appid:"xxxxxxx"});
+		pushNotification.onDeviceReady({pw_appid:"2DEB0-FBD3B"});
 
 		//register for pushes
 		pushNotification.registerDevice(
