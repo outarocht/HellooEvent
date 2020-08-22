@@ -96,13 +96,5 @@
     },
     "is_top_level": false,
     "variables": {}
-  },
-  "pushbots-cordova-plugin": {
-    "source": {
-      "type": "registry",
-      "id": "pushbots-cordova-plugin@1.6.15-rc8"
-    },
-    "is_top_level": true,
-    "variables": {}
   }
 }
