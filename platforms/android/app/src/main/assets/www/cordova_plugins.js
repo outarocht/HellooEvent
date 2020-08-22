@@ -312,13 +312,11 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "wonderpush-cordova-sdk.WonderPush",
-      "file": "plugins/wonderpush-cordova-sdk/www/WonderPush.js",
-      "pluginId": "wonderpush-cordova-sdk",
+      "id": "pushbots-cordova-plugin.PushbotsPlugin",
+      "file": "plugins/pushbots-cordova-plugin/www/pushbots.js",
+      "pluginId": "pushbots-cordova-plugin",
       "clobbers": [
-        "cordova.plugins.WonderPush",
-        "plugins.WonderPush",
-        "WonderPush"
+        "PushbotsPlugin"
       ]
     }
   ];
@@ -333,6 +331,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-whitelist": "1.3.4",
     "es6-promise-plugin": "4.2.2",
     "phonegap-plugin-media-stream": "1.2.1",
-    "wonderpush-cordova-sdk": "2.2.0"
+    "pushbots-cordova-plugin": "1.6.15-rc8"
   };
 });

@@ -19,12 +19,7 @@
     <plugin name="cordova-plugin-compat" source="npm" spec="~1.2.0" />
     <plugin name="es6-promise-plugin" source="npm" spec="~4.2.2" />
     <plugin name="phonegap-plugin-media-stream" source="npm" spec="~1.2.1" />
-    <plugin name="wonderpush-cordova-sdk" source="npm" spec="~2.2.0"> 
-		<param name="CLIENT_ID" value="5bf165a802262242949e7afbb5d3a48a9cdec706" />
-        <param name="CLIENT_SECRET" value="4a3feadcab5e42e615957bebc6a012b62887020bec159c3c9e5a130b23a914af" />
-	</plugin>
-		
-	  
+    <plugin name="pushbots-cordova-plugin" source="npm" spec="~1.6.15-rc8" />
     <access origin="*" />
     <access origin="http://*" />
     <access origin="https://*" />
@@ -44,7 +39,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <platform name="android">
-		<resource-file src="google-services.json" target="app/google-services.json" />
+        <resource-file src="google-services.json" target="app/google-services.json" />
         <allow-intent href="market:*" />
         <icon density="ldpi" src="www/res/icon/android/72.png" />
         <icon density="mdpi" src="www/res/icon/android/96.png" />

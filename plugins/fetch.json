@@ -97,16 +97,12 @@
     "is_top_level": false,
     "variables": {}
   },
-  "wonderpush-cordova-sdk": {
+  "pushbots-cordova-plugin": {
     "source": {
       "type": "registry",
-      "id": "wonderpush-cordova-sdk@2.2.0"
+      "id": "pushbots-cordova-plugin"
     },
     "is_top_level": true,
-    "variables": {
-      "CLIENT_ID": "5bf165a802262242949e7afbb5d3a48a9cdec706",
-      "CLIENT_SECRET": "4a3feadcab5e42e615957bebc6a012b62887020bec159c3c9e5a130b23a914af",
-      "SENDER_ID": "533095191225"
-    }
+    "variables": {}
   }
 }

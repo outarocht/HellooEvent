@@ -1,0 +1,90 @@
+{
+  "_from": "pushbots-cordova-plugin",
+  "_id": "pushbots-cordova-plugin@1.6.15-rc8",
+  "_inBundle": false,
+  "_integrity": "sha512-q6SOhPgQjVflWA4XPX0N2aSSjx9YGbyVfrOsENLOEXMwQfuVYOPi7IPeId3tvVimKCx7Q4bNNJM2DECAml9kIA==",
+  "_location": "/pushbots-cordova-plugin",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "pushbots-cordova-plugin",
+    "name": "pushbots-cordova-plugin",
+    "escapedName": "pushbots-cordova-plugin",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pushbots-cordova-plugin/-/pushbots-cordova-plugin-1.6.15-rc8.tgz",
+  "_shasum": "86da87d57bc31b394d2bcd56f123cb41e65155ba",
+  "_spec": "pushbots-cordova-plugin",
+  "_where": "C:\\Users\\Zak\\Documents\\HellooEvent",
+  "author": {
+    "name": "Pushbots"
+  },
+  "bugs": {
+    "url": "https://github.com/pushbots/phonegap/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "pushbots-cordova-plugin",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "PushBots plugin for phonegap/Cordova.",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=7.0.0"
+    },
+    {
+      "name": "cordova-android",
+      "version": ">=5.2.0"
+    },
+    {
+      "name": "cordova-ios",
+      "version": ">=5.0.1"
+    },
+    {
+      "name": "apple-ios",
+      "version": ">=7.0.0"
+    },
+    {
+      "name": "apple-xcode",
+      "version": ">=8.0.0"
+    }
+  ],
+  "homepage": "https://github.com/pushbots/phonegap#readme",
+  "keywords": [
+    "push",
+    "notifications",
+    "pushnotifications",
+    "free push notifications",
+    "GCM",
+    "FCM",
+    "C2DM",
+    "Android push notifications",
+    "helium",
+    "APNS",
+    "Push Bots",
+    "PushBots",
+    "phonegap",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "Apache 2.0",
+  "name": "pushbots-cordova-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pushbots/phonegap.git"
+  },
+  "version": "1.6.15-rc8"
+}

@@ -32,13 +32,7 @@
     "phonegap-plugin-media-stream": {
       "PACKAGE_NAME": "app.mobile.hellooevent"
     },
-    "wonderpush-cordova-sdk": {
-      "CLIENT_ID": "5bf165a802262242949e7afbb5d3a48a9cdec706",
-      "CLIENT_SECRET": "4a3feadcab5e42e615957bebc6a012b62887020bec159c3c9e5a130b23a914af",
-      "SENDER_ID": "533095191225",
-      "LOGGING": "false",
-      "AUTO_INIT": "true",
-      "REQUIRES_USER_CONSENT": "false",
+    "pushbots-cordova-plugin": {
       "PACKAGE_NAME": "app.mobile.hellooevent"
     }
   },

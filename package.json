@@ -25,7 +25,8 @@
     "cordova-plugin-statusbar": "^2.4.3",
     "cordova-plugin-whitelist": "^1.3.4",
     "es6-promise-plugin": "^4.2.2",
-    "phonegap-plugin-media-stream": "^1.2.1"
+    "phonegap-plugin-media-stream": "^1.2.1",
+    "pushbots-cordova-plugin": "1.6.15-rc8"
   },
   "cordova": {
     "plugins": {
@@ -40,19 +41,13 @@
       "phonegap-plugin-media-stream": {},
       "cordova-plugin-compat": {},
       "es6-promise-plugin": {},
-      "wonderpush-cordova-sdk": {
-        "CLIENT_ID": "5bf165a802262242949e7afbb5d3a48a9cdec706",
-        "CLIENT_SECRET": "4a3feadcab5e42e615957bebc6a012b62887020bec159c3c9e5a130b23a914af",
-        "SENDER_ID": "533095191225"
-      }
+      "pushbots-cordova-plugin": {}
     },
     "platforms": [
       "android"
     ]
   },
   "devDependencies": {
-    "cordova-android": "^9.0.0",
-    "wonderpush-cordova-sdk": "^2.2.0"
+    "cordova-android": "^9.0.0"
   }
-  
 }

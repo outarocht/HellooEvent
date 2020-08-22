@@ -51,6 +51,16 @@
             {
               "xml": "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\" />",
               "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+              "count": 1
+            }
+          ],
+          "/manifest/application": [
+            {
+              "xml": "<receiver android:name=\"com.pushbots.plugin.PushHandler\" />",
+              "count": 1
             }
           ]
         }
@@ -93,9 +103,11 @@
             {
               "xml": "<feature name=\"MediaStreams\"><param name=\"android-package\" value=\"com.adobe.phonegap.media.MediaStreamsPlugin\" /></feature>",
               "count": 1
-            },
+            }
+          ],
+          "/widget": [
             {
-              "xml": "<feature name=\"WonderPushPlugin\"><param name=\"android-package\" value=\"com.wonderpush.sdk.cordova.WonderPushPlugin\" /></feature>",
+              "xml": "<feature name=\"PushbotsPlugin\"><param name=\"android-package\" value=\"com.pushbots.plugin.PushbotsPlugin\" /></feature>",
               "count": 1
             }
           ]
@@ -135,13 +147,7 @@
     "phonegap-plugin-media-stream": {
       "PACKAGE_NAME": "app.mobile.hellooevent"
     },
-    "wonderpush-cordova-sdk": {
-      "CLIENT_ID": "5bf165a802262242949e7afbb5d3a48a9cdec706",
-      "CLIENT_SECRET": "4a3feadcab5e42e615957bebc6a012b62887020bec159c3c9e5a130b23a914af",
-      "SENDER_ID": "533095191225",
-      "LOGGING": "false",
-      "AUTO_INIT": "true",
-      "REQUIRES_USER_CONSENT": "false",
+    "pushbots-cordova-plugin": {
       "PACKAGE_NAME": "app.mobile.hellooevent"
     }
   },
@@ -459,13 +465,11 @@
       ]
     },
     {
-      "id": "wonderpush-cordova-sdk.WonderPush",
-      "file": "plugins/wonderpush-cordova-sdk/www/WonderPush.js",
-      "pluginId": "wonderpush-cordova-sdk",
+      "id": "pushbots-cordova-plugin.PushbotsPlugin",
+      "file": "plugins/pushbots-cordova-plugin/www/pushbots.js",
+      "pluginId": "pushbots-cordova-plugin",
       "clobbers": [
-        "cordova.plugins.WonderPush",
-        "plugins.WonderPush",
-        "WonderPush"
+        "PushbotsPlugin"
       ]
     }
   ],
@@ -480,6 +484,6 @@
     "cordova-plugin-whitelist": "1.3.4",
     "es6-promise-plugin": "4.2.2",
     "phonegap-plugin-media-stream": "1.2.1",
-    "wonderpush-cordova-sdk": "2.2.0"
+    "pushbots-cordova-plugin": "1.6.15-rc8"
   }
 }
