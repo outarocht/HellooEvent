@@ -60,6 +60,7 @@ var app = {
 		// Bind any cordova events here. Common events are:
 		// 'pause', 'resume', etc.
 	onDeviceReady: function() {
+		initPush
 		/*
 alert('Start onDeviceReady index.js');
 		var pushwoosh = cordova.require("pushwoosh-cordova-plugin.PushNotification");

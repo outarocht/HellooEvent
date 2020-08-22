@@ -16,59 +16,151 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
 
-		// deviceready Event Handler
-		//
-		// Bind any cordova events here. Common events are:
-		// 'pause', 'resume', etc.
-	onDeviceReady: function() {
-		var pushwoosh = cordova.require("pushwoosh-cordova-plugin.PushNotification");
+function testFunction(params) {
+    alert("Bridge is working! " + params.param1 + " " + params.param2);
+}
 
-	// Should be called before pushwoosh.onDeviceReady
-	document.addEventListener('push-notification', function(event) {
-		var notification = event.notification;
-		var message = event.notification.message;
-		alert(message);
-		alert(notification);
-		// handle push open here
-	});
-	//MPNS_SERVICE_NAME
-	// Initialize Pushwoosh. This will trigger all pending push notifications on start.
-	pushwoosh.onDeviceReady({
-		appid: "2DEB0-FBD3B",
-		projectid: "533095191225",
-		serviceName: ""
-	});
+ function onPushwooshInitialized(pushNotification) {
 
-	pushwoosh.registerDevice(
-		function(status) {
-			var pushToken = status.pushToken;
-			// handle successful registration here
-	  },
-	  function(status) {
-		// handle registration error here
-	  }
+	//if you need push token at a later time you can always get it from Pushwoosh plugin
+	pushNotification.getPushToken(
+		function(token) {
+			console.info('push token: ' + token);
+		}
 	);
-        this.receivedEvent('deviceready');
-		
+
+	//and HWID if you want to communicate with Pushwoosh API
+	pushNotification.getPushwooshHWID(
+		function(token) {
+			console.info('Pushwoosh HWID: ' + token);
+		}
+	);
+
+	//settings tags
+	pushNotification.setTags({
+			tagName: "tagValue",
+			intTagName: 10
+		},
+		function(status) {
+			console.info('setTags success: ' + JSON.stringify(status));
+		},
+		function(status) {
+			console.warn('setTags failed');
+		}
+	);
+
+	pushNotification.getTags(
+		function(status) {
+			console.info('getTags success: ' + JSON.stringify(status));
+		},
+		function(status) {
+			console.warn('getTags failed');
+		}
+	);
+
+	pushNotification.addJavaScriptInterface('testBridge');
+
+	//start geo tracking.
+	var pushwooshGeozones = cordova.require("pushwoosh-geozones-cordova-plugin.PushwooshGeozones");
+	pushwooshGeozones.startLocationTracking();
+}
+
+function initPushwoosh() {
+	var pushNotification = cordova.require("pushwoosh-cordova-plugin.PushNotification");
+alert('on initPushWoosh !!');
+	//set push notifications handler
+	document.addEventListener('push-notification',
+		function(event) {
+			var message = event.notification.message;
+			var userData = event.notification.userdata;
+
+			document.getElementById("pushMessage").innerHTML = message + "<p>";
+			document.getElementById("pushData").innerHTML = JSON.stringify(event.notification) + "<p>";
+
+			//dump custom data to the console if it exists
+			if (typeof(userData) != "undefined") {
+				console.warn('user data: ' + JSON.stringify(userData));
+			}
+		}
+    );
+
+    document.addEventListener('push-receive',
+        function (event) {
+            var message = event.notification.message;
+            var userData = event.notification.userdata;
+
+            document.getElementById("pushMessage").innerHTML = message + "<p>";
+            document.getElementById("pushData").innerHTML = JSON.stringify(event.notification) + "<p>";
+
+            //dump custom data to the console if it exists
+            if (typeof (userData) != "undefined") {
+                console.warn('user data: ' + JSON.stringify(userData));
+            }
+        }
+    );
+
+	//initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
+    pushNotification.onDeviceReady({
+        appid: "2DEB0-FBD3B",
+		projectid: "533095191225",
+        serviceName: ""
+    });
+
+	//register for push notifications
+	pushNotification.registerDevice(
+		function(status) {
+			document.getElementById("pushToken").innerHTML = status.pushToken + "<p>";
+			onPushwooshInitialized(pushNotification);
+		},
+		function(status) {
+			alert("failed to register: " + status);
+			console.warn(JSON.stringify(['failed to register ', status]));
+		}
+	);
+}
+
+var app = {
+	// Application Constructor
+	initialize: function() {
+		this.bindEvents();
+	},
+	// Bind Event Listeners
+	//
+	// Bind any events that are required on startup. Common events are:
+	// 'load', 'deviceready', 'offline', and 'online'.
+	bindEvents: function() {		
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+
+        //Only for Windows
+        //document.addEventListener('activated', this.onAppActivated, false);
     },
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+    onAppActivated: function (args) {
+        var pushNotification = cordova.require("pushwoosh-cordova-plugin.PushNotification");
+        pushNotification.onAppActivated(args.arguments);
+    },
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+	// deviceready Event Handler
+	//
+	// The scope of 'this' is the event. In order to call the 'receivedEvent'
+	// function, we must explicity call 'app.receivedEvent(...);'
+	onDeviceReady: function() {
+alert('App init index.js !');
+		initPushwoosh();
+		app.receivedEvent('deviceready');
+	},
+	// Update DOM on a Received Event
+	receivedEvent: function(id) {
+		var parentElement = document.getElementById(id);
+		var listeningElement = parentElement.querySelector('.listening');
+		var receivedElement = parentElement.querySelector('.received');
 
-        console.log('Received Event: ' + id);
-    }
+		listeningElement.setAttribute('style', 'display:none;');
+		receivedElement.setAttribute('style', 'display:block;');
+
+		console.log('Received Event: ' + id);
+	}
 };
 
 app.initialize();
