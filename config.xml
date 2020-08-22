@@ -21,7 +21,6 @@
     <plugin name="phonegap-plugin-media-stream" source="npm" spec="~1.2.1" />
     <plugin name="wonderpush-cordova-sdk" source="npm" spec="~2.2.0" />
     <access origin="*" />
-	<access origin="*.pushwoosh.com" />
     <access origin="http://*" />
     <access origin="https://*" />
     <allow-navigation href="*" />
