@@ -32,14 +32,17 @@ var app = {
 	// Should be called before pushwoosh.onDeviceReady
 	document.addEventListener('push-notification', function(event) {
 		var notification = event.notification;
+		var message = event.notification.message;
+		alert(message);
+		alert(notification);
 		// handle push open here
 	});
-
+	//MPNS_SERVICE_NAME
 	// Initialize Pushwoosh. This will trigger all pending push notifications on start.
 	pushwoosh.onDeviceReady({
 		appid: "2DEB0-FBD3B",
 		projectid: "533095191225",
-		serviceName: "MPNS_SERVICE_NAME"
+		serviceName: ""
 	});
 
 	pushwoosh.registerDevice(
