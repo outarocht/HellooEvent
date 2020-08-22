@@ -17,7 +17,7 @@
        under the License.
  */
 
-package app.mobile.hellooEvent;
+package app.mobile.hellooevent;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
