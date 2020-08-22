@@ -19,9 +19,8 @@
     <plugin name="cordova-plugin-compat" source="npm" spec="~1.2.0" />
     <plugin name="es6-promise-plugin" source="npm" spec="~4.2.2" />
     <plugin name="phonegap-plugin-media-stream" source="npm" spec="~1.2.1" />
-    <plugin name="pushwoosh-cordova-plugin" source="npm" spec="~7.18.11" />
     <access origin="*" />
-	<access origin="*.pushwoosh.com" />
+    <access origin="*.pushwoosh.com" />
     <access origin="http://*" />
     <access origin="https://*" />
     <allow-navigation href="*" />
@@ -40,7 +39,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <platform name="android">
-		<resource-file src="google-services.json" target="app/google-services.json" />
+        <resource-file src="google-services.json" target="app/google-services.json" />
         <allow-intent href="market:*" />
         <icon density="ldpi" src="www/res/icon/android/72.png" />
         <icon density="mdpi" src="www/res/icon/android/96.png" />

@@ -12,10 +12,6 @@
         <provider android:authorities="${applicationId}.provider" android:exported="false" android:grantUriPermissions="true" android:name="org.apache.cordova.camera.FileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/camera_provider_paths" />
         </provider>
-        <meta-data android:name="com.pushwoosh.log_level" android:value="DEBUG" />
-        <meta-data android:name="com.pushwoosh.foreground_push" android:value="false" />
-        <meta-data android:name="com.pushwoosh.notification_service_extension" android:value="com.pushwoosh.plugin.pushnotifications.PushwooshNotificationServiceExtension" />
-        <meta-data android:name="com.pushwoosh.internal.plugin_provider" android:value="com.pushwoosh.plugin.internal.PhonegapPluginProvider" />
     </application>
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

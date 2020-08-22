@@ -52,24 +52,6 @@
               "xml": "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\" />",
               "count": 1
             }
-          ],
-          "/manifest/application": [
-            {
-              "xml": "<meta-data android:name=\"com.pushwoosh.log_level\" android:value=\"DEBUG\" />",
-              "count": 1
-            },
-            {
-              "xml": "<meta-data android:name=\"com.pushwoosh.foreground_push\" android:value=\"false\" />",
-              "count": 1
-            },
-            {
-              "xml": "<meta-data android:name=\"com.pushwoosh.notification_service_extension\" android:value=\"com.pushwoosh.plugin.pushnotifications.PushwooshNotificationServiceExtension\" />",
-              "count": 1
-            },
-            {
-              "xml": "<meta-data android:name=\"com.pushwoosh.internal.plugin_provider\" android:value=\"com.pushwoosh.plugin.internal.PhonegapPluginProvider\" />",
-              "count": 1
-            }
           ]
         }
       },
@@ -113,7 +95,7 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"PushNotification\"><param name=\"android-package\" onload=\"true\" value=\"com.pushwoosh.plugin.pushnotifications.PushNotifications\" /></feature>",
+              "xml": "<feature name=\"WonderPushPlugin\"><param name=\"android-package\" value=\"com.wonderpush.sdk.cordova.WonderPushPlugin\" /></feature>",
               "count": 1
             }
           ]
@@ -153,10 +135,13 @@
     "phonegap-plugin-media-stream": {
       "PACKAGE_NAME": "app.mobile.hellooevent"
     },
-    "pushwoosh-cordova-plugin": {
-      "LOG_LEVEL": "DEBUG",
-      "IOS_FOREGROUND_ALERT_TYPE": "NONE",
-      "ANDROID_FOREGROUND_PUSH": "false",
+    "wonderpush-cordova-sdk": {
+      "CLIENT_ID": "5bf165a802262242949e7afbb5d3a48a9cdec706",
+      "CLIENT_SECRET": "4a3feadcab5e42e615957bebc6a012b62887020bec159c3c9e5a130b23a914af",
+      "SENDER_ID": "533095191225",
+      "LOGGING": "false",
+      "AUTO_INIT": "true",
+      "REQUIRES_USER_CONSENT": "false",
       "PACKAGE_NAME": "app.mobile.hellooevent"
     }
   },
@@ -474,11 +459,13 @@
       ]
     },
     {
-      "id": "pushwoosh-cordova-plugin.PushNotification",
-      "file": "plugins/pushwoosh-cordova-plugin/www/PushNotification.js",
-      "pluginId": "pushwoosh-cordova-plugin",
+      "id": "wonderpush-cordova-sdk.WonderPush",
+      "file": "plugins/wonderpush-cordova-sdk/www/WonderPush.js",
+      "pluginId": "wonderpush-cordova-sdk",
       "clobbers": [
-        "plugins.pushNotification"
+        "cordova.plugins.WonderPush",
+        "plugins.WonderPush",
+        "WonderPush"
       ]
     }
   ],
@@ -493,6 +480,6 @@
     "cordova-plugin-whitelist": "1.3.4",
     "es6-promise-plugin": "4.2.2",
     "phonegap-plugin-media-stream": "1.2.1",
-    "pushwoosh-cordova-plugin": "7.18.11"
+    "wonderpush-cordova-sdk": "2.2.0"
   }
 }
