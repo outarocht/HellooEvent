@@ -424,6 +424,129 @@ function update_password(){
 	 
 }
 
+function create_contacts(){
+	var userConnected = sessionStorage.getItem("userConnected");
+	var sendingData = {
+	   action		: "create_contacts",
+	   idIser		: userConnected,
+	   email		: $("#email").val()
+	}
+	var emailVerify 		= true;
+	
+	if(!$("#email").val().match(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i)){
+		$("#email").css("border-bottom", "1px solid red");
+		emailVerify = false;
+	}else{
+		$("#email").css("border-bottom", "1px solid #8cc63f");
+	}
+	
+	if(emailVerify == true){
+		
+		$.ajax({
+			type: 'POST',
+			async:false,
+			url: 'https://hellooevent.com/partials/class.controller.php',		
+			data: sendingData,
+			dataType: 'json',
+			success: function (data) {
+				if(data.return == 10){
+					$('#msg-error').html('<div class="alert alert-danger" role="alert">Vous ne pouvez pas ajouter en tant que contact  </div>');
+					$("#msg-error").show('slow').delay(2000).fadeOut();
+				}else if(data.return == 20){
+					$('#msg-error').html('<div class="alert alert-danger" role="alert">'+sendingData.email+' est déjà un contact  </div>');
+					$("#msg-error").show('slow').delay(2000).fadeOut();
+				}else if(data.return == 90){
+					$('#msg-error').html('<div style="text-align:center;"><div><i class="fas fa-paper-plane" style="font-size: 45px;"></i></div><span>Une invitation a été envoyé à</span><br /><span style="font-weight: bold;color: #000;">'+sendingData.email+'</span></div>');
+					
+					$("#msg-error").show('slow').delay(2000).fadeOut();
+					setTimeout(function(){
+						window.location.href = "./list_contacts.html"; 
+					 }, 2000);
+					 
+				}
+				 
+			}
+		 });
+	}
+}
+
+function listContacts(){
+	var userConnected = sessionStorage.getItem("userConnected");
+	var sendingData = {
+	   idIser	: userConnected,
+	   action	: "listContacts"
+   }
+	$.ajax({
+		type: 'POST',
+		async:false,
+		url: 'https://hellooevent.com/partials/class.controller.php',		
+		data: sendingData,
+		dataType: 'json',
+		success: function (data) {
+			$("#resultContact").html(data.html);
+		}
+	 });
+}
+
+function listContactSend(){
+	var userConnected = sessionStorage.getItem("userConnected");
+	var sendingData = {
+	   idIser	: userConnected,
+	   action	: "listContactSend"
+   }
+	$.ajax({
+		type: 'POST',
+		async:false,
+		url: 'https://hellooevent.com/partials/class.controller.php',		
+		data: sendingData,
+		dataType: 'json',
+		success: function (data) {
+			$("#resultContact").html(data.html);
+		}
+	 });
+}
+
+function send_code(idContacts){
+	var userConnected = sessionStorage.getItem("userConnected");
+	var sendingData = {
+	   idIser	: userConnected,
+	   idContact: idContacts,
+	   action	: "sendCode"
+   }
+	$.ajax({
+		type: 'POST',
+		async:false,
+		url: 'https://hellooevent.com/partials/class.controller.php',		
+		data: sendingData,
+		dataType: 'html',
+		success: function (data) {
+			listContactSend()
+		}
+	 });
+}
+
+
+
+function countContact(){
+	var userConnected = sessionStorage.getItem("userConnected");
+	var sendingData = {
+	   idIser	: userConnected,
+	   action	: "countContact"
+   }
+	$.ajax({
+		type: 'POST',
+		async:false,
+		url: 'https://hellooevent.com/partials/class.controller.php',		
+		data: sendingData,
+		dataType: 'json',
+		success: function (data) {
+			$("#countContact").html(data.html);
+		}
+	 });
+}
+
+
+
 
 function create_user(){
 	
