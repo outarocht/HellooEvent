@@ -185,6 +185,67 @@ function update_full_name(){
      });
 }
 
+function pushHots(){
+	var userConnected = sessionStorage.getItem("userConnected");
+	
+	var sendingData = {
+	   action		: "push_hots"	  
+	}
+	 $.ajax({
+		type: 'POST',
+        async:false,
+		url: 'https://hellooevent.com/partials/class.controller.php',		
+		data: sendingData,
+        dataType: 'json',
+        success: function (data) {
+			 $("#pushHots").html(data.html);
+        }
+     });
+}
+
+
+function send_question(){
+	var sendingData = {
+	   action		: "send_question",
+	   nom			: $("#name").val(),
+	   question		: $("#question").val()
+	}
+	
+	var ValidNom 		= true;
+	var ValidQuestion 	= true;
+	
+	if(sendingData.nom == ''){
+		$('#msg-error').html('<div class="alert alert-danger" role="alert"> Votre nom est obligatoire. Vérifiez et réessayez. </div><br />');
+		$("#msg-error").show('slow').delay(4000).fadeOut();
+		ValidNom = false;
+	}
+	if(sendingData.question == ''){
+		$('#msg-error').html('<div class="alert alert-danger" role="alert"> Votre question est obligatoire. Vérifiez et réessayez. </div><br />');
+		$("#msg-error").show('slow').delay(4000).fadeOut();
+		ValidQuestion = false;
+	}
+	
+	if(ValidNom == true && ValidQuestion == true ){
+		$.ajax({
+			type: 'POST',
+			async:false,
+			url: 'https://hellooevent.com/partials/class.controller.php',		
+			data: sendingData,
+			dataType: 'html',
+			success: function (data) {
+				$("#name").val('');
+				$("#question").val('');
+				$('#msg-error').html('<div class="alert alert-success" role="alert"> Votre question a été bien envoyé . </div><br />');
+				$("#msg-error").show('slow').delay(4000).fadeOut();
+			}
+		 });
+	}
+}
+
+
+
+
+
 function check_metting(){
 	var userConnected = sessionStorage.getItem("userConnected");
 	var sendingData = {

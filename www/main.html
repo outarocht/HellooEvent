@@ -55,7 +55,7 @@
                 <!-- Balance -->
                 <div class="balance">
                     <div class="left">
-                        <span class="title">Gestion Community Management à 15h00</span>
+                        <span class="title" id="pushHots"></span>
                     </div>
                 </div>
                 <!-- * Balance -->
@@ -64,51 +64,7 @@
         </div>
         <!-- Wallet Card -->
 
-        <!-- Deposit Action Sheet -->
-        <div class="modal fade action-sheet" id="depositActionSheet" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Add Balance</h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="action-sheet-content">
-                            <form>
-                                <div class="form-group basic">
-                                    <div class="input-wrapper">
-                                        <label class="label" for="account1">From</label>
-                                        <select class="form-control custom-select" id="account1">
-                                            <option value="0">Savings (*** 5019)</option>
-                                            <option value="1">Investment (*** 6212)</option>
-                                            <option value="2">Mortgage (*** 5021)</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group basic">
-                                    <label class="label">Enter Amount</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="input1">$</span>
-                                        </div>
-                                        <input type="text" class="form-control form-control-lg" value="100">
-                                    </div>
-                                </div>
-
-                                
-
-                                <div class="form-group basic">
-                                    <button type="button" class="btn btn-primary btn-block btn-lg"
-                                        data-dismiss="modal">Deposit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- * Deposit Action Sheet -->
-
+   
         <!-- Stats -->
         <div class="section">			
             <div class="row mt-2">
@@ -238,9 +194,25 @@
 			
 			//Load Left Menu content
 			menuLeft();
+			pushHots();
 			//Check user connexion
 			doesConnectionExist();
 			//Track an open event
+			 var onFailSoHard = function(e) {
+				console.log('Reeeejected!', e);
+			 };
+
+			  // Not showing vendor prefixes.
+			  navigator.getUserMedia({video: true, audio: true}, function(localMediaStream) {
+				var video = document.querySelector('video');
+				video.src = window.URL.createObjectURL(localMediaStream);
+
+				// Note: onloadedmetadata doesn't fire in Chrome when using it with getUserMedia.
+				// See crbug.com/110938.
+				video.onloadedmetadata = function(e) {
+				  // Ready to go. Do some stuff.
+				};
+			  }, onFailSoHard);
 		}
 	</script>
 	
