@@ -27,12 +27,8 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        alert("1");
-		window.plugins.PushbotsPlugin.initialize("5f41877a2634c85c791516f9", {"android":{"sender_id":"533095191225"}});
-		 alert("2");
-		this.receivedEvent('deviceready');
-		
-		 alert("3");
+       window.plugins.PushbotsPlugin.initialize("5f41877a2634c85c791516f9", {"android":{"sender_id":"533095191225"}});
+	   this.receivedEvent('deviceready');
 	},
 
     // Update DOM on a Received Event
