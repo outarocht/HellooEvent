@@ -111,6 +111,7 @@ function login_user(){
         success: function (data) {
 			if(data.returnLogin == "success"){
 				sessionStorage.setItem("userConnected",data.idUser);
+				sessionStorage.setItem("fulleName",data.fulleName);
 				window.location = "dashbord.html"; 
 			}else{
 				$('#msg-error').html('<div class="alert alert-danger" role="alert"> E-mail ou mot de passe non valide !</div>');

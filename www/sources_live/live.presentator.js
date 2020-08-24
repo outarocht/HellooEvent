@@ -19,7 +19,7 @@
 			
 			//Register a provider
 			fm.liveswitch.Log.registerProvider(new fm.liveswitch.ConsoleLogProvider(fm.liveswitch.LogLevel.Debug));
-			var name = $("#nameUser").val();
+			var name =  sessionStorage.getItem("fulleName");;
 			alert(name);
 			//Connection to the Channel
 			var applicationId = "b73a1830-0808-407b-bd22-e72d7b8b18b6";
