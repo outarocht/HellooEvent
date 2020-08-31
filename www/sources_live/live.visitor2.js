@@ -12,13 +12,15 @@
 			//Register a provider
 			fm.liveswitch.Log.registerProvider(new fm.liveswitch.ConsoleLogProvider(fm.liveswitch.LogLevel.Debug));
 
-			var nameUser 	= $("#nameUser").val();
+			var name 		=  sessionStorage.getItem("fulleName");
+			var idMeeting 	=  sessionStorage.getItem("idMeeting");
+			
 			//Connection to the Channel
 			var applicationId = "b73a1830-0808-407b-bd22-e72d7b8b18b6";
-			var userId = $("#nameUser").val();
+			var userId = name;
 			var userAlias = "User-visitor-alias";
 			var deviceId = "02020202-0202-0202-020202020202";
-			var channelId = "11111111-1111-1111-1111-111111111111";
+			var channelId = idMeeting;
 			var channel;
 			let liveswitch = fm.liveswitch;
 			let layoutManager = new liveswitch.DomLayoutManager($('#video')[0]);

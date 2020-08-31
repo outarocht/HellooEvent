@@ -1467,8 +1467,8 @@ module.exports = {
         // Let native code know we are all done on the JS side.
         // Native code will then un-hide the WebView.
         channel.onCordovaReady.subscribe(function () {
-            exec(onMessageFromNative, null, APP_PLUGIN_NAME, 'messageChannel', []);
-            exec(null, null, APP_PLUGIN_NAME, 'show', []);
+           // exec(onMessageFromNative, null, APP_PLUGIN_NAME, 'messageChannel', []);
+            //exec(null, null, APP_PLUGIN_NAME, 'show', []);
         });
     }
 };
@@ -1578,7 +1578,7 @@ module.exports = {
     * @param override        T=override, F=cancel override
     */
     overrideBackbutton: function (override) {
-        exec(null, null, APP_PLUGIN_NAME, 'overrideBackbutton', [override]);
+        // exec(null, null, APP_PLUGIN_NAME, 'overrideBackbutton', [override]);
     },
 
     /**
@@ -1593,7 +1593,7 @@ module.exports = {
     * @param override        T=override, F=cancel override
     */
     overrideButton: function (button, override) {
-        exec(null, null, APP_PLUGIN_NAME, 'overrideButton', [button, override]);
+        // exec(null, null, APP_PLUGIN_NAME, 'overrideButton', [button, override]);
     },
 
     /**

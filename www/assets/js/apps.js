@@ -19,8 +19,7 @@ function menuLeft(){
 			alert('error menuLeft: ' + JSON.stringify(XMLHttpRequest));
 		}
 		
-     });
-	 
+     }); 
 }
 
 function dashbordHtml(){
@@ -40,6 +39,24 @@ function dashbordHtml(){
 			$("#dashbord-include").html(data.menuHtml);
         }
      });
+}
+
+
+function articleContent(type){
+	var sendingData = {
+	   action: "articleContent",
+	   type: type
+	}
+	$.ajax({
+		type: 'POST',
+        async:false,
+		url: 'https://hellooevent.com/partials/class.controller.php',		
+		data: sendingData,
+        dataType: 'json',
+        success: function (data) {
+			$("#articleContent").html(data.html);
+        }
+    });
 }
 
 $(document).ready(function(){
@@ -112,6 +129,7 @@ function login_user(){
 			if(data.returnLogin == "success"){
 				sessionStorage.setItem("userConnected",data.idUser);
 				sessionStorage.setItem("fulleName",data.fulleName);
+				sessionStorage.setItem("idRole",data.idRole);
 				window.location = "dashbord.html"; 
 			}else{
 				$('#msg-error').html('<div class="alert alert-danger" role="alert"> E-mail ou mot de passe non valide !</div>');
@@ -274,7 +292,8 @@ function send_invitation(){
 
 function joindre_meeting(){
 	var userConnected = sessionStorage.getItem("userConnected");
-	var idMetting = $("#idMetting").val();
+	var idRole 		  = sessionStorage.getItem("idRole");
+	var idMetting 	  = $("#idMetting").val();
 	
 	var sendingData = {
 	   action		: "joindre_meeting",
@@ -288,9 +307,13 @@ function joindre_meeting(){
 		data: sendingData,
         dataType: 'json',
         success: function (data) {
-			
+			sessionStorage.setItem("idMetting",idMetting);
 			if(data.return == 1){
-				window.location.href = "./live_visitor.html"; 
+				if(idRole == 3){
+					window.location.href = "./live_panel_list.html"; 
+				}else{
+					window.location.href = "./live_visitor.html"; 
+				}
 			}
 			if(data.return == 0){
 				$('#msg-error').html('<div class="alert alert-danger" role="alert"> ID de réunion non valide. Vérifiez et réessayez. </div><br />');
@@ -382,8 +405,26 @@ function getMetting(){
         success: function (data) {
 			$("#idMeeting").val(data.idMeeting);
 	    }
-     });
+     });	
+}
+
+function getMettingPanel(){
+	var userConnected 	= sessionStorage.getItem("userConnected");
+	var sendingData = {
+	   action			: "getMettingPanel",
+	   userConnected	: userConnected
+	}
 	
+	$.ajax({
+		type: 'POST',
+        async:false,
+		url: 'https://hellooevent.com/partials/class.controller.php',		
+		data: sendingData,
+        dataType: 'json',
+        success: function (data) {
+			$("#idMeeting").val(data.idMeeting);
+	    }
+     });	
 }
 
 function disconnect_live(){

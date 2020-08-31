@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/jquery-confirm.css"/>
 </head>
 
-<body>
+<body class="bg-light">
 
     <!-- loader -->
     <div id="loader">
@@ -39,7 +39,7 @@
         <div class="right">
            <a href="javascript:;" class="item" data-toggle="modal" data-target="#sidebarPanel">
 				<i class="fas fa-bars icon-menu"></i>
-		   </a>
+			</a>
            <!-- <a href="app-settings.html" class="headerButton">
                 <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="imaged w32">
                 <span class="badge badge-danger">6</span>
@@ -51,30 +51,18 @@
 
     <!-- App Capsule -->
     <div id="appCapsule">
-			
-        <div class="section">
-            <div class="splash-page mt-5 mb-5">
-                <div class="iconbox mb-3">
-                    <ion-icon name="finger-print-outline"></ion-icon>
-                </div>
-                <h2 class="mb-2">Page Programme</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquam.
-                </p>
-            </div>
-        </div>
-
-        
-        
+		<div class="section">
+			<div class="mt-5 mb-5">
+				<div id="articleContent"></div>
+			</div>
+		</div>
     </div>
     <!-- * App Capsule -->
-
 	<div class="appBottomMenu">
 		 <div class="footer-title">
                Eracet ©  2020. All Rights Reserved.
            </div>
 	</div>
-	
     <!-- App Sidebar -->
 	<div  id="menu-include"></div> 
 	
@@ -97,10 +85,9 @@
 	<script>
 		menuLeft();
 		doesConnectionExist();
+		articleContent('3');
 	</script>
 
 </body>
 
-
-<!-- Mirrored from egemem.com/theme/finapp/view/app-index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Feb 2020 06:38:01 GMT -->
 </html>
