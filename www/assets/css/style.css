@@ -10851,6 +10851,15 @@ a.text-dark {
 	height: 314px !important;
 }
 
+.icon-visitor{
+	margin-right: 5px;
+}
+
+#chatContent {
+	padding : 7px;
+	padding-left: 20px;
+}
+
 #articleContent {
 	
 }

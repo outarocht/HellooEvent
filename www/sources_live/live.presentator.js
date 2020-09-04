@@ -225,9 +225,9 @@ console.log(localMedia._internal._videoConstraints);
 				client.unregister().then(function(result){
 					stop();
 					disconnect_live();
-					console.log("unregistration succeeded");
+					window.location.href = "./dashbord.html";
 				}).fail(function(ex){
-					console.log("unregistration failed");
+					window.location.href = "./dashbord.html";
 				});
 			});
 								

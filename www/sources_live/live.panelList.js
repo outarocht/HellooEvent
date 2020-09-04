@@ -259,9 +259,10 @@ layoutManagerLocal.setLocalView(localMedia.getView());
 			$("#userDisconnectBtn").click(function(){
 				client.unregister().then(function(result){
 					stop();
-					console.log("unregistration succeeded");
+					window.location.href = "./dashbord.html";
+					
 				}).fail(function(ex){
-					console.log("unregistration failed");
+					
 				});
 			});
 								

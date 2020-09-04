@@ -189,6 +189,7 @@ console.log("connected to channel: " + channel);
 			
 		
 			//Disconnect a user
+			/*
 			$("#userDisconnectBtn").click(function(){
 				client.unregister().then(function(result){
 					console.log("unregistration succeeded");
@@ -196,14 +197,14 @@ console.log("connected to channel: " + channel);
 					console.log("unregistration failed");
 				});
 			});
-			
+			*/
 			//Disconnect a user
 			$("#userDisconnectBtn").click(function(){
 				client.unregister().then(function(result){
-					//stop();
-					console.log("unregistration succeeded");
+					disconnect_live();
+					window.location.href = "./dashbord.html";
 				}).fail(function(ex){
-					console.log("unregistration failed");
+					
 				});
 			});
 								
