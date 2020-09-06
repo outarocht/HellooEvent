@@ -197,20 +197,24 @@ layoutManagerLocal.setLocalView(localMedia.getView());
 				var ii = 1;
 				
 				localMediaVideosObject.forEach(function(item){
-					if(ii == 1){							
-						$('#listCamera').append('<div><input type="radio" value="'+item._id+'" checked /> Caméra '+ii+' : '+item._name+'</div>');
+					if(ii == 1){
+						$('#cameraFlipListSelect').append('<option value="AAA'+item._id+'">Caméra : AAA '+item._name+'</option>');
+						// $('#listCamera').append('<div><input type="radio" name="cameraList" value="'+item._id+'"  /> Caméra '+ii+' </div>');
 					}else{
-						$('#listCamera').append('<div><input type="radio" value="'+item._id+'" /> Caméra '+ii+' : '+item._name+'</div>');
+						$('#cameraFlipListSelect').append('<option value="AAA'+item._id+'">Caméra : AAA '+item._name+'</option>');
+						// $('#listCamera').append('<div><input type="radio" name="cameraList" value="'+item._id+'" /> Caméra '+ii+' </div>');
 					}
 					ii++;
-					//$('#cameraFlipListSelect').append('<option value="AAA'+item._id+'">Caméra : AAA '+item._name+'</option>');
+					
 				});
 				//Add the listner on select list change
 				//change
-				$("#cameraFlipListSelect").click(function(){
+				$("#cameraFlipListSelect").change(function(){
+				// $("input[@name='cameraList']").change(function(){
+					
 					var oldValue = this.defaultValue;
 					var newValue = this.value;
-					
+					alert(newValue);
 					//if(oldValue!=newValue){
 						//We have to loop on the Videos "cameras" List and change the localMedia Object !
 						videosCamerasObjectCopy.forEach(function(item){

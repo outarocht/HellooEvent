@@ -334,7 +334,7 @@ function add_metting(){
 	
 	var userConnected 	= sessionStorage.getItem("userConnected");
 	var idMeeting 		= $("#idMeetingHidden").val();
-	
+	sessionStorage.setItem("idMeeting",idMeeting);
 	var sendingData = {
 	   action			: "check_metting",
 	   userConnected	: userConnected,
