@@ -628,6 +628,23 @@ function send_code(idContacts){
 	 });
 }
 
+function countContactSend(){
+	var userConnected = sessionStorage.getItem("userConnected");
+	var sendingData = {
+	   idIser	: userConnected,
+	   action	: "countContactSend"
+   }
+	$.ajax({
+		type: 'POST',
+		async:false,
+		url: 'https://hellooevent.com/partials/class.controller.php',		
+		data: sendingData,
+		dataType: 'json',
+		success: function (data) {
+			$("#countContact").html(data.html);
+		}
+	 });
+}
 
 
 function countContact(){
@@ -659,6 +676,7 @@ function create_user(){
 	   lastname		: $("#lastname").val(),
 	   firstname	: $("#firstname").val(),
 	   email		: $("#email").val(),
+	   redirectPage	: $("#redirectPage").val(),
 	   password		: $("#password").val()
 	}
 	
@@ -718,11 +736,22 @@ function create_user(){
 					$('#msg-error').html('<div class="alert alert-danger" role="alert">Cette adresse email existe déjà ! </div>');
 					$("#msg-error").show('slow').delay(2000).fadeOut();
 				}else{
-					$('#msg-error').html('<div class="alert alert-success" role="alert">Compte HelloEvent a été créé avec succès</div>');
-					$("#msg-error").show('slow').delay(2000).fadeOut();
-					setTimeout(function(){
-						window.location.href = "./dashbord.html"; 
-					 }, 2000);
+					if(sendingData.redirectPage == 'dashbord'){
+						$('#msg-error').html('<div class="alert alert-success" role="alert">Compte HelloEvent a été créé avec succès</div>');
+						$("#msg-error").show('slow').delay(2000).fadeOut();
+						setTimeout(function(){
+							window.location.href = "./dashbord.html"; 
+						 }, 2000);
+					}else{
+						$('#msg-error').html('<div class="alert alert-success" role="alert">Compte HelloEvent a été créé avec succès</div>');
+						$("#msg-error").show('slow').delay(2000).fadeOut();
+						setTimeout(function(){
+							window.location.href = "./login.html"; 
+						 }, 2000);
+
+					}
+					 
+					
 				}
 				 
 			}

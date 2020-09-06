@@ -28,7 +28,7 @@
     <!-- App Header -->
     <div class="appHeader bg-primary text-light">
         <div class="left">
-            <a href="index.html" class="headerButton">
+            <a href="dashbord.html" class="headerButton">
                 <i class="fas fa-chevron-left" style="font-size: 30px;"></i>
             </a>
         </div>
@@ -52,20 +52,46 @@
     <div id="appCapsule">
 
         <div class="section mt-2 text-center">
-            <h1>Connexion</h1>
-            <h4>Remplissez le formulaire pour vous connecter</h4>
+            <h1>Création de compte HelloEvent </h1>
+            <h4>Veuillez remplir les champs</h4>
         </div>
 		<div id="msg-error"></div>
         <div class="section mt-2 mb-5 p-3">
+				 <div class="form-group basic" style="display:none">
+                    <div class="input-wrapper">
+                        <label class="label" for="email1">Type de compte</label>
+						<select class="form-control" id="idRole">
+                        <option value="2">Invité</option>
+						</select>
+                    </div>
+                </div>
+				
+				<input type="hidden" id="redirectPage" value="home" />
                 <div class="form-group basic">
                     <div class="input-wrapper">
-                        <label class="label" for="email1">E-mail</label>
-                        <input type="email" class="form-control" id="email" placeholder="Votre e-mail">
+                        <label class="label" for="email1">Nom</label>
+                        <input type="email" class="form-control" id="lastname" placeholder="Votre nom">
                         <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                     </div>
                 </div>
 
                 <div class="form-group basic">
+                    <div class="input-wrapper">
+                        <label class="label" for="password1">Prenom</label>
+                        <input type="text" class="form-control" id="firstname" placeholder="Votre prénom">
+                        <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
+                    </div>
+                </div>
+				
+				<div class="form-group basic">
+                    <div class="input-wrapper">
+                        <label class="label" for="password1">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="Votre email">
+                        <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
+                    </div>
+                </div>
+				
+				<div class="form-group basic">
                     <div class="input-wrapper">
                         <label class="label" for="password1">Mot de passe</label>
                         <input type="password" class="form-control" id="password" placeholder="Votre mot de passe">
@@ -73,28 +99,21 @@
                     </div>
                 </div>
 				<br />
-                <div class="">
-                    <button type="button" class="btn btn-primary btn-block btn-lg" onclick="login_user()">S'identifier</button>
+                <div >
+                    <button type="button" class="btn btn-primary btn-block btn-lg" onclick="create_user()">Créer un compte</button>
                 </div>
-				<br />
-				<div style="text-align:center">
-                    <a href="create_account.html">S'inscrire sur HellooEvent</a>
-                </div>
-				
-				               
+
         </div>
 
     </div>
     <!-- * App Capsule -->
-
 	<div class="appBottomMenu">
 		 <div class="footer-title">
                Eracet ©  2020. All Rights Reserved.
            </div>
 	</div>
-
     <!-- App Sidebar -->
-	<div  id="menu-include"></div> 
+	<div  id="menu-include"></div>  
 	
 	
     <!-- <div w3-include-html="includes/menu.html"></div>  -->
@@ -114,6 +133,7 @@
 
 	<script>
 		menuLeft();
+		//getRoleId();
 	</script>
 
 </body>
