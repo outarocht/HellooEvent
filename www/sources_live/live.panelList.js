@@ -198,10 +198,10 @@ layoutManagerLocal.setLocalView(localMedia.getView());
 				
 				localMediaVideosObject.forEach(function(item){
 					if(ii == 1){
-						$('#cameraFlipListSelect').append('<option value="AAA'+item._id+'">Caméra : AAA '+item._name+'</option>');
+						$('#cameraFlipListSelect').append('<option value="'+item._id+'" selected>Caméra : '+ii+'</option>');
 						// $('#listCamera').append('<div><input type="radio" name="cameraList" value="'+item._id+'"  /> Caméra '+ii+' </div>');
 					}else{
-						$('#cameraFlipListSelect').append('<option value="AAA'+item._id+'">Caméra : AAA '+item._name+'</option>');
+						$('#cameraFlipListSelect').append('<option value="'+item._id+'">Caméra : '+ii+'</option>');
 						// $('#listCamera').append('<div><input type="radio" name="cameraList" value="'+item._id+'" /> Caméra '+ii+' </div>');
 					}
 					ii++;
