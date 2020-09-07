@@ -270,6 +270,18 @@ console.log(localMedia._internal._videoConstraints);
 				});
 			}
 			
+			//Function that load the connected users
+			var addTriggerOnClientsStats = function(){
+				//Update the list 
+				var connectedUsersCount = channel.getRemoteClientInfos().length;
+				$("#connectedUsersContainerStatsContainer .stats").text(connectedUsersCount);
+				var statsPlurial = "";
+				if(connectedUsersCount>1){
+					statsPlurial = "s";
+				}
+				$("#connectedUsersContainerStatsContainer .text").text("utilisateur"+statsPlurial+" connecté"+statsPlurial);
+			}
+			
 			//Function that send Message
 			var sendMessage = function (content) {
 				//If content is defined that mean we forced the sent value
